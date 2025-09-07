@@ -2,35 +2,32 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
 define sv = Character("Secretary Vinick")
+
+# Establishes the movie
 
 
 # The game starts here.
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
+ 
     scene bg office:
         zoom .5
         xpos -400
         ypos -500
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
+    # This shows Secretary of State Vinicks character
     show vinick idle:
         xalign 0.5
         yalign 0.35
 
-    # These display lines of dialogue.
-
+# probably go about adding something before this, the starts a touch too sudden
+    
     sv "Hello! You're the one from the University of Mew-tah? Correct?"
+    
 menu:
+    # keeps Vinicks text on screen
+    sv "Hello! You're the one from the University of Mew-tah? Correct?"
+     
     "Yes, I am":
         jump game_continue
     
@@ -39,10 +36,16 @@ menu:
         return
 
 label game_continue:
+    
+    show vinick lookup:
+        yalign 0.15
+        zoom .8
+    sv "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
+    his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
+    on his desk, by the way.,"
 
-
-    sv "Once you add a story, pictures, and music, you can release it to the world!"
-
+# This jumps you to the bathroom.
+    
     # This ends the game.
 
     return
