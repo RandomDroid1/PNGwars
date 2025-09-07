@@ -14,18 +14,32 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg office
+    scene bg office:
+        zoom .5
+        xpos -400
+        ypos -500
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
     show vinick idle:
-        zoom .1
+        xalign 0.5
+        yalign 0.35
 
     # These display lines of dialogue.
 
-    sv "You've created a new Ren'Py game."
+    sv "Hello! You're the one from the University of Mew-tah? Correct?"
+menu:
+    "Yes, I am":
+        jump game_continue
+    
+    "No, I am not":
+        sv "well, I think you took a real wrong turn, and should probably get out."
+        return
+
+label game_continue:
+
 
     sv "Once you add a story, pictures, and music, you can release it to the world!"
 
