@@ -3,18 +3,18 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 define sv = Character("Secretary Vinick")
-
+define nar = Character("", window_background=Frame("narbox.png"))
 # Establishes the movie
 
+ 
 
 # The game starts here.
 
 label start:
- 
-    scene bg office:
-        zoom .5
-        xpos -400
-        ypos -500
+    # This launches the Start background and plays it
+    image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
+    show launch
+    "Hello."
     # This shows Secretary of State Vinicks character
     show vinick idle:
         xalign 0.5
@@ -23,7 +23,7 @@ label start:
 # probably go about adding something before this, the starts a touch too sudden
     
     sv "Hello! You're the one from the University of Mew-tah? Correct?"
-    
+
 menu:
     # keeps Vinicks text on screen
     sv "Hello! You're the one from the University of Mew-tah? Correct?"
@@ -36,13 +36,13 @@ menu:
         return
 
 label game_continue:
-    
+    $ renpy.movie_cutscene("movies/PNGWars Backgrounds.webm")
     show vinick lookup:
         yalign 0.15
         zoom .8
     sv "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
     his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
-    on his desk, by the way.,"
+    on his desk, by the way."
 
 # This jumps you to the bathroom.
     
