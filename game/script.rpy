@@ -2,8 +2,10 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
+
 define sv = Character("Secretary Vinick")
-define nar = Character("", window_background=Frame("narbox.png"))
+define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
+define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
  
@@ -34,28 +36,32 @@ menu state:
     "I am from Mew York":
         $ state = "Mew_York"
         jump start_continue 
-         
+
+# Collects name info
 label start_continue:
-    nar "[state]. Interesting. {p} Lets continue, what is your name?"
+    nar "[state]. Interesting. {p}Lets continue, what is your name?"
     python:
         name = renpy.input("What's your name?")
-        name = name.strip() or "Meowly"
+        name = name.strip() or "goob"
 
 
 # True starting zone
 label true_start: 
+# This shows changes the background
 # This shows Secretary of State Vinicks character    
     show vinick idle:
         xalign 0.5
         yalign 0.35
-   
-    sv "Hello! You're the one from the University of [state]? Correct?"
-
+    if name == "vinick":
+        sv "Hello! Your name, your name... is vinick? What a interesting coincidence. You're the one from the University of [state]?"
+    elif name == "goob":
+        sv "Hello! Your name"
+    else:
+        sv "Hello! Your name, your name... [name]. You're the one from the University of [state]? right? "
 
 menu:
     # keeps Vinicks text on screen
-    sv "Hello! You're the one from the University of [state]? Correct?"
-     
+
     "Yes, I am":
         jump game_continue
     
