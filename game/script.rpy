@@ -5,25 +5,39 @@
 define sv = Character("Secretary Vinick")
 define nar = Character("", window_background=Frame("narbox.png"))
 # Establishes the movie
-
+image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
  
 
 # The game starts here.
 
 label start:
     # This launches the Start background and plays it
-    image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
+    
     show launch
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
-    # This shows Secretary of State Vinicks character
+    nar "Let's start with something basic, where are you from?"
+menu:
+    "I am from Mew-tah.":
+        $ state = "Mew-tah"
+        jump start_continue
+    "I am from Meow-izona.":
+        $ state = "Meow-izona"
+        jump start_continue        
+    "I am from Meow-izona.":
+        $ state = "Meow-izona"
+        jump start_continue         
+label start_continue:
+    nar "test [state]"
+# This shows Secretary of State Vinicks character
+
+
+# True starting zone
+label true_start: 
     show vinick idle:
         xalign 0.5
         yalign 0.35
-
-# probably go about adding something before this, the starts a touch too sudden
-
-label true_start:    
+   
     sv "Hello! You're the one from the University of Mew-tah? Correct?"
 
 
