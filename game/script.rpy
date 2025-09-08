@@ -14,15 +14,18 @@ label start:
     # This launches the Start background and plays it
     image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
     show launch
-    "Hello."
+    nar "Hello."
+    nar "It's good to see you here. {p}You might imagine that I have some questions for you."
     # This shows Secretary of State Vinicks character
     show vinick idle:
         xalign 0.5
         yalign 0.35
 
 # probably go about adding something before this, the starts a touch too sudden
-    
+
+label true_start:    
     sv "Hello! You're the one from the University of Mew-tah? Correct?"
+
 
 menu:
     # keeps Vinicks text on screen
