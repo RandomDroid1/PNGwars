@@ -17,33 +17,44 @@ label start:
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
     nar "Let's start with something basic, where are you from?"
-menu:
+# This determines what state the character is from. It will unlock blue options later
+menu state:
     "I am from Mew-tah.":
         $ state = "Mew-tah"
         jump start_continue
     "I am from Meow-izona.":
         $ state = "Meow-izona"
         jump start_continue        
-    "I am from Meow-izona.":
-        $ state = "Meow-izona"
-        jump start_continue         
+    "I am from Alaskat":
+        $ state = "Alas-kat"
+        jump start_continue
+    "I am from Meowyland":
+        $ state = "Meowyland"
+        jump start_continue     
+    "I am from Mew York":
+        $ state = "Mew_York"
+        jump start_continue 
+         
 label start_continue:
-    nar "test [state]"
-# This shows Secretary of State Vinicks character
+    nar "[state]. Interesting. {p} Lets continue, what is your name?"
+    python:
+        name = renpy.input("What's your name?")
+        name = name.strip() or "Meowly"
 
 
 # True starting zone
 label true_start: 
+# This shows Secretary of State Vinicks character    
     show vinick idle:
         xalign 0.5
         yalign 0.35
    
-    sv "Hello! You're the one from the University of Mew-tah? Correct?"
+    sv "Hello! You're the one from the University of [state]? Correct?"
 
 
 menu:
     # keeps Vinicks text on screen
-    sv "Hello! You're the one from the University of Mew-tah? Correct?"
+    sv "Hello! You're the one from the University of [state]? Correct?"
      
     "Yes, I am":
         jump game_continue
