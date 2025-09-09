@@ -39,19 +39,35 @@ menu state:
 
 # Collects name info
 label start_continue:
-    nar "[state]. Interesting. {p}Lets continue, what is your name?"
+    nar "[state]. Interesting. {p}Lets continue, what is your name? We only need your first."
     python:
         name = renpy.input("What's your name?")
-        name = name.strip() or "goob"
+        name = name.strip() or "Josh Meowman"
+        print(name)
 
+    if name.lower in ("whattah", "aidan"): #Note, figure out how to case-insentitzes
+        nar "I will turn on hard mode if you don't change that. Go fix that."
+        jump start_continue
+    else:
+        nar "Falsed"
+ 
 
+    with Dissolve(.5)
+    pause .5
 # True starting zone
 label true_start: 
 # This shows changes the background
-# This shows Secretary of State Vinicks character    
+    scene bg office:
+        zoom .5
+        xpos -400
+        ypos -500
+    
+    # This shows Secretary of State Vinicks character    
     show vinick idle:
         xalign 0.5
         yalign 0.35
+    with Dissolve(.5)
+
     if name == "vinick":
         sv "Hello! Your name, your name... is vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":
