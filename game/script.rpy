@@ -34,7 +34,7 @@ menu state:
         $ state = "Meowyland"
         jump start_continue     
     "I am from Mew York":
-        $ state = "Mew_York"
+        $ state = "Mew York"
         jump start_continue 
 
 # Collects name info
@@ -43,11 +43,11 @@ label start_continue:
     python:
         name = renpy.input("What's your name?")
         name = name.strip() or "Josh Meowman"
-        print(name)
 
-    if name.lower in ("whattah", "aidan"): #Note, figure out how to case-insentitzes
-        nar "I will turn on hard mode if you don't change that. Go fix that."
-        jump start_continue
+    if name.lower() in ("whattah", "aidan", "djroxalot", "devin", "killeville", "amber", "bbq", "burger", "bbq burger", "jbowler12", "jacob", "potatojay", "ryder", "daniel"): # looks case insensitively
+        $ bbq = True
+        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess."
+ 
     else:
         nar "Falsed"
  
@@ -68,8 +68,8 @@ label true_start:
         yalign 0.35
     with Dissolve(.5)
 
-    if name == "vinick":
-        sv "Hello! Your name, your name... is vinick? What a interesting coincidence. You're the one from the University of [state]?"
+    if name.lower() == "vinick":
+        sv "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":
         sv "Hello! Your name"
     else:
