@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define sv = Character("Secretary Vinick")
+define sv = Character("Secretary Vinick", window_background=Image("textboxameowican.png")) 
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 # Establishes the movie
@@ -13,8 +13,11 @@ image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), ancho
 # The game starts here.
 
 label start:
+    #this skips as a game dev shortcut, will remove lates
+    $ state = "Mew-tah"
+    $ name = "wat"
+    jump true_start
     # This launches the Start background and plays it
-    
     show launch
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
@@ -66,7 +69,6 @@ label true_start:
     show vinick idle:
         xalign 0.5
         yalign 0.35
-    with Dissolve(.5)
 
     if name.lower() == "vinick":
         sv "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
@@ -86,7 +88,6 @@ menu:
         return
 
 label game_continue:
-    $ renpy.movie_cutscene("movies/PNGWars Backgrounds.webm")
     show vinick lookup:
         yalign 0.15
         zoom .8
