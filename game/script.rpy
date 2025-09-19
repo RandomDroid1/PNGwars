@@ -52,7 +52,7 @@ label start_continue:
 
     if name.lower() in ("whattah", "aidan", "djroxalot", "devin", "killeville", "amber", "bbq", "burger", "bbq burger", "jbowler12", "jacob", "potatojay", "ryder", "daniel"): # looks case insensitively
         $ bbq = True
-        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess."
+        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary."
  
     else:
         nar "Well, good luck [name]"
@@ -77,7 +77,7 @@ label true_start:
     if name.lower() == "vinick":
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":
-        vini "Hello! Your name"
+        vini "Hello! Your name... go away"
     else:
         vini "Hello! Your name, your name... [name]. You're the one from the University of [state]? right? "
 
@@ -108,9 +108,12 @@ label game_continue:
 
     show cali walk # PLACEHOLDER // Cali meowford walking sprite
 
-    cali ""
-
-    
+    cali "Good evening Vinick, I assume this is the one from [state]? Well, welcome to D.C., I assume this is 
+        your first visit here? You have a very important reason for being here." # add secret dialogue if you've beaten the game before
+    cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. {p}
+        To be short, we need you to help negotiations between the factions, or at least give us a clue
+        on who we should publicly side with." # This dialogue sucks so bad god help me
+    cali "j"
     # This ends the game.
 
     return
