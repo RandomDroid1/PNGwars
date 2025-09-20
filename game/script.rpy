@@ -16,10 +16,7 @@ image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), ancho
 # The game starts here.
 
 label start:
-    #this skips as a game dev shortcut, will remove lates
-    $ state = "Mew-tah"
-    $ name = "wat"
-    jump true_start
+
     # This launches the Start background and plays it
     show launch
     nar "Hello."
@@ -120,7 +117,9 @@ label game_continue:
     menu:
         "Yes Sir."
 
-        "Why don't"
+        "That sounds like something I can do."
+
+        "Why don't you send a trained negotiator?"
     # This ends the game.
 
     return
