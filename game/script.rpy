@@ -77,17 +77,18 @@ label true_start:
     if name.lower() == "vinick":
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":
-        vini "Hello! Your name... go away"
+        sv "Hello! Your name... why?"
     else:
-        vini "Hello! Your name, your name... [name]. You're the one from the University of [state]? right? "
+        sv "Hello! Your name, your name... [name]. You're that one from the University of [state]? You weren't told exactly why your here, right?"
 
 menu:
-    "Yes, I am":
-        jump game_continue
+    # keeps Vinicks text on screen
+
+    "No, I wasn't actually told why the President called me here.":
+        player "No, I wasn't actually told why the President called me here."
     
-    "No, I am not":
-        vini "well, I think you took a real wrong turn, and should probably get out."
-        return
+    "Actually, I was told why the President called me here":
+        sv "Oh. That... you shouldn't have been told that already, it was pretty damn classified. {p} When you get back, i'm going to have a number for you to call, and your going to tell them who told you"
 
 label game_continue:
     show vinick lookup:
