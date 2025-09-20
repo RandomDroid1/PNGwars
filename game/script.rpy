@@ -21,7 +21,7 @@ label start:
     show launch
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
-    nar "Let's start with something basic, where are you from?"
+    nar "Let's start with something basic, you are Ameowican. Where are you from?"
 # This determines what state the character is from. It will unlock blue options later
 menu state:
     "I am from Mew-tah.":
@@ -39,6 +39,9 @@ menu state:
     "I am from Mew York":
         $ state = "Mew York"
         jump start_continue 
+    "I am not from any of these places.":
+        nar "Yes you are."
+        jump state
 
 # Collects name info
 label start_continue:
@@ -52,12 +55,15 @@ label start_continue:
         nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary."
  
     else:
-        nar "Well, good luck [name]"
+        nar "... {p=1} You need to wake up, [name]!"
  
 
-    with Dissolve(.5)
+    with Dissolve(1)
     pause .5
     show bg white # PLACEHOLDER // This background will give a fade to white and then a fade to the new scene
+    pause .5
+    with Dissolve(1)
+    jump true_start
 # True starting zone
 label true_start: 
 # This shows changes the background
@@ -119,12 +125,13 @@ label game_continue:
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "To be short, we need you to help negotiations between the factions, 
     or at least give us a clue on who we should publicly side with." # This dialogue sucks so bad god help me
-    menu:
-        "Yes Sir."
-
-        "That sounds like something I can do."
-
-        "Why don't you send a trained negotiator?"
+    menu presidentquestion:
+        "Yes Sir.":
+            jump true_start
+        "That sounds like something I can do.":
+            jump true_start
+        "Why don't you send a trained negotiator?":
+            jump true_start
     # This ends the game.
 
     return
