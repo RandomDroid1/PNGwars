@@ -113,7 +113,7 @@ label game_continue:
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. {p}
         To be short, we need you to help negotiations between the factions, or at least give us a clue
         on who we should publicly side with." # This dialogue sucks so bad god help me
-    cali "j"
+    cali "What the sigma"
     # This ends the game.
 
     return
