@@ -107,14 +107,20 @@ label game_continue:
 
     show bg office2 # PLACEHOLDER // Second view of oval office for Cali Meowfords entrance
 
-    show cali walk # PLACEHOLDER // Cali meowford walking sprite
+    show cali lookback 
+    cali "That sure was a meeting, you sure those ones were from Congress, not just some random guy
+    you got off the street?"
 
-    cali "Good evening Vinick, I assume this is the one from [state]? Well, welcome to D.C., I assume this is 
+    show cali sit
+    cali "Ah {p} Good evening Vinick, I assume this is the one from [state]? Well, welcome to D.C., I assume this is 
         your first visit here? You have a very important reason for being here." # add secret dialogue if you've beaten the game before
-    cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. {p}
-        To be short, we need you to help negotiations between the factions, or at least give us a clue
-        on who we should publicly side with." # This dialogue sucks so bad god help me
-    cali "What the sigma"
+    cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
+    cali "To be short, we need you to help negotiations between the factions, 
+    or at least give us a clue on who we should publicly side with." # This dialogue sucks so bad god help me
+    menu:
+        "Yes Sir."
+
+        "Why don't"
     # This ends the game.
 
     return
