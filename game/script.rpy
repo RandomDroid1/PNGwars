@@ -2,11 +2,13 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
-define sv = Character("Secretary Vinick", window_background=Image("textboxameowican.png")) 
-define cal = Character("Cal Meowford", window_background=Image("textboxameowican"))
+    # Meta Characters
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
+    # Ameowican Characters
+define vini = Character("Secretary Meowstrong", window_background=Image("textboxameowican.png")) 
+define cali = Character("Cali Meowford", window_background=Image("textboxameowican"))
+
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
  
@@ -50,14 +52,15 @@ label start_continue:
 
     if name.lower() in ("whattah", "aidan", "djroxalot", "devin", "killeville", "amber", "bbq", "burger", "bbq burger", "jbowler12", "jacob", "potatojay", "ryder", "daniel"): # looks case insensitively
         $ bbq = True
-        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess."
+        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary."
  
     else:
-        nar "Falsed"
+        nar "Well, good luck [name]"
  
 
     with Dissolve(.5)
     pause .5
+    show bg white # PLACEHOLDER // This background will give a fade to white and then a fade to the new scene
 # True starting zone
 label true_start: 
 # This shows changes the background
@@ -72,7 +75,7 @@ label true_start:
         yalign 0.35
 
     if name.lower() == "vinick":
-        sv "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
+        vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":
         sv "Hello! Your name... why?"
     else:
@@ -91,13 +94,27 @@ label game_continue:
     show vinick lookup:
         yalign 0.15
         zoom .8
-    sv "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
+    vini "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
     his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
     on his desk, by the way."
 
-    sv ""
-# This jumps you to the bathroom.
-    
+    pause .5
+
+    # Introduces the President
+    play audio dooropen # PLACEHOLDER // Door open noise
+
+    hide vinick # PLACEHOLDER // Text doesn't look right, check if functional later
+
+    show bg office2 # PLACEHOLDER // Second view of oval office for Cali Meowfords entrance
+
+    show cali walk # PLACEHOLDER // Cali meowford walking sprite
+
+    cali "Good evening Vinick, I assume this is the one from [state]? Well, welcome to D.C., I assume this is 
+        your first visit here? You have a very important reason for being here." # add secret dialogue if you've beaten the game before
+    cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. {p}
+        To be short, we need you to help negotiations between the factions, or at least give us a clue
+        on who we should publicly side with." # This dialogue sucks so bad god help me
+    cali "j"
     # This ends the game.
 
     return
