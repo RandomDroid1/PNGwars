@@ -7,7 +7,7 @@ define player = Character("[name]", window_background=Frame("narbox.png"), nameb
 define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
     # Ameowican Characters
 define vini = Character("Secretary Meowstrong", window_background=Image("textboxameowican.png")) 
-define cali = Character("Cali Meowford", window_background=Image("textboxameowican"))
+define cali = Character("Cali Meowford", window_background=Image("textboxameowican.png"))
 
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
@@ -98,19 +98,24 @@ label game_continue:
     pause .5
 
     # Introduces the President
-    play audio dooropen # PLACEHOLDER // Door open noise
+        # PLACEHOLDER // Door open noise
 
     hide vinick # PLACEHOLDER // Text doesn't look right, check if functional later
 
-    show bg office2 # PLACEHOLDER // Second view of oval office for Cali Meowfords entrance
+    show bg ovalofficeoverlook:
+        yalign .5
+        zoom 1
 
-    show cali lookback 
-    cali "That sure was a meeting, you sure those ones were from Congress, not just some random guy
-    you got off the street?"
+    show cali lookback :
+        yalign .5
+        xalign .4
 
-    show cali sit
-    cali "Ah {p} Good evening Vinick, I assume this is the one from [state]? Well, welcome to D.C., I assume this is 
-        your first visit here? You have a very important reason for being here." # add secret dialogue if you've beaten the game before
+    cali "What a meeting. {p=3}you sure those ones were from Congress?"
+    sv "Yes sir, they were. We have the-"
+    show cali sit:
+        zoom .8
+    cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
+        You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "To be short, we need you to help negotiations between the factions, 
     or at least give us a clue on who we should publicly side with." # This dialogue sucks so bad god help me
