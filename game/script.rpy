@@ -123,8 +123,10 @@ label game_continue:
     cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
         You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
-    cali "To be short, we need you to help negotiations between the factions, 
-    or at least give us a clue on who we should publicly side with." # This dialogue sucks so bad god help me
+    cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=2} other countries." # This dialogue sucks so bad god help me
+    cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
+    show cali sidelay
+    cali "Now, we need you to try and get them to agree on some stuff, or at least tell us who to give {i}limited{/i} military assistance to."
     menu presidentquestion:
         "Yes Sir.":
             jump true_start
@@ -132,6 +134,8 @@ label game_continue:
             jump true_start
         "Why don't you send a trained negotiator?":
             jump true_start
+        "I can't do that.":
+            
     # This ends the game.
 
     return
