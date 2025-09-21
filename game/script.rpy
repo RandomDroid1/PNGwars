@@ -120,8 +120,12 @@ label game_continue:
     sv "Yes sir, they were. We have the-"
     show cali sit:
         zoom .8
-    cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
-        You have a very important reason for being here." # add secret dialogue if you've beaten the game before
+        if (GameCompletions > 1)
+            cali "Ah {w=1} I assume this is the one from [state]? Welcome to... Have you been here before? You don't have that... bit of wonder even the most powerful have when seeing this room."
+            cali "... Nah, i'm probably just going crazy in my old age. You have an important reason to have been called here today!"
+        elif 
+            cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
+            You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=2} other countries." # This dialogue sucks so bad god help me
     cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
@@ -137,8 +141,11 @@ label game_continue:
         "Why don't you send a trained negotiator?":
             cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
             cali "Anyway, they've requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
+            cali "We can get you on a plane in one hour, do you accept?"
         "I can't do that.":
-            jump true_start
+            cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
+            cali "However, it might be worth reconsidering... theres a lot on the line."
+            cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
         
     # This ends the game.
 
