@@ -123,11 +123,11 @@ label game_continue:
     vini "Yes sir, they were. We have the-"
     show cali sit:
         zoom .8
-        if (GameCompletions > 1)
-            cali "Ah {w=1} I assume this is the one from [state]? Welcome to... Have you been here before? You don't have that... bit of wonder even the most powerful have when seeing this room."
-            cali "... Nah, i'm probably just going crazy in my old age. You have an important reason to have been called here today!"
-        elif 
-            cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
+    if (GameCompletions == 1):
+        cali "Ah {w=1} I assume this is the one from [state]? Welcome to... Have you been here before? You don't have that... bit of wonder even the most powerful have when seeing this room."
+        cali "... Nah, i'm probably just going crazy in my old age. You have an important reason to have been called here today!"
+    else:
+        cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
             You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=2} other countries." # This dialogue sucks so bad god help me
@@ -148,7 +148,7 @@ label game_continue:
         "I can't do that.":
             cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
             cali "However, it might be worth reconsidering... theres a lot on the line."
-            cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
+            cali "We know you are capable of this. {p=3}It'd would be a damn shame if you backed out now." 
         
     # This ends the game.
 
