@@ -52,10 +52,10 @@ label start_continue:
 
     if name.lower() in ("whattah", "aidan", "djroxalot", "devin", "killeville", "amber", "bbq", "burger", "bbq burger", "jbowler12", "jacob", "potatojay", "ryder", "daniel"): # looks case insensitively
         $ bbq = True
-        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary."
+        nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary. (If you weren't from bbq you just caught a crazy stray)"
  
     else:
-        nar "... {p=1} You need to wake up, [name]!"
+        nar "... {p=2}[name], good luck, we may never see eachother again after this."
  
 
     with Dissolve(1)
@@ -80,19 +80,22 @@ label true_start:
     if name.lower() == "vinick":
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":
-        sv "Hello! Your name... why?"
+        vini "Hello! Your name... why?"
     else:
-        sv "Hello! Your name, your name... [name]. You're that one from the University of [state]? You weren't told exactly why your here, right?"
+        vini "Hello! You are [name], I believe? You're that one from the University of [state]. It's nice to see you here, and if I may assume you are unsure as to why you were called here?"
 
-menu:
+menu wawa:
     # keeps Vinicks text on screen
 
-    "No, I wasn't actually told why the President called me here.":
+    "'No, I wasn't actually told why the President called me here.'":
         player "No, I wasn't actually told why the President called me here."
     
-    "Actually, I was told why the President called me here":
-        sv "Oh. That... you shouldn't have been told that already, it was pretty damn classified. {p} When you get back, i'm going to have a number for you to call, and your going to tell them who told you"
+    "'Actually, I was told why the President called me here'":
+        vini "Oh. That... you shouldn't have been told that already, it was pretty damn classified. {p} When you get back, i'm going to have a number for you to call, and your going to tell them who told you"
 
+    "Use the BBQ blast" if name == "whattah":
+        color "#7dcfffff"
+        vini "wawawawaw"
 label game_continue:
     show vinick lookup:
         yalign 0.15
@@ -117,7 +120,7 @@ label game_continue:
         xalign .4
 
     cali "What a meeting. {p=3}you sure those ones were from Congress?"
-    sv "Yes sir, they were. We have the-"
+    vini "Yes sir, they were. We have the-"
     show cali sit:
         zoom .8
     cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
