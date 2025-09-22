@@ -123,18 +123,33 @@ label game_continue:
     vini "Yes sir, they were. We have the-"
     show cali sit:
         zoom .8
-    cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
-        You have a very important reason for being here." # add secret dialogue if you've beaten the game before
+        if (GameCompletions > 1)
+            cali "Ah {w=1} I assume this is the one from [state]? Welcome to... Have you been here before? You don't have that... bit of wonder even the most powerful have when seeing this room."
+            cali "... Nah, i'm probably just going crazy in my old age. You have an important reason to have been called here today!"
+        elif 
+            cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
+            You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
-    cali "To be short, we need you to help negotiations between the factions, 
-    or at least give us a clue on who we should publicly side with." # This dialogue sucks so bad god help me
+    cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=2} other countries." # This dialogue sucks so bad god help me
+    cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
+    show cali sidelay
+    cali "Now, we need you to try and get them to agree on some stuff, {w=2} or at least tell us who to give {i}limited{/i} military assistance to."
+    cali "Are you ready for this?"
     menu presidentquestion:
         "Yes Sir.":
-            jump true_start
+            cali "Thats what I like to hear, we need more people like you in our government."
+            cali "We don't have much for you in the way of a briefing, but we can get you on a plane in 1 hour."
         "That sounds like something I can do.":
             jump true_start
         "Why don't you send a trained negotiator?":
-            jump true_start
+            cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
+            cali "Anyway, they've requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
+            cali "We can get you on a plane in one hour, do you accept?"
+        "I can't do that.":
+            cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
+            cali "However, it might be worth reconsidering... theres a lot on the line."
+            cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
+        
     # This ends the game.
 
     return
