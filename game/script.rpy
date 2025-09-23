@@ -202,9 +202,11 @@ label jet_plane_crash:
     player "You feel yourself begin to wake up"
     menu dog_scary:
         "Stay limp, pretend you are unconcious"
-            mosk "" 
+            mosk "Dogs, march!" 
         "Wake up and fight! These dogs don't seem too friendly."
-
+            player "you twist around to smack the dog holding you with your claws"
+            garn "you {cps=5}BASTARD{/cps}"
+            # PLACEHOLDER // find some way to make it clear Garner makes a go at you
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all"
 
     # This ends the game.
