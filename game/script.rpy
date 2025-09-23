@@ -103,7 +103,7 @@ label game_continue:
 
     pause .5
 
-    # Introduces the President
+    # Introduces the President + gameplay exposition
         # PLACEHOLDER // Door open noise
 
     hide vinick # PLACEHOLDER // Text doesn't look right, check if functional later
@@ -133,20 +133,53 @@ label game_continue:
     cali "Now, we need you to try and get them to agree on some stuff, {w=2} or at least tell us who to give {i}limited{/i} military assistance to."
     cali "Are you ready for this?"
     menu presidentquestion:
-        "Yes Sir.":
+        "Yes Sir.": # choice 1,  very positive
             cali "Thats what I like to hear, we need more people like you in our government."
             cali "We don't have much for you in the way of a briefing, but we can get you on a plane in 1 hour."
-        "That sounds like something I can do.":
+            cali "You are now the sole US ambassador to PNGlandia, congrats."
+            jump jet_plane
+        "That sounds like something I can do.": # choice 1 variation basically
             jump true_start
-        "Why don't you send a trained negotiator?":
+        "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
             cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
             cali "Anyway, they've requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
             cali "We can get you on a plane in one hour, do you accept?"
-        "I can't do that.":
+            menu presidentsubquestion:
+                "Yes. I accept."
+
+                "No, get someone qualified."
+
+        "I can't do that.": # negative choice
             cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
             cali "However, it might be worth reconsidering... theres a lot on the line."
             cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
-        
+            cali "Are you sure you want to turn your back on what you can do?"
+            menu: # sub-choice of negative choice, chance to go back
+                "I am sure, I don't want to do this.":
+                    show cali sit
+                    cali "Okay. Vinick, sorry to put this job on you, escort this young fellow out for me."
+                    cali "... You could've done so much more. Sorry it ended like this"
+                    cali "hey, maybe we'll call you back for something some other day."
+                    return
+                "I'm... No, I can do this. Get me on the plane.":
+                    show cali sit
+                    cali "Theres hope for you yet. I'm glad to hear. We can have you on a plane in a few hours."
+                    cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
+                    jump jet_plane
+label jet_plane:
+    show bg planeseat1
+    player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
+    player "It broke sooner than the president seemed to expect, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
+    player "You wonder if that bodes well for the quality of the intelligence the US has on this. {p=3} Or maybe you don't, i'm not in charge of you."
+    player "You have about two hours until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
+    menu plane_choice: # The illusion of choice we all 
+        "Sleep"
+        player "You "
+        "Watch a movie"
+        "Watch the news"
+        ""
+        #have them crash???
+label jet_plane_crash:
     # This ends the game.
 
     return
