@@ -96,6 +96,7 @@ menu wawa:
     "Use the BBQ blast" if name == "whattah":
         color "#7dcfffff"
         vini "wawawawaw"
+
 label game_continue:
     show vinick lookup:
         yalign 0.15
@@ -169,7 +170,7 @@ label game_continue:
                     cali "Theres hope for you yet. I'm glad to hear. We can have you on a plane in a few hours."
                     cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
                     jump jet_plane
-label jet_plane:
+label jet_plane: # The plane sequence that leads into
     show bg planeseat1
     player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
@@ -192,9 +193,12 @@ label jet_plane:
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
             jump jet_plane_crash
-        #have them crash???
+
 label jet_plane_crash:
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE
+    mosk "Hey! Can we get some..."
+    # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake
+    mosk "They're Ameowican, lets get them back to camp. Find out what they want"
     
     # This ends the game.
 

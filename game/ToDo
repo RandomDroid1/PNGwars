@@ -1,6 +1,0 @@
-Add a blank textbox as the default [ ]
-Seperate the Names and ranks of the Ameowican Characters [ ]
-    #this skips as a game dev shortcut, will remove lates
-    $ state = "Mew-tah"
-    $ name = "wat"
-    jump true_start
