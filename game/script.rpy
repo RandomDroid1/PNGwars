@@ -195,11 +195,18 @@ label jet_plane: # The plane sequence that leads into
             jump jet_plane_crash
 
 label jet_plane_crash:
-    # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE
+    # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
     mosk "Hey! Can we get some..."
-    # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake
-    mosk "They're Ameowican, lets get them back to camp. Find out what they want"
-    
+    # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
+    mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
+    player "You feel yourself begin to wake up"
+    menu dog_scary:
+        "Stay limp, pretend you are unconcious"
+            mosk "" 
+        "Wake up and fight! These dogs don't seem too friendly."
+
+        "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all"
+
     # This ends the game.
 
     return
