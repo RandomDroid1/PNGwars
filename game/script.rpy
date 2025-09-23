@@ -172,17 +172,30 @@ label game_continue:
 label jet_plane:
     show bg planeseat1
     player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
-    player "It broke sooner than the president seemed to expect, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
+    player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
     player "You wonder if that bodes well for the quality of the intelligence the US has on this. {p=3} Or maybe you don't, i'm not in charge of you."
-    player "You have about two hours until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
-    menu plane_choice: # The illusion of choice we all 
+    player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
+    menu plane_choice: # The illusion of choice
         "Sleep"
-        player "You "
-        "Watch a movie"
+            player "You let your eyes shut as you drift to sleep."
+            player "It's nice to get some rest before..."
+            jump jet_plane_crash
+        "Watch a show"
+            player "You turn on you favorite show, 'The Mewsroom', and sit back."
+            player "Soon, you begin to feel your eyes drift shut"
+            player "Maybe it's a good idea to get some rest before..."
+            jump jet_plane_crash
         "Watch the news"
-        ""
+            player "You turn on the news, and sit back"
+            player "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
+            player "However despite your best efforts, you begin to feel drowsy"
+            player "Soon, you begin to feel your eyes drift shut"
+            player "Maybe it's a good idea to get some rest before..."
+            jump jet_plane_crash
         #have them crash???
 label jet_plane_crash:
+    # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE
+    
     # This ends the game.
 
     return
