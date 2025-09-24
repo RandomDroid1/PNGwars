@@ -15,9 +15,13 @@ define garn = Character("Sloan Garner")
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
  
 # Establishes variables
+# Faction Reputations
 default dogrep = 0
 default animalrep = 0
 
+# Personal Reputations
+default garnrep = 0
+default moskrep = 0
 # The game starts here.
 
 label start:
@@ -177,6 +181,7 @@ label game_continue:
                     cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
                     jump jet_plane
 label jet_plane: # The plane sequence that leads into
+    hide cali
     show bg planeseat1
     player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
@@ -208,18 +213,19 @@ label jet_plane_crash:
     mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
     player "You feel yourself begin to wake up"
     menu dog_scary:
-        "Stay limp, pretend you are unconscious":
+        "Stay limp, pretend you are unconscious":  # Option One, Neutral
             mosk "Lets go." 
-        "Wake up and fight! These dogs don't seem too friendly.": # The Negative option, garner won't like you after this
+        "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
             $ animalrep -= 1
             $ dogrep -= 2
+            $ garnerrep -= -2
             player "you twist around to smack the dog holding you with your claws"
             garn "you {cps=7}BASTARD{/cps}"
             garn "I'm going to-"
             # PLACEHOLDER // find some way to make it clear Garner makes a go at you. Initialize a battle UI?
-            mosk "Hold on. Lets see why this one is here."
+            mosk "Hold on! Lets see why this one is here."
             # PLACEHOLDER // Need continues
-        "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all":
+        "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             player "Hey! Let me go... please."
             # PLACEHOLDER // find some way to make clear that you are dropped
             # PLACEHOLDER // Need continues
@@ -227,11 +233,16 @@ label jet_plane_crash:
             # PLACEHOLDER // see if you can make this timed?
             jump wake_up_calm_dog_confrontation
 
-menu wake_up_calm_dog_confrontation:
+menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly explain
                 "Lie: I'm just a random cat! I was on the flight before I heard about the split":
+                    $ moskrep -= 2
                     mosk "Your Ameowican, I presume. {w=3} Your flight would've taken about 2 hours to get here."
                     mosk "The news broke 3 hours ago, and truly I do find it hard to believe you didn't hear about it"
                     mosk "So... either your lying to me, or you are one oblivious cat."
+                    mosk "So let's try that again, who are you, and what is your name"
+                        menu mosk_who_are_you_really:
+                            "Lie: My name is James Meowdisan. I just wanted to take a vacation.":
+                            "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
@@ -241,16 +252,20 @@ menu wake_up_calm_dog_confrontation:
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!":
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "What, they're sending fiesty children to negotiate in other countries now?"
+                    garn "What an absolutely pathetic display, how do you expec-"
+                    mosk "Wait just a second Garner, let's give this cat a {i}small{/i}chance. {w=3} They just got out of a plane crash, they might be injured"
+                    mosk "Follow us. Not like you have much of a choice"
                     # PLACEHOLDER // Need continues
                     jump wake_up_calm_dog_confrontation
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
+                    $ moskrep += 1
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "They're sending children to try and fix other countries buisness now?"
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     $ animalrep += 1
                     $ dogrep += 2
-                    mosk "You're going to want to follow us. Much safer than wandering into those woods alone."
+                    mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."
                     jump wake_up_calm_dog_confrontation  
 
 return
