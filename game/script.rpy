@@ -206,26 +206,26 @@ label jet_plane_crash:
     menu dog_scary:
         "Stay limp, pretend you are unconcious"
             mosk "Lets go." 
-        "Wake up and fight! These dogs don't seem too friendly."
+        "Wake up and fight! These dogs don't seem too friendly." # The Negative option, garner won't like you after this
             $ animalrep -= 1
             $ dogrep -= 2
             player "you twist around to smack the dog holding you with your claws"
             garn "you {cps=7}BASTARD{/cps}"
             garn "I'm going to-"
-            # PLACEHOLDER // find some way to make it clear Garner makes a go at you
+            # PLACEHOLDER // find some way to make it clear Garner makes a go at you. Initialize a battle UI?
             mosk "Hold on. Lets see why this one is here."
             # PLACEHOLDER // Need continues
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all"
             player "Hey! Let me go... please."
             # PLACEHOLDER // find some way to make clear that you are dropped
             # PLACEHOLDER // Need continues
-            mosk "Ah, the cat awakes! Who are you, small one?"
+            mosk "The cat awakes! Who are you, small one?"
             # PLACEHOLDER // see if you can make this timed?
             menu first_dog_confrontation:
-                "Lie: I'm just a random person! I was on the flight before I heard about the split"
+                "Lie: I'm just a random cat! I was on the flight before I heard about the split"
                     mosk "Your Ameowican, I presume. {w=3} Your flight would've taken about 2 hours to get here."
                     mosk "The news broke 3 hours ago, and truly I do find it hard to believe you didn't hear about it"
-                    mosk "So... either your lying to me,"
+                    mosk "So... either your lying to me, or you are one oblivious cat."
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!"'
                     
@@ -243,6 +243,7 @@ label jet_plane_crash:
                     mosk "Let's give them some kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     $ animalrep += 1
                     $ dogrep += 2
+                    mosk "You're going to want to follow us. Much safer than wandering into those woods alone."
                     
                     # PLACEHOLDER // Need continues
 
