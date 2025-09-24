@@ -1,18 +1,18 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-    # Meta Characters
-# Structure of textbox names "textbox(Faction)_(Rank)(Any Other Details)"
+﻿# Structure of textbox names "textbox(Faction)_(Rank)(Any Other Details)"
+# Meta Characters
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
-    # Ameowican Characters
+
+# Ameowican Characters
 define vini = Character("Secretary Meowstrong", window_background=Image("textboxameowican.png")) 
 define cali = Character("Cali Meowford", window_background=Image("textboxameowican.png"))
 
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
  
+# Establishes variables
+default dogrep = 0
+default animalrep = 0
 
 # The game starts here.
 
@@ -178,7 +178,7 @@ label jet_plane: # The plane sequence that leads into
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
     player "You wonder if that bodes well for the quality of the intelligence the US has on this. {p=3} Or maybe you don't, i'm not in charge of you."
     player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
-    menu plane_choice: # The illusion of choice
+    menu plane_choice: # The illusion of choice hahaha
         "Sleep"
             player "You let your eyes shut as you drift to sleep."
             player "It's nice to get some rest before..."
@@ -189,6 +189,7 @@ label jet_plane: # The plane sequence that leads into
             player "Maybe it's a good idea to get some rest before..."
             jump jet_plane_crash
         "Watch the news"
+            # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
             player "You turn on the news, and sit back"
             player "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
             player "However despite your best efforts, you begin to feel drowsy"
@@ -225,16 +226,19 @@ label jet_plane_crash:
                     mosk "So... either your lying to me,"
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!"'
-
+                    
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!"
-                    garn ""
+                    garn "An Ambassador from Ameowica? How entertaining."
+                    garn "What, they're sending fiesty children to negotiate in other countries now?"
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help."
                     garn "An Ambassador from Ameowica? How entertaining."
-                    garn "They're sending children to negotiate in other countries buisness now?"
+                    garn "They're sending children to try and fix other countries buisness now?"
+                    garn "Absolutely patheti-"
+                    mosk "Let's give them some kind of chance, they just survived "
                     # PLACEHOLDER // Need continues
 
 
