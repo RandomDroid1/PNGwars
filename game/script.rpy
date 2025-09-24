@@ -235,13 +235,15 @@ label jet_plane_crash:
 
 menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly explain
                 "Lie: I'm just a random cat! I was on the flight before I heard about the split":
+                    player "Look, I'm just so-some random cat. {w=1} I got on the flight before I heard about the split!"
                     $ moskrep -= 2
                     mosk "Your Ameowican, I presume. {w=3} Your flight would've taken about 2 hours to get here."
-                    mosk "The news broke 3 hours ago, and truly I do find it hard to believe you didn't hear about it"
-                    mosk "So... either your lying to me, or you are one oblivious cat."
-                    mosk "So let's try that again, who are you, and what is your name"
+                    mosk "The news broke 3 hours ago, and a vast majority of flights here were cancelled."
+                    mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
+                    mosk "Personally {w=2}, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                         menu mosk_who_are_you_really:
                             "Lie: My name is James Meowdisan. I just wanted to take a vacation.":
+
                             "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
