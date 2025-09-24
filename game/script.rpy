@@ -3,6 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
     # Meta Characters
+# Structure of textbox names "textbox(Faction)_(Rank)(Any Other Details)"
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
     # Ameowican Characters
@@ -136,6 +137,7 @@ label game_continue:
     show cali sidelay
     cali "Now, we need you to try and get them to agree on some stuff, {w=2} or at least tell us who to give {i}limited{/i} military assistance to."
     cali "Are you ready for this?"
+
     menu presidentquestion:
         "Yes Sir.": # choice 1,  very positive
             cali "Thats what I like to hear, we need more people like you in our government."
@@ -202,13 +204,38 @@ label jet_plane_crash:
     player "You feel yourself begin to wake up"
     menu dog_scary:
         "Stay limp, pretend you are unconcious"
-            mosk "Dogs, march!" 
+            mosk "Lets go." 
         "Wake up and fight! These dogs don't seem too friendly."
             player "you twist around to smack the dog holding you with your claws"
-            garn "you {cps=5}BASTARD{/cps}"
+            garn "you {cps=7}BASTARD{/cps}"
+            garn "I'm going to-"
             # PLACEHOLDER // find some way to make it clear Garner makes a go at you
+            mosk "Hold on. Lets see why this one is here."
+            # PLACEHOLDER // Need continues
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all"
+            player "Hey! Let me go... please."
+            # PLACEHOLDER // find some way to make clear that you are dropped
+            # PLACEHOLDER // Need continues
+            mosk "Ah, the cat awakes! Who are you, small one?"
+            # PLACEHOLDER // see if you can make this timed?
+            menu first_dog_confrontation:
+                "Lie: I'm just a random person! I was on the flight before I heard about the split"
+                    mosk "Your Ameowican, I presume. {w=3} Your flight would've taken about 2 hours to get here."
+                    mosk "The news broke 3 hours ago, and truly I do find it hard to believe you didn't hear about it"
+                    mosk "So... either your lying to me,"
+                    # PLACEHOLDER // Need continues
+                "Lie: I'm one of yours! You hired me to tell you what the cats were up to!"'
 
-    # This ends the game.
+                    # PLACEHOLDER // Need continues
+
+                "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!"
+                    garn ""
+                    # PLACEHOLDER // Need continues
+
+                "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help."
+                    garn "An Ambassador from Ameowica? How entertaining."
+                    garn "They're sending children to negotiate in other countries buisness now?"
+                    # PLACEHOLDER // Need continues
+
 
     return
