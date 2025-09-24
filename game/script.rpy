@@ -207,6 +207,8 @@ label jet_plane_crash:
         "Stay limp, pretend you are unconcious"
             mosk "Lets go." 
         "Wake up and fight! These dogs don't seem too friendly."
+            $ animalrep -= 1
+            $ dogrep -= 2
             player "you twist around to smack the dog holding you with your claws"
             garn "you {cps=7}BASTARD{/cps}"
             garn "I'm going to-"
@@ -238,7 +240,10 @@ label jet_plane_crash:
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "They're sending children to try and fix other countries buisness now?"
                     garn "Absolutely patheti-"
-                    mosk "Let's give them some kind of chance, they just survived "
+                    mosk "Let's give them some kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
+                    $ animalrep += 1
+                    $ dogrep += 2
+                    
                     # PLACEHOLDER // Need continues
 
 
