@@ -198,7 +198,7 @@ label jet_plane: # The plane sequence that leads into
         parallel:
             linear 3 ypos -700
     show planescreen cali_jet_report # PLACEHOLDER
-    player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
+    player "The plane is relatively empty. Not many people-+-*/*/*/*/*/*/*/*/*/*/*/e want to go to PNGlandia, especially since the news of the faction splitting broke."
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
     player "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3} Or maybe you don't, i'm not in charge of you."
     player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
@@ -227,10 +227,16 @@ label jet_plane: # The plane sequence that leads into
             jump jet_plane_crash
 
 label jet_plane_crash:
+    show bg planewindow1:
+        zoom .6
+        xpos 0 ypos -1000
+    player"You"
     show bg black
+    pause .5
     show concussion:
         zoom 5
         xpos -50 ypos -50
+        alpha .3
         parallel:
             linear 1 xpos 0
             linear 2 xpos -100
@@ -241,11 +247,16 @@ label jet_plane_crash:
             linear 1 ypos 0
             linear 2 ypos -100
             repeat
+        parallel:
+            linear 2 alpha .1
+            linear 2 alpha .3
+            repeat
     hide planescreen cali_jet_report
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
     # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
-    mosk "Hey! Can we get some..."
+    mosk "Hey! Can we get some... The pilot's are dead."
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
+    garn "We have a survivor!"
     mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
     player "You feel yourself begin to wake up"
     menu dog_scary:
