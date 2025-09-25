@@ -235,8 +235,7 @@ label jet_plane_crash:
             linear 1 xpos 0
             linear 2 xpos -100
             zoom 6
-            zoom 5
-            alpha 1
+            zoom 4
             repeat
         parallel:
             linear 1 ypos 0
