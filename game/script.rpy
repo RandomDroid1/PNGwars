@@ -183,6 +183,7 @@ label game_continue:
 label jet_plane: # The plane sequence that leads into
     hide cali
     show bg planeseat1
+    show planescreen cali_jet_report # PLACEHOLDER
     player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
     player "You wonder if that bodes well for the quality of the intelligence the US has on this. {p=3} Or maybe you don't, i'm not in charge of you."
@@ -191,23 +192,30 @@ label jet_plane: # The plane sequence that leads into
         "Sleep":
             player "You let your eyes shut as you drift to sleep."
             player "It's nice to get some rest before..."
+            show bg black # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch a show":
             player "You turn on you favorite show, 'The Mewsroom', and sit back."
+            show planescreen Mewsroom
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
+            show bg black # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
+            show planescreen Mews
             # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
             player "You turn on the news, and sit back"
             player "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
             player "However despite your best efforts, you begin to feel drowsy"
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
+            show bg black # PLACEHOLDER // add this background later
             jump jet_plane_crash
 
 label jet_plane_crash:
+    show bg plane_scary
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
+    show bg black_wavy # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
     mosk "Hey! Can we get some..."
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
     mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
@@ -237,14 +245,19 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                 "Lie: I'm just a random cat! I was on the flight before I heard about the split":
                     player "Look, I'm just so-some random cat. {w=1} I got on the flight before I heard about the split!"
                     $ moskrep -= 2
+                    $ dogrep -= 1
+                    $ animalrep -= 1
                     mosk "Your Ameowican, I presume. {w=3} Your flight would've taken about 2 hours to get here."
                     mosk "The news broke 3 hours ago, and a vast majority of flights here were cancelled."
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
                     mosk "Personally {w=2}, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
-                        menu mosk_who_are_you_really:
-                            "Lie: My name is James Meowdisan. I just wanted to take a vacation.":
-
+                        menu mosk_who_are_you_really: # gives you the chance to double down or back out.
+                            "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
+                                $ moskrep -= 1
+                                "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
                             "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
+                                $ moskrep += 1
+                                "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
@@ -252,6 +265,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!":
+
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "What, they're sending fiesty children to negotiate in other countries now?"
                     garn "What an absolutely pathetic display, how do you expec-"
@@ -261,12 +275,12 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     jump wake_up_calm_dog_confrontation
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
                     $ moskrep += 1
+                    $ animalrep += 1
+                    $ dogrep += 2 # A small reward for choosing the peaceful option. 
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "They're sending children to try and fix other countries buisness now?"
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
-                    $ animalrep += 1
-                    $ dogrep += 2
                     mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."
                     jump wake_up_calm_dog_confrontation  
 
