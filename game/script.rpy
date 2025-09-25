@@ -13,7 +13,7 @@ define mosk = Character("Mischa Moskvi")
 define garn = Character("Sloan Garner") 
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
- 
+image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
 # Establishes variables
 # Faction Reputations
 default dogrep = 0
@@ -28,6 +28,10 @@ label start:
 
     # This launches the Start background and plays it
     show launch
+    hide launch
+    $ state = "test mode"
+    $ name = "test name"
+    jump jet_plane
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
     nar "Let's start with something basic, you are Ameowican. Where are you from?"
@@ -72,6 +76,7 @@ label start_continue:
     show bg white # PLACEHOLDER // This background will give a fade to white and then a fade to the new scene
     pause .5
     with Dissolve(1)
+    hide launch
     jump true_start
 # True starting zone
 label true_start: 
@@ -182,24 +187,33 @@ label game_continue:
                     jump jet_plane
 label jet_plane: # The plane sequence that leads into
     hide cali
-    show bg planeseat1
+    show bg planeseat1:
+        zoom 1.0
+        xpos 0 ypos 0
+        pause 1.0
+        parallel:
+            linear 3 zoom .5
+        parallel:
+            linear 3 xpos -300
+        parallel:
+            linear 3 ypos -700
     show planescreen cali_jet_report # PLACEHOLDER
     player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
-    player "You wonder if that bodes well for the quality of the intelligence the US has on this. {p=3} Or maybe you don't, i'm not in charge of you."
+    player "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3} Or maybe you don't, i'm not in charge of you."
     player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
     menu plane_choice: # The illusion of choice hahaha
         "Sleep":
             player "You let your eyes shut as you drift to sleep."
             player "It's nice to get some rest before..."
-            show bg black # PLACEHOLDER // add this background later
+            # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch a show":
             player "You turn on you favorite show, 'The Mewsroom', and sit back."
             show planescreen Mewsroom
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
-            show bg black # PLACEHOLDER // add this background later
+            # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
             show planescreen Mews
@@ -209,13 +223,28 @@ label jet_plane: # The plane sequence that leads into
             player "However despite your best efforts, you begin to feel drowsy"
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
-            show bg black # PLACEHOLDER // add this background later
+            # PLACEHOLDER // add this background later
             jump jet_plane_crash
 
 label jet_plane_crash:
-    show bg plane_scary
+    show bg black
+    show concussion:
+        zoom 5
+        xpos -50 ypos -50
+        parallel:
+            linear 1 xpos 0
+            linear 2 xpos -100
+            zoom 6
+            zoom 5
+            alpha 1
+            repeat
+        parallel:
+            linear 1 ypos 0
+            linear 2 ypos -100
+            repeat
+    hide planescreen cali_jet_report
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
-    show bg black_wavy # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
+    # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
     mosk "Hey! Can we get some..."
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
     mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
@@ -251,13 +280,13 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     mosk "The news broke 3 hours ago, and a vast majority of flights here were cancelled."
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
                     mosk "Personally {w=2}, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
-                        menu mosk_who_are_you_really: # gives you the chance to double down or back out.
-                            "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
-                                $ moskrep -= 1
-                                "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
-                            "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
-                                $ moskrep += 1
-                                "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
+                    menu mosk_who_are_you_really: # gives you the chance to double down or back out.
+                        "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
+                            $ moskrep -= 1
+                            "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
+                        "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
+                            $ moskrep += 1
+                            "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
