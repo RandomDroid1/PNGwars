@@ -198,7 +198,7 @@ label jet_plane: # The plane sequence that leads into
         parallel:
             linear 3 ypos -700
     show planescreen cali_jet_report # PLACEHOLDER
-    player "The plane is relatively empty. Not many people-+-*/*/*/*/*/*/*/*/*/*/*/e want to go to PNGlandia, especially since the news of the faction splitting broke."
+    player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
     player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
     player "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3} Or maybe you don't, i'm not in charge of you."
     player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
@@ -230,7 +230,7 @@ label jet_plane_crash:
     show bg planewindow1:
         zoom .6
         xpos 0 ypos -1000
-    player"You"
+    player"You look out the window, and for just a moment, wonder why the pilot is flying so low."
     show bg black
     pause .5
     show concussion:
@@ -259,13 +259,17 @@ label jet_plane_crash:
     garn "We have a survivor!"
     mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
     player "You feel yourself begin to wake up"
+    show bg forest1:
+        zoom .5
+        xpos -50
+        ypos -350
     menu dog_scary:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
             mosk "Lets go." 
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
             $ animalrep -= 1
             $ dogrep -= 2
-            $ garnerrep -= -2
+            $ garnrep -= -2
             player "you twist around to smack the dog holding you with your claws"
             show garn standalert
             garn "you {cps=7}BASTARD{/cps}"
@@ -276,10 +280,16 @@ label jet_plane_crash:
             # PLACEHOLDER // Need continues
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             player "Hey! Let me go... please."
-            # have some vpunch to make it clear you fall, then have the camera pan to face garner & mosk
-            show garn standcalm
+            hide concussion with dissolve
+            show bg forest1:
+                ypos -350
+                linear .2 ypos -600
+            show bg forest1 with vpunch
             # PLACEHOLDER // Need continues
             mosk "The cat awakes! Who are you, small one?"
+            show bg forest:
+                xpan 0
+                linear 2 xpan 50
             # PLACEHOLDER // see if you can make this timed?
             jump wake_up_calm_dog_confrontation
 
