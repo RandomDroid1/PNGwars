@@ -267,14 +267,17 @@ label jet_plane_crash:
             $ dogrep -= 2
             $ garnerrep -= -2
             player "you twist around to smack the dog holding you with your claws"
+            show garn standalert
             garn "you {cps=7}BASTARD{/cps}"
             garn "I'm going to-"
             # PLACEHOLDER // find some way to make it clear Garner makes a go at you. Initialize a battle UI?
+            show mosk stand
             mosk "Hold on! Lets see why this one is here."
             # PLACEHOLDER // Need continues
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             player "Hey! Let me go... please."
-            # PLACEHOLDER // find some way to make clear that you are dropped
+            # have some vpunch to make it clear you fall, then have the camera pan to face garner & mosk
+            show garn standcalm
             # PLACEHOLDER // Need continues
             mosk "The cat awakes! Who are you, small one?"
             # PLACEHOLDER // see if you can make this timed?
