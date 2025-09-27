@@ -20,6 +20,7 @@ default dogrep = 0
 default animalrep = 0
 
 # Personal Reputations
+default calirep = 0
 default garnrep = 0
 default moskrep = 0
 # The game starts here.
@@ -152,12 +153,15 @@ label game_continue:
 
     menu presidentquestion:
         "Yes Sir.": # choice 1,  very positive
+            $ calirep += 2
             cali "Thats what I like to hear, we need more people like you in our government."
             cali "We don't have much for you in the way of a briefing, but we can get you on a plane in 1 hour."
             cali "You are now the sole US ambassador to PNGlandia, congrats."
             jump jet_plane
         "That sounds like something I can do.": # choice 1 variation basically
-            jump true_start
+            $ calirep += 1
+            cali "That's good, that's what we want to hear."
+            cali "Truthfully, we've not much for you in terms of a briefing, {p=3}but we can get you on a ejnc f4"
         "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
             cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
             cali "Anyway, they've requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
@@ -166,8 +170,10 @@ label game_continue:
                 "Yes. I accept.":
                     jump jet_plane
                 "No, get someone qualified.":
+                    cali "You..."
                     jump jet_plane
         "I can't do that.": # negative choice
+            $ calirep -= 2
             cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
             cali "However, it might be worth reconsidering... theres a lot on the line."
             cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
@@ -181,7 +187,7 @@ label game_continue:
                     return
                 "I'm... No, I can do this. Get me on the plane.":
                     show cali sit
-                    cali "Theres hope for you yet. I'm glad to hear. We can have you on a plane in a few hours."
+                    cali "Theres hope for you yet. We can have you on a plane in a few hours."
                     cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
                     jump jet_plane
 label jet_plane: # The plane sequence that leads into
@@ -256,7 +262,9 @@ label jet_plane_crash:
     mosk "Hey! Can we get some... The pilot's are dead."
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
     garn "We have a survivor!"
-    mosk "They're one of those damn cats. Garner, grab them by the scruff and bring them back to camp, lets find out why they're here."
+    vara "Weren't all flights supposed to be grounded? They're shooting down anything they see!"
+    garn "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
+    mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
     player "You feel yourself begin to wake up"
     show bg forest1:
         zoom .5
@@ -274,6 +282,7 @@ label jet_plane_crash:
             garn "you {cps=7}BASTARD{/cps}"
             garn "I'm going to-"
             # PLACEHOLDER // find some way to make it clear Garner makes a go at you. Initialize a battle UI?
+            show battle garnui
             show mosk stand
             mosk "Hold on! Lets see why this one is here."
             # PLACEHOLDER // Need continues
@@ -305,10 +314,13 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
                         "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
                             $ moskrep -= 1
-                            "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
+                            mosk "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
+
                         "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
                             $ moskrep += 1
-                            "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
+                            mosk "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
+                            mosk "That's... at the very best unfortunate for you.{p=3}Luckily, i'd like to say you crashed in the right place."
+                            mosk "Follow us. Believe me, you'll fare better than if you run around the forest alone."
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
@@ -321,7 +333,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     garn "What, they're sending fiesty children to negotiate in other countries now?"
                     garn "What an absolutely pathetic display, how do you expec-"
                     mosk "Wait just a second Garner, let's give this cat a {i}small{/i}chance. {w=3} They just got out of a plane crash, they might be injured"
-                    mosk "Follow us. Not like you have much of a choice"
+                    mosk "Follow us. Not like you have much of a choice. These forests aren't safe nowadays."
                     # PLACEHOLDER // Need continues
                     jump wake_up_calm_dog_confrontation
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
