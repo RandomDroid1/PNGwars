@@ -152,12 +152,11 @@ label game_continue:
     show cali lookback:
         block:
             parallel:
-                linear 1 xoffset 200
+                linear .1 xoffset 200
             parallel:
-                linear 1 yoffset -200
+                linear .1 yoffset -200
             parallel:
-                linear 1 xzoom 1.2
-    pause 3
+                linear .1 xzoom 2
     show cali sit:
         zoom .8
     cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
