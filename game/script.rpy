@@ -100,6 +100,13 @@ menu wawa:
 
     "'No, I wasn't actually told why the President called me here.'":
         player "No, I wasn't actually told why the President called me here."
+        show vinick idle:
+            yzoom 1
+            parallel:
+                linear .2 yzoom 1.5
+            parallel:
+                linear .2 yoffset -200
+        jump game_continue
     
     "'Actually, I was told why the President called me here'":
         vini "Oh. That... you shouldn't have been told that already, it was pretty damn classified. {p} When you get back, i'm going to have a number for you to call, and your going to tell them who told you"
@@ -109,12 +116,17 @@ menu wawa:
         vini "wawawawaw"
 
 label game_continue:
-    show vinick idle:
-        yzoom 1
-        linear .2
+    pause .1
     show vinick lookup:
         yalign 0.15
-        zoom .8
+        zoom .8    
+        yzoom 1.4
+        block:
+            parallel:
+                linear .2  yzoom 1
+            parallel:
+                linear .2  yoffset 25
+
     vini "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
     his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
     on his desk, by the way."
@@ -130,19 +142,25 @@ label game_continue:
         yalign .5
         zoom 1
 
-    show cali lookback :
+    show cali lookback:
         yalign .5
         xalign .4
+        
 
     cali "What a meeting. {p=3}you sure those ones were from Congress?"
     vini "Yes sir, they were. We have the-"
+    show cali lookback:
+        block:
+            parallel:
+                linear 1 xoffset 200
+            parallel:
+                linear 1 yoffset -200
+            parallel:
+                linear 1 xzoom 1.2
+    pause 3
     show cali sit:
         zoom .8
-    if (GameCompletions == 1):
-        cali "Ah {w=1} I assume this is the one from [state]? Welcome to... Have you been here before? You don't have that... bit of wonder even the most powerful have when seeing this room."
-        cali "... Nah, i'm probably just going crazy in my old age. You have an important reason to have been called here today!"
-    else:
-        cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
+    cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
             You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=2} other countries." # This dialogue sucks so bad god help me
