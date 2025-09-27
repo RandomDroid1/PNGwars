@@ -28,10 +28,6 @@ label start:
 
     # This launches the Start background and plays it
     show launch
-    hide launch
-    $ state = "test mode"
-    $ name = "test name"
-    jump jet_plane
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
     nar "Let's start with something basic, you are Ameowican. Where are you from?"
@@ -112,6 +108,9 @@ menu wawa:
         vini "wawawawaw"
 
 label game_continue:
+    show vinick idle:
+        yzoom 1
+        linear .2
     show vinick lookup:
         yalign 0.15
         zoom .8

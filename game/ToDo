@@ -1,0 +1,4 @@
+    hide launch
+    $ state = "test mode"
+    $ name = "test name"
+    jump jet_plane
