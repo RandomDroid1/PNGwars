@@ -160,22 +160,23 @@ label president_introduced:
 
     cali "What a meeting. {p=3}you sure those ones were from Congress?"
     vini "Yes sir, they were. We have the-"
+  
     show cali lookback:
-        block:
-            parallel:
-                linear .1 xoffset 200
-            parallel:
-                linear .1 yoffset -200
-            parallel:
-                linear .1 xzoom 2
+        linear .1 yzoom 1.1
+    pause .1    
     show cali sit:
         zoom .8
-    cali "Ah {p}  I assume this is the one from [state]? Well, welcome to D.C., I assume this is your first visit here? 
+        yzoom 1.2
+        linear .1 yzoom 1
+    cali "Oh, we have a visitor! I assume this is the one from [state]? {p=3} Well, welcome to D.C., I assume this is your first visit here? 
             You have a very important reason for being here." # add secret dialogue if you've beaten the game before
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
-    cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=2} other countries." # This dialogue sucks so bad god help me
+    cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=4} other countries." # This dialogue sucks so bad god help me
     cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
-    show cali sidelay
+    pause .5
+    show cali sidelay:
+        rotate 0
+        zoom .8
     cali "Now, we need you to try and get them to agree on some stuff, {w=2} or at least tell us who to give {i}limited{/i} military assistance to."
     cali "Are you ready for this?"
 
