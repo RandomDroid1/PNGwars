@@ -130,21 +130,32 @@ label game_continue:
     vini "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
     his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
     on his desk, by the way."
+    show vinick lookup:
+        linear .2 alpha 0
+    show bg office: # The first transition animation for the oval office + cali
+        xoffset 0
+        parallel:
+            linear .2 xoffset -200  
+        parallel:
+            linear .2  xzoom 1.1  
+    jump president_introduced
 
-    pause .5
-
-    # Introduces the President + gameplay exposition
-        # PLACEHOLDER // Door open noise
-
-    hide vinick # PLACEHOLDER // Text doesn't look right, check if functional later
-
-    show bg ovalofficeoverlook:
-        yalign .5
+label president_introduced:
+    pause .2
+    hide vinick
+    show bg ovalofficeoverlook: # The second transition animation for the oval office + cali
         zoom 1
-
+        yalign .5
+        xzoom 1.2
+        parallel: 
+            linear .2 xoffset 150
+        parallel:
+            linear .2 xzoom 1
     show cali lookback:
+        alpha 0
         yalign .5
         xalign .4
+        linear .2 alpha 1
         
 
     cali "What a meeting. {p=3}you sure those ones were from Congress?"
