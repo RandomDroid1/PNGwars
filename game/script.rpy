@@ -65,7 +65,10 @@ label start_continue:
         nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary. (If you weren't from bbq you just caught a crazy stray)"
  
     else:
-        nar "... {p=2}[name], good luck, we may never see eachother again after this."
+        nar "... {p=2}[name], that's a good choice."
+
+    
+    
  
 
     with Dissolve(1)
@@ -111,9 +114,9 @@ menu wawa:
     "'Actually, I was told why the President called me here'":
         vini "Oh. That... you shouldn't have been told that already, it was pretty damn classified. {p} When you get back, i'm going to have a number for you to call, and your going to tell them who told you"
 
-    "Use the BBQ blast" if name == "whattah":
-        color "#7dcfffff"
+    "{color=#0080c0}Use the BBQ blast{/color}" if name == "whattah":
         vini "wawawawaw"
+        jump game_continue
 
 label game_continue:
     pause .1
@@ -174,6 +177,9 @@ label president_introduced:
     cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=4} other countries." # This dialogue sucks so bad god help me
     cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
     pause .5
+    show bg ovalofficeoverlook:
+        linear .5 xpan -180
+    show bg ovalofficesit
     show cali sidelay:
         rotate 0
         zoom .8
