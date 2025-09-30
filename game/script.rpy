@@ -178,11 +178,15 @@ label president_introduced:
     cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
     pause .5
     show bg ovalofficeoverlook:
-        linear .5 xpan -180
-    show bg ovalofficesit
+        linear .5 xpan -10
+    pause .5
+    show bg ovalofficesit:
+        xoffset -400
+        zoom .8
     show cali sidelay:
         rotate 0
-        zoom .8
+        xoffset 400
+        zoom 1
     cali "Now, we need you to try and get them to agree on some stuff, {w=2} or at least tell us who to give {i}limited{/i} military assistance to."
     cali "Are you ready for this?"
 
