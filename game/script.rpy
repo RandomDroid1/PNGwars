@@ -31,7 +31,8 @@ label start:
     show launch
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
-    nar "Let's start with something basic, you are Ameowican. Where are you from?"
+    nar "Let's start with something basic, you are Ameowican."
+    # PLACEHOLDER // Have a map appear with an arrow at america. Caw-nedia and Meow-xico
 # This determines what state the character is from. It will unlock blue options later
 menu state:
     "I am from Mew-tah.":
@@ -130,7 +131,7 @@ label game_continue:
             parallel:
                 linear .2  yoffset 25
 
-    vini "Well, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
+    vini "Well, don't worry, you shouldn't have been told.we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
     his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
     on his desk, by the way."
     show vinick lookup:
@@ -274,7 +275,7 @@ label jet_plane_crash:
     show bg planewindow1:
         zoom .6
         xpos 0 ypos -1000
-    player"You look out the window, and for just a moment, wonder why the pilot is flying so low."
+    player "You look out the window, and for just a moment, wonder why the pilot is flying so low, and why the turbulence was so bad."
     show bg black
     pause .5
     show concussion:
