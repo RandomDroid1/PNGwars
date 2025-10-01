@@ -68,7 +68,27 @@ label start_continue:
     else:
         nar "... {p=2}[name], that's a good choice."
 
-    
+    nar "Now, do you want to know a bit more about how this game works (I'd encourage this)"
+    menu game_tutorial:
+        "Yeah, I'd like to know more":
+            nar "Awesome. So, you see this cool thing"
+            # PLACEHOLDER // Put an image of a variable on screen
+            nar "This is a variable, very cool, very useful. It's what makes your decisions have impacts, 
+            and change how the story progresses. It changes based on what you do."
+            nar "But theres something extra it does in this game on top of that"
+            # PLACEHOLDER // Put an image of a blue option up
+            nar "These are blue options! They are exclusive options unlocked by doing or selecting specific things."
+            nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
+            nar "For example, this blue option has (state) before it, which means the state you selected is what unlocked this option for you"
+            # PLACEHOLDER // Put an image of the notebook tab up
+            nar "Disclaimer: Hasn't been added yet, will be soon."
+            nar "Now, if you've played a Ren.PY game before, you might notice theres a new tab on the bottom called 'notebook'"
+            nar "This tab gives you a complete dictionary to every character you've met."
+            nar "With this button you can see each sprite you've seen"
+            nar "Over here, you can see how the character feels about you"
+            nar ""
+        "No, I'm ready":
+            nar "If you're sure... See you later then"
     
  
 
