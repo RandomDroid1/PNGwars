@@ -2,12 +2,15 @@ PLAYER
 name - Tracks the players name
 state - Tracks the players origin state
 bbq - Tracks if the player is of BBQ origin
+MET
+metvini - Has Met Secretary Vinick Meowstrong
 REPUTATIONS
 dogrep - Tracks the players reputation with the dog sub-faction
 animalrep - Tracks the players reputation with the animal faction
 garnrep - Tracks the players reputation with Sloan Garner
 moskrep - Tracks the players reputation with Mischa Moskvi
 calirep - Tracks the players reputation with Cali Meowford
+
 OTHER
 knew_before - Tracks if the player told vinick that they
             already knew why they were here. Essentially just for some special dialogue.

@@ -15,6 +15,8 @@ define garn = Character("Sloan Garner")
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
 # Establishes variables
+# Met
+default metvini = False
 # Faction Reputations
 default dogrep = 0
 default animalrep = 0
@@ -94,7 +96,7 @@ label start_continue:
             nar "And if you enable it, you can see every variable relating to the character (though bewarned, spoilers lay in wait.)"
         "No, I'm ready":
             nar "If you're sure... See you later then"
-    
+            $ metvini == False
  
 
     with Dissolve(1)
@@ -116,7 +118,7 @@ label true_start:
     show vinick idle:
         xalign 0.5
         yalign 0.35
-
+    $ metvini = True
     if name.lower() == "vinick":
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":

@@ -1143,7 +1143,7 @@ screen notebook():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("Notebook"), scroll="viewport"):
 
         style_prefix "help"
 
@@ -1155,8 +1155,8 @@ screen notebook():
                 textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
                 textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
-                if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+                if (metvini == True):
+                    textbutton _("gamepad") action SetScreenVariable("device", "gamepad")
 
             if device == "keyboard":
                 use keyboard_help
