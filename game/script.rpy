@@ -23,6 +23,9 @@ default animalrep = 0
 default calirep = 0
 default garnrep = 0
 default moskrep = 0
+
+# Other
+default knew_before = False
 # The game starts here.
 
 label start:
@@ -86,7 +89,9 @@ label start_continue:
             nar "This tab gives you a complete dictionary to every character you've met."
             nar "With this button you can see each sprite you've seen"
             nar "Over here, you can see how the character feels about you"
-            nar ""
+            nar "Here, you can write as many notes as you would like about a character, maybe how you feel about them, maybe a path you want to follow later."
+            nar "Right here is a list of every interaciton you've had with a character."
+            nar "And if you enable it, you can see every variable relating to the character (though bewarned, spoilers lay in wait.)"
         "No, I'm ready":
             nar "If you're sure... See you later then"
     
@@ -123,6 +128,7 @@ menu wawa:
     # keeps Vinicks text on screen
 
     "'No, I wasn't actually told why the President called me here.'":
+        $ knew_before = False
         player "No, I wasn't actually told why the President called me here."
         show vinick idle:
             yzoom 1
@@ -133,8 +139,18 @@ menu wawa:
         jump game_continue
     
     "'Actually, I was told why the President called me here'":
-        vini "Oh. That... you shouldn't have been told that already, it was pretty damn classified. {p} When you get back, i'm going to have a number for you to call, and your going to tell them who told you"
-
+        $ knew_before = True
+        player "Actually, I was told about why I'm here."
+        vini "Huh, how's that work out. Any chance you'll tell me who told you?"
+        vini "I imagine not, whatever. You're still getting the whole spiel by the president, you don't get to skip it that easy."
+        show vinick idle:
+            yzoom 1
+            parallel:
+                linear .2 yzoom 1.5
+            parallel:
+                linear .2 yoffset -200
+        jump game_continue
+    
     "{color=#0080c0}Use the BBQ blast{/color}" if name == "whattah":
         vini "wawawawaw"
         jump game_continue
@@ -150,10 +166,14 @@ label game_continue:
                 linear .2  yzoom 1
             parallel:
                 linear .2  yoffset 25
-
-    vini "Well, don't worry, you shouldn't have been told.we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
-    his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
-    on his desk, by the way."
+    if (knew_before == False):
+        vini "Well, don't worry, you shouldn't have been told. We've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
+        his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
+        on his desk, by the way."
+    else:
+        vini "Well, this's hardly my problem, more a job for national security. Either way, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
+        his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
+        on his desk, by the way."
     show vinick lookup:
         linear .2 alpha 0
     show bg office: # The first transition animation for the oval office + cali
@@ -228,8 +248,10 @@ label president_introduced:
             cali "We can get you on a plane in one hour, do you accept?"
             menu presidentsubquestion:
                 "Yes. I accept.":
+                    player "Yes, I accept."
                     jump jet_plane
                 "No, get someone qualified.":
+                    player "No... No, get someone qualified, i'm hardly qualified."
                     cali "You..."
                     jump jet_plane
         "I can't do that.": # negative choice
