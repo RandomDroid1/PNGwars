@@ -1169,6 +1169,7 @@ screen keyboard_help():
     hbox:
         label _("Enter")
         text _("Advances dialogue and activates the interface.")
+        add "cali lay.png" xalign 0 zoom 1
 
     hbox:
         label _("Space")
