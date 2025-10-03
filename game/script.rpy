@@ -408,6 +408,11 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
+                    player "Okay! Okay! Look, I'm one of yours, you hired me to tell you what the cats were up to!"
+                    mosk "Who hired you?"
+                    player "They didn't tell me their name."
+                    garn "Captain, it's obvious their lying, I say we-"
+                    mosk "I don't disagree with you, but whats the harm in taking them back to camp,"
                     jump wake_up_calm_dog_confrontation
                     # PLACEHOLDER // Need continues
 
@@ -425,7 +430,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     $ animalrep += 1
                     $ dogrep += 2 # A small reward for choosing the peaceful option. 
                     garn "An Ambassador from Ameowica? How entertaining."
-                    garn "They're sending children to try and fix other countries buisness now?"
+                    garn "They're sending children to try and fix other countries business now?"
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."

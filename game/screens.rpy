@@ -1156,7 +1156,7 @@ screen notebook():
                 textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
                 if (metvini == True):
-                    textbutton _("gamepad") action SetScreenVariable("device", "gamepad")
+                    textbutton _("Vinick M.") action SetScreenVariable("device", "gamepad")
 
             if device == "keyboard":
                 use keyboard_help
