@@ -2,8 +2,11 @@ PLAYER
 name - Tracks the players name
 state - Tracks the players origin state
 bbq - Tracks if the player is of BBQ origin
-MET
+
+NOTEBOOK/MET
+clearnotebook - Sets the notebook as clear at the start, starts true and is false at vinicks intro
 metvini - Has Met Secretary Vinick Meowstrong
+
 REPUTATIONS
 dogrep - Tracks the players reputation with the dog sub-faction
 animalrep - Tracks the players reputation with the animal faction
