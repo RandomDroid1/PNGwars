@@ -399,32 +399,41 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                         "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
                             $ moskrep -= 1
                             mosk "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
-
+                            jump lietold_jamesmeowdisan
                         "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
                             $ moskrep += 1
                             mosk "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
-                            mosk "That's... at the very best unfortunate for you.{p=3}Luckily, i'd like to say you crashed in the right place."
+                            mosk "That's... at the very best unfortunate for you, assuming your telling the truth.{p=3}Luckily, i'd like to say you crashed in the right place."
                             mosk "Follow us. Believe me, you'll fare better than if you run around the forest alone."
-                    jump wake_up_calm_dog_confrontation
+                            jump lietold_truthtold
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
+                    $ garnrep -= 2
+                    $ moskrep -= 2
+                    $ dogrep -= 2
+                    $ animalrep -= 1
+                    # they hate this more than the lie about being someone random because you are pretending to be one of them
                     player "Okay! Okay! Look, I'm one of yours, you hired me to tell you what the cats were up to!"
                     mosk "Who hired you?"
                     player "They didn't tell me their name."
                     garn "Captain, it's obvious their lying, I say we-"
-                    mosk "I don't disagree with you, but whats the harm in taking them back to camp,"
-                    jump wake_up_calm_dog_confrontation
+                    mosk "I don't disagree with you, but whats the harm in taking them back to camp."
+                    mosk "See how truthful they're being about this whole spy thing"
+                    jump lietold_espionage
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!":
-
+                    $ moskrep += 1
+                    $ garnrep += 1 #you get a rep boost in this one because garn likes your spunk
+                    $ animalrep += 1
+                    $ dogrep += 2
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "What, they're sending fiesty children to negotiate in other countries now?"
                     garn "What an absolutely pathetic display, how do you expec-"
                     mosk "Wait just a second Garner, let's give this cat a {i}small{/i}chance. {w=3} They just got out of a plane crash, they might be injured"
                     mosk "Follow us. Not like you have much of a choice. These forests aren't safe nowadays."
                     # PLACEHOLDER // Need continues
-                    jump wake_up_calm_dog_confrontation
+                    jump truthtold_spunky
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
                     $ moskrep += 1
                     $ animalrep += 1
@@ -434,6 +443,4 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."
-                    jump wake_up_calm_dog_confrontation  
-
-return
+                    jump truthtold_calm  
