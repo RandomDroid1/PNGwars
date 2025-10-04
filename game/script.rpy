@@ -293,19 +293,19 @@ label president_introduced:
 label jet_plane: # The plane sequence that leads into
     hide cali
     show bg planeseat1:
-        zoom 1.0
+        zoom 1.5
         xpos 0 ypos 0
         pause 1.0
         parallel:
-            linear 3 zoom .5
+            linear 3 zoom .9
         parallel:
             linear 3 xpos -300
         parallel:
-            linear 3 ypos -700
+            linear 3 ypos -300
     show planescreen cali_jet_report # PLACEHOLDER
-    player "The plane is relatively empty. Not many people want to go to PNGlandia, especially since the news of the faction splitting broke."
-    player "It hit the news sooner than the president expected, he seemed quite unprepared in his press conference" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
-    player "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3} Or maybe you don't, i'm not in charge of you."
+    player "The plane is relatively empty. A vast majority of flights to PNGlandia had been grounded, and the only reason this one is still flying to PNGlandia is because the President ordered it."
+    player "All this stuff had hit the news sooner than the president expected, his press conference was pretty clearly prepared on a moments notice" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
+    player "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3}Or maybe you don't, i'm not in charge of you."
     player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
     menu plane_choice: # The illusion of choice hahaha
         "Sleep":
@@ -333,10 +333,11 @@ label jet_plane: # The plane sequence that leads into
 
 label jet_plane_crash:
     show bg planewindow1:
-        zoom .6
-        xpos 0 ypos -1000
+        zoom .8
+        xalign 0.5 ypos 400
     player "You look out the window, and for just a moment, wonder why the pilot is flying so low, and why the turbulence was so bad."
-    show bg black
+    show bg black:
+        zoom 20
     pause .5
     show concussion:
         zoom 5
@@ -367,7 +368,7 @@ label jet_plane_crash:
     mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
     player "You feel yourself begin to wake up"
     show bg forest1:
-        zoom .5
+        zoom 1
         xpos -50
         ypos -350
     menu dog_scary:
