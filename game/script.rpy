@@ -15,7 +15,8 @@ define garn = Character("Sloan Garner")
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
 # Establishes variables
-# Met
+# Notebook/Met
+default clearnotebook = True
 default metvini = False
 # Faction Reputations
 default dogrep = 0
@@ -119,6 +120,7 @@ label true_start:
         xalign 0.5
         yalign 0.35
     $ metvini = True
+    $ clearnotebook = False
     if name.lower() == "vinick":
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
     elif name == "goob":

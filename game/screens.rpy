@@ -1141,7 +1141,7 @@ screen notebook():
 
     tag menu
 
-    default device = "keyboard"
+    default notebookscreen = "keyboard"
 
     use game_menu(_("Notebook"), scroll="viewport"):
 
@@ -1152,25 +1152,24 @@ screen notebook():
 
             hbox:
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+                textbutton _("Keyboard") action SetScreenVariable("notebookscreen", "keyboard")
+                textbutton _("Mouse") action SetScreenVariable("notebookscreen", "mouse")
 
                 if (metvini == True):
-                    textbutton _("Vinick M.") action SetScreenVariable("device", "gamepad")
+                    textbutton _("gamepad") action SetScreenVariable("notebookscreen", "gamepad")
 
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+            use keyboard_help
+
+            use mouse_help
+
+            use gamepad_help
 
 
 screen keyboard_help():
-
     hbox:
         label _("Enter")
         text _("Advances dialogue and activates the interface.")
+        add "cali lay.png" xalign 0 zoom 1
 
     hbox:
         label _("Space")
