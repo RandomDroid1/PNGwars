@@ -1,3 +1,3 @@
-label test_dog_camp:
-    mosk "ijnegbhegrjfedonhb"
+label lietold_espionage:
+
 return

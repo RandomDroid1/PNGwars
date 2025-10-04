@@ -1,1 +1,6 @@
-start: Is the literal start of the game, 
+SCRIPT.RPY    
+    start: Is the literal start of the game, not much special
+        links to: state
+    state: Lets you choose what state your character is from
+        links to: start_continue
+    start_continue:
