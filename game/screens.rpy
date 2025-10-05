@@ -1135,13 +1135,15 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
 
-
+#####################################
 # GOD HELP ME ITS THE NOTEBOOK SCREEN
+#####################################
 screen notebook():
 
     tag menu
 
     default notebookscreen = "keyboard"
+    default viniscreen = "events"
 
     use game_menu(_("Notebook"), scroll="viewport"):
 
@@ -1152,68 +1154,31 @@ screen notebook():
 
             hbox:
 
-                textbutton _("Keyboard") action SetScreenVariable("notebookscreen", "keyboard")
+                textbutton _("Vinick Meowstrong") action SetScreenVariable("notebookscreen", "vini")
                 textbutton _("Mouse") action SetScreenVariable("notebookscreen", "mouse")
+                textbutton _("gamepad") action SetScreenVariable("notebookscreen", "gamepad")
 
-                if (metvini == True):
-                    textbutton _("gamepad") action SetScreenVariable("notebookscreen", "gamepad")
-
-            use keyboard_help
+            use vini_help
 
             use mouse_help
 
             use gamepad_help
 
 
-screen keyboard_help():
-    hbox:
+screen vini_help():
+    vbox:
+        hbox:
+            spacing 10
+            textbutton _("Events") action SetScreenVariable("viniscreen", "events")
+            textbutton _("Variables") action SetScreenVariable("viniscreen", "variables")
+            textbutton _("Sprites") action SetScreenVariable("viniscreen", "sprites")
         label _("Enter")
         text _("Advances dialogue and activates the interface.")
-        add "cali lay.png" xalign 0 zoom 1
+
 
     hbox:
         label _("Space")
         text _("Advances dialogue without selecting choices.")
-
-    hbox:
-        label _("Arrow Keys")
-        text _("Navigate the interface.")
-
-    hbox:
-        label _("Escape")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Ctrl")
-        text _("Skips dialogue while held down.")
-
-    hbox:
-        label _("Tab")
-        text _("Toggles dialogue skipping.")
-
-    hbox:
-        label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Page Down")
-        text _("Rolls forward to later dialogue.")
-
-    hbox:
-        label "H"
-        text _("Hides the user interface.")
-
-    hbox:
-        label "S"
-        text _("Takes a screenshot.")
-
-    hbox:
-        label "V"
-        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
-
-    hbox:
-        label "Shift+A"
-        text _("Opens the accessibility menu.")
 
 
 screen mouse_help():
@@ -1226,17 +1191,6 @@ screen mouse_help():
         label _("Middle Click")
         text _("Hides the user interface.")
 
-    hbox:
-        label _("Right Click")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Mouse Wheel Up")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
 
 
 screen gamepad_help():
@@ -1249,23 +1203,6 @@ screen gamepad_help():
         label _("Left Trigger\nLeft Shoulder")
         text _("Rolls back to earlier dialogue.")
 
-    hbox:
-        label _("Right Shoulder")
-        text _("Rolls forward to later dialogue.")
-
-    hbox:
-        label _("D-Pad, Sticks")
-        text _("Navigate the interface.")
-
-    hbox:
-        label _("Start, Guide, B/Right Button")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Y/Top Button")
-        text _("Hides the user interface.")
-
-    textbutton _("Calibrate") action GamepadCalibrate()
 
 
 style help_button is gui_button
