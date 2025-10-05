@@ -1,4 +1,5 @@
 ﻿# Structure of textbox image names "textbox(Faction)_(Rank)(Any Other Details)"
+# character name structures (4 letters of first name)(1 letter of last name)(vini, cali, mosk, garn made before this)
 # Meta Characters
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
@@ -11,6 +12,7 @@ define cali = Character("Cali Meowford", window_background=Image("textboxameowic
 # Dog Characters
 define mosk = Character("Mischa Moskvi")
 define garn = Character("Sloan Garner") 
+define varam = Character ("Varash Moskvi")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
@@ -29,6 +31,7 @@ default moskrep = 0
 
 # Other
 default knew_before = False
+default garn_hurt = False
 # The game starts here.
 
 label start:
@@ -367,17 +370,24 @@ label jet_plane_crash:
     garn "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
     mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
     player "You feel yourself begin to wake up"
+    show concussion:
+        linear .5 alpha 0
+    pause .5
+    hide concussion
     show bg forest1:
         zoom 1
-        xpos -50
-        ypos -350
+        xalign 0
+        ypos 600
     menu dog_scary:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
-            mosk "Lets go." 
+            hide concussion with dissolve
+            mosk "Lets go."
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
+            hide concussion with dissolve
             $ animalrep -= 1
             $ dogrep -= 2
             $ garnrep -= -2
+            $ garn_hurt = True
             player "you twist around to smack the dog holding you with your claws"
             show garn standalert
             garn "you {cps=7}BASTARD{/cps}"
@@ -391,14 +401,21 @@ label jet_plane_crash:
             player "Hey! Let me go... please."
             hide concussion with dissolve
             show bg forest1:
-                ypos -350
-                linear .2 ypos -600
+                linear .2 yoffset -600
+            pause .2
+            show bg forest1 with vpunch
             show bg forest1 with vpunch
             # PLACEHOLDER // Need continues
             mosk "The cat awakes! Who are you, small one?"
-            show bg forest:
+            show bg forest1:
                 xpan 0
-                linear 2 xpan 50
+                linear 2 xpan 180
+            pause 1
+            show mosk stand:
+                yalign .4
+                xpos 2000
+                linear 1 xoffset -1200
+            pause 1
             # PLACEHOLDER // see if you can make this timed?
             jump wake_up_calm_dog_confrontation
 
@@ -408,10 +425,10 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     $ moskrep -= 2
                     $ dogrep -= 1
                     $ animalrep -= 1
-                    mosk "Your Ameowican, I presume. {w=3} Your flight would've taken about 2 hours to get here."
+                    mosk "Your Ameowican, I presume... {w=3} Your flight would've taken, what? 2 hours to get here."
                     mosk "The news broke 3 hours ago, and a vast majority of flights here were cancelled."
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
-                    mosk "Personally {w=2}, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
+                    mosk "Personally, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
                         "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
                             $ moskrep -= 1
@@ -460,4 +477,4 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."
-                    jump truthtold_calm  
+                    jump truthtold_calm
