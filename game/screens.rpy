@@ -1001,7 +1001,7 @@ screen help():
 
                 if GamepadExists():
                     textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
-
+                textbutton _(device)
             if device == "keyboard":
                 use keyboard_help
             elif device == "mouse":
@@ -1143,44 +1143,43 @@ screen notebook():
     tag menu
 
     default notebookscreen = "keyboard"
-    default viniscreen = "events"
-
+    
     use game_menu(_("Notebook"), scroll="viewport"):
 
-        style_prefix "help"
+        style_prefix "notebook"
 
         vbox:
             spacing 23
-
             hbox:
-
                 textbutton _("Vinick Meowstrong") action SetScreenVariable("notebookscreen", "vini")
                 textbutton _("Mouse") action SetScreenVariable("notebookscreen", "mouse")
                 textbutton _("gamepad") action SetScreenVariable("notebookscreen", "gamepad")
-
+                textbutton _(notebookscreen)
             use vini_help
-
-            use mouse_help
-
-            use gamepad_help
 
 
 screen vini_help():
+    tag menu
+    default viniscreen = "wawa"
     vbox:
+        spacing 23
+        
         hbox:
-            spacing 10
             textbutton _("Events") action SetScreenVariable("viniscreen", "events")
             textbutton _("Variables") action SetScreenVariable("viniscreen", "variables")
-            textbutton _("Sprites") action SetScreenVariable("viniscreen", "sprites")
-        label _("Enter")
-        text _("Advances dialogue and activates the interface.")
+            textbutton _("gamepad") action SetScreenVariable("viniscreen", "gamepad")
 
+        if viniscreen == "gamepad":
+            use gamepad_help
+        elif viniscreen == "events":
+            text _("Events")
+            use variables
 
+        elif viniscreen == "variables":
+            use mouse_help
+screen variables():
     hbox:
-        label _("Space")
-        text _("Advances dialogue without selecting choices.")
-
-
+        text _("weewoo")
 screen mouse_help():
 
     hbox:
