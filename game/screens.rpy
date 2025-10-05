@@ -1143,64 +1143,63 @@ screen notebook():
     tag menu
 
     default notebookscreen = "keyboard"
-    
-    use game_menu(_("Notebook"), scroll="viewport"):
 
-        style_prefix "notebook"
+    use game_menu(_("Help"), scroll="viewport"):
+
+        style_prefix "help"
 
         vbox:
             spacing 23
+
             hbox:
-                textbutton _("Vinick Meowstrong") action SetScreenVariable("notebookscreen", "vini")
-                textbutton _("Mouse") action SetScreenVariable("notebookscreen", "mouse")
-                textbutton _("gamepad") action SetScreenVariable("notebookscreen", "gamepad")
+
+                textbutton _("Keyboard") action SetScreenVariable("notebookscreen", "vini")
+                textbutton _("Mouse") action SetScreenVariable("notebookscreen", "cali")
+
+                
+                textbutton _("Gamepad") action SetScreenVariable("notebookscreen", "mosk")
                 textbutton _(notebookscreen)
-            use vini_help
+            if notebookscreen == "vini":
+                use one_help
+            elif notebookscreen == "cali":
+                use two_help
+            elif notebookscreen == "mosk":
+                use three_help
 
 
-screen vini_help():
-    tag menu
-    default viniscreen = "wawa"
+screen one_help():
+
+    default viniscreen = "keyboard"
+    style_prefix "help"
+    use game_menu(_("Help"), scroll="viewport"):
     vbox:
         spacing 23
-        
+
         hbox:
             textbutton _("Events") action SetScreenVariable("viniscreen", "events")
             textbutton _("Variables") action SetScreenVariable("viniscreen", "variables")
-            textbutton _("gamepad") action SetScreenVariable("viniscreen", "gamepad")
-
-        if viniscreen == "gamepad":
-            use gamepad_help
-        elif viniscreen == "events":
-            text _("Events")
-            use variables
-
+            textbutton _("Sprites") action SetScreenVariable("viniscreen", "sprites")
+            textbutton _(viniscreen)
+        if viniscreen == "events":
+            label _("wawa1")
         elif viniscreen == "variables":
-            use mouse_help
-screen variables():
-    hbox:
-        text _("weewoo")
-screen mouse_help():
+            label _("wawa2")
+        elif viniscreen == "sprites":
+            label _("wawa3")
+
+screen two_help():
 
     hbox:
         label _("Left Click")
         text _("Advances dialogue and activates the interface.")
 
-    hbox:
-        label _("Middle Click")
-        text _("Hides the user interface.")
 
 
-
-screen gamepad_help():
+screen three_help():
 
     hbox:
         label _("Right Trigger\nA/Bottom Button")
         text _("Advances dialogue and activates the interface.")
-
-    hbox:
-        label _("Left Trigger\nLeft Shoulder")
-        text _("Rolls back to earlier dialogue.")
 
 
 
