@@ -1169,24 +1169,49 @@ screen notebook():
 
 screen one_help():
 
-    default viniscreen = "keyboard"
-    style_prefix "help"
-    use game_menu(_("Help"), scroll="viewport"):
+    tag menu
+
+    default test1 = "1"
+
     vbox:
         spacing 23
 
         hbox:
-            textbutton _("Events") action SetScreenVariable("viniscreen", "events")
-            textbutton _("Variables") action SetScreenVariable("viniscreen", "variables")
-            textbutton _("Sprites") action SetScreenVariable("viniscreen", "sprites")
-            textbutton _(viniscreen)
-        if viniscreen == "events":
-            label _("wawa1")
-        elif viniscreen == "variables":
-            label _("wawa2")
-        elif viniscreen == "sprites":
-            label _("wawa3")
 
+            textbutton _("1") action ShowMenu("testone")
+            textbutton _("2") action SetVariable("test1", "2")
+            textbutton _("3") action SetVariable("test1", "3")
+            textbutton _(test1) 
+    if test1 == "1":
+        use testtwo
+    elif test1 == "2":
+        use testtwo
+    elif test1 == "3":
+        use testthree
+screen testone():
+    tag menu
+
+    default test1 = "1"
+
+    vbox:
+        spacing 23
+
+        hbox:
+
+            textbutton _("1") action ShowMenu("one_help")
+            textbutton _("2") action SetVariable("test1", "2")
+            textbutton _("3") action SetVariable("test1", "3")
+            textbutton _(test1) 
+screen testtwo():
+
+    hbox:
+        label _("testtwo")
+        text _("Advances dialogue and activates the interface.")
+screen testthree():
+    
+    hbox:
+        label _("testthree")
+        text _("Advances dialogue and activates the interface.")
 screen two_help():
 
     hbox:
