@@ -1001,7 +1001,7 @@ screen help():
 
                 if GamepadExists():
                     textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
-
+                textbutton _(device)
             if device == "keyboard":
                 use keyboard_help
             elif device == "mouse":
@@ -1135,15 +1135,16 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
 
-
+#####################################
 # GOD HELP ME ITS THE NOTEBOOK SCREEN
+#####################################
 screen notebook():
 
     tag menu
 
     default notebookscreen = "keyboard"
 
-    use game_menu(_("Notebook"), scroll="viewport"):
+    use game_menu(_("Help"), scroll="viewport"):
 
         style_prefix "help"
 
@@ -1152,120 +1153,79 @@ screen notebook():
 
             hbox:
 
-                textbutton _("Keyboard") action SetScreenVariable("notebookscreen", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("notebookscreen", "mouse")
+                textbutton _("Keyboard") action SetScreenVariable("notebookscreen", "vini")
+                textbutton _("Mouse") action SetScreenVariable("notebookscreen", "cali")
 
-                if (metvini == True):
-                    textbutton _("gamepad") action SetScreenVariable("notebookscreen", "gamepad")
+                
+                textbutton _("Gamepad") action SetScreenVariable("notebookscreen", "mosk")
+                textbutton _(notebookscreen)
+            if notebookscreen == "vini":
+                use one_help
+            elif notebookscreen == "cali":
+                use two_help
+            elif notebookscreen == "mosk":
+                use three_help
 
-            use keyboard_help
 
-            use mouse_help
+screen one_help():
 
-            use gamepad_help
+    tag menu
 
+    default test1 = "1"
 
-screen keyboard_help():
+    vbox:
+        spacing 23
+
+        hbox:
+
+            textbutton _("1") action ShowMenu("testone")
+            textbutton _("2") action SetVariable("test1", "2")
+            textbutton _("3") action SetVariable("test1", "3")
+            textbutton _(test1) 
+    if test1 == "1":
+        use testtwo
+    elif test1 == "2":
+        use testtwo
+    elif test1 == "3":
+        use testthree
+screen testone():
+    tag menu
+
+    default test1 = "1"
+
+    vbox:
+        spacing 23
+
+        hbox:
+
+            textbutton _("1") action ShowMenu("one_help")
+            textbutton _("2") action SetVariable("test1", "2")
+            textbutton _("3") action SetVariable("test1", "3")
+            textbutton _(test1) 
+screen testtwo():
+
     hbox:
-        label _("Enter")
+        label _("testtwo")
         text _("Advances dialogue and activates the interface.")
-        add "cali lay.png" xalign 0 zoom 1
-
+screen testthree():
+    
     hbox:
-        label _("Space")
-        text _("Advances dialogue without selecting choices.")
-
-    hbox:
-        label _("Arrow Keys")
-        text _("Navigate the interface.")
-
-    hbox:
-        label _("Escape")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Ctrl")
-        text _("Skips dialogue while held down.")
-
-    hbox:
-        label _("Tab")
-        text _("Toggles dialogue skipping.")
-
-    hbox:
-        label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Page Down")
-        text _("Rolls forward to later dialogue.")
-
-    hbox:
-        label "H"
-        text _("Hides the user interface.")
-
-    hbox:
-        label "S"
-        text _("Takes a screenshot.")
-
-    hbox:
-        label "V"
-        text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
-
-    hbox:
-        label "Shift+A"
-        text _("Opens the accessibility menu.")
-
-
-screen mouse_help():
+        label _("testthree")
+        text _("Advances dialogue and activates the interface.")
+screen two_help():
 
     hbox:
         label _("Left Click")
         text _("Advances dialogue and activates the interface.")
 
-    hbox:
-        label _("Middle Click")
-        text _("Hides the user interface.")
-
-    hbox:
-        label _("Right Click")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Mouse Wheel Up")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
 
 
-screen gamepad_help():
+screen three_help():
 
     hbox:
         label _("Right Trigger\nA/Bottom Button")
         text _("Advances dialogue and activates the interface.")
 
-    hbox:
-        label _("Left Trigger\nLeft Shoulder")
-        text _("Rolls back to earlier dialogue.")
-
-    hbox:
-        label _("Right Shoulder")
-        text _("Rolls forward to later dialogue.")
-
-    hbox:
-        label _("D-Pad, Sticks")
-        text _("Navigate the interface.")
-
-    hbox:
-        label _("Start, Guide, B/Right Button")
-        text _("Accesses the game menu.")
-
-    hbox:
-        label _("Y/Top Button")
-        text _("Hides the user interface.")
-
-    textbutton _("Calibrate") action GamepadCalibrate()
 
 
 style help_button is gui_button
