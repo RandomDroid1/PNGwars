@@ -1153,78 +1153,41 @@ screen notebook():
 
             hbox:
 
-                textbutton _("Keyboard") action SetScreenVariable("notebookscreen", "vini")
-                textbutton _("Mouse") action SetScreenVariable("notebookscreen", "cali")
+                textbutton _("Wa") action ShowMenu("one_help")
+                textbutton _("wa") action SetScreenVariable("notebookscreen", "cali")
 
                 
-                textbutton _("Gamepad") action SetScreenVariable("notebookscreen", "mosk")
+                textbutton _("WAA") action SetScreenVariable("notebookscreen", "mosk")
                 textbutton _(notebookscreen)
             if notebookscreen == "vini":
                 use one_help
-            elif notebookscreen == "cali":
-                use two_help
-            elif notebookscreen == "mosk":
-                use three_help
+
 
 
 screen one_help():
-
     tag menu
 
-    default test1 = "1"
+    default notebookscreen = "keyboard"
 
-    vbox:
-        spacing 23
+    use game_menu(_("Help"), scroll="viewport"):
 
-        hbox:
+        style_prefix "help"
 
-            textbutton _("1") action ShowMenu("testone")
-            textbutton _("2") action SetVariable("test1", "2")
-            textbutton _("3") action SetVariable("test1", "3")
-            textbutton _(test1) 
-    if test1 == "1":
-        use testtwo
-    elif test1 == "2":
-        use testtwo
-    elif test1 == "3":
-        use testthree
-screen testone():
-    tag menu
+        vbox:
+            spacing 23
 
-    default test1 = "1"
+            hbox:
 
-    vbox:
-        spacing 23
+                textbutton _("Wa") action ShowMenu("two_help")
+                textbutton _("wa") action SetScreenVariable("notebookscreen", "cali")
 
-        hbox:
-
-            textbutton _("1") action ShowMenu("one_help")
-            textbutton _("2") action SetVariable("test1", "2")
-            textbutton _("3") action SetVariable("test1", "3")
-            textbutton _(test1) 
-screen testtwo():
-
-    hbox:
-        label _("testtwo")
-        text _("Advances dialogue and activates the interface.")
-screen testthree():
-    
-    hbox:
-        label _("testthree")
-        text _("Advances dialogue and activates the interface.")
+                
+                textbutton _("WAA") action SetScreenVariable("notebookscreen", "mosk")
+                textbutton _("wawa")
+            if notebookscreen == "vini":
+                use two_help
 screen two_help():
-
-    hbox:
-        label _("Left Click")
-        text _("Advances dialogue and activates the interface.")
-
-
-
-screen three_help():
-
-    hbox:
-        label _("Right Trigger\nA/Bottom Button")
-        text _("Advances dialogue and activates the interface.")
+    textbutton _(notebookscreen)
 
 
 
