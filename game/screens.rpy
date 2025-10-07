@@ -1288,38 +1288,61 @@ style confirm_button_text:
 #####################################
 screen attributions():
     tag menu
-
-    default device = "keyboard"
-
-    use game_menu(_("Help"), scroll="viewport"):
-
-        style_prefix "help"
-        hbox:
-            label _("Cali Sit")
-            text _("Advances dialogue \nand activates the interface.")
-            image _("cali sit.png"):
-                xoffset -500
-                yoffset -300
-        hbox:
-            label _("Left Trigger\nLeft Shoulder")
-            text _("Rolls back to earlier dialogue.")
-
-        hbox:
-            label _("Right Shoulder")
-            text _("Rolls forward to later dialogue.")
-
-        hbox:
-            label _("D-Pad, Sticks")
-            text _("Navigate the interface.")
-
-        hbox:
-            label _("Start, Guide, B/Right Button")
-            text _("Accesses the game menu.")
-
-        hbox:
-            label _("Y/Top Button")
-            text _("Hides the user interface.")
-
+    frame:
+        use game_menu(_("Attributions"), scroll="viewport"):
+            viewport id "my_viewport": # Assign an ID to your viewport
+                    mousewheel True # Allows scrolling with the mouse wheel
+                    scrollbars "vertical" # or "horizontal", or "both"
+            style_prefix "help"
+            hbox: # General Cali Tab
+                label _("Cali (All sprites)")
+                text _("All Cali Meowford sprite images, aside for one, are done by Jim/iqsphotography on Unsplash \ncheck out his work at {a=https://unsplash.com/@iqsphotography}This Link{/a}")
+                
+                image _("cali sit.png"):
+                    zoom .4
+                    xoffset -1000
+                    yoffset 100
+                image _("cali sidelay.png"):
+                    zoom .5
+                    xoffset -1000
+                    yoffset 100
+                image _("cali lookback.png"):
+                    zoom .45
+                    xoffset -1050
+                    yoffset 125
+                image _("cali lay.png"):
+                    zoom .5
+                    xoffset -1100
+                    yoffset 100
+            
+            hbox: # Cali Jump Tab
+                label _("Cali Jump"):
+                    yoffset 100
+                text _("Used as a transition for President Cali, this was taken by {a=https://www.flickr.com/people/85936780@N00}Pelican on Flickrr{/a}, but can also be found on {a=https://commons.wikimedia.org/wiki/File:Calico_cat_(23454134083).jpg}wikimedia{/a}"):
+                    yoffset 100
+                image _("cali jump.png"):
+                    zoom .5
+                    xoffset -1200
+                    yoffset 150
+            
+            hbox: # bg office tab
+                label _("bg office.jpg"):
+                    yoffset 150
+                text _("Used as a background in the starting sequence, this was taken by {a=https://www.flickr.com/people/85936780@N00}Pelican on Flickrr{/a}, but can also be found on {a=https://commons.wikimedia.org/wiki/File:Calico_cat_(23454134083).jpg}wikimedia{/a}"):
+                    yoffset 150
+                image _("bg office.jpg"):
+                    zoom .05
+                    xoffset -1200
+                    yoffset 200
+            hbox: # bg office tab
+                label _("bg office.jpg"):
+                    yoffset 150
+                text _("Used as a background in the starting sequence, this was taken by {a=https://www.flickr.com/people/85936780@N00}Pelican on Flickrr{/a}, but can also be found on {a=https://commons.wikimedia.org/wiki/File:Calico_cat_(23454134083).jpg}wikimedia{/a}"):
+                    yoffset 150
+                image _("bg office.jpg"):
+                    zoom .05
+                    xoffset -1200
+                    yoffset 200
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
