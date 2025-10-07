@@ -1143,7 +1143,7 @@ screen notebook():
 
     tag menu
 
-    default notebookscreen = "keyboard"
+    default notebookscreen = "disclaimer"
 
     use game_menu(_("Help"), scroll="viewport"):
 
@@ -1162,7 +1162,10 @@ screen notebook():
                 textbutton _(notebookscreen)
             if notebookscreen == "vini":
                 use one_help
-
+            if notebookscreen == "disclaimer":
+                label _("Disclaimer:")
+                text _("This menu is incomplete and messing with it will probably crash your game lol")
+                text _("(Im a responsible game dev)")
 
 
 screen one_help():
