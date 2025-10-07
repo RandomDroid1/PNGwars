@@ -326,7 +326,9 @@ screen navigation():
             ## Help isn't necessary or relevant to mobile devices.
             textbutton _("Help") action ShowMenu("help")
 
-            textbutton _("Notebook") action ShowMenu("notebook")
+        textbutton _("Notebook") action ShowMenu("notebook")
+        
+        textbutton _("Attributions") action ShowMenu("attributions")
 
         if renpy.variant("pc"):
 
@@ -1278,7 +1280,42 @@ style confirm_button:
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
+#####################################
+# Attributions, Attributions
+#####################################
+screen attributions():
+    tag menu
 
+    default device = "keyboard"
+
+    use game_menu(_("Help"), scroll="viewport"):
+
+        style_prefix "help"
+        hbox:
+            label _("Cali Sit")
+            text _("Advances dialogue \nand activates the interface.")
+            image _("cali sit.png"):
+                xoffset -500
+                yoffset -300
+        hbox:
+            label _("Left Trigger\nLeft Shoulder")
+            text _("Rolls back to earlier dialogue.")
+
+        hbox:
+            label _("Right Shoulder")
+            text _("Rolls forward to later dialogue.")
+
+        hbox:
+            label _("D-Pad, Sticks")
+            text _("Navigate the interface.")
+
+        hbox:
+            label _("Start, Guide, B/Right Button")
+            text _("Accesses the game menu.")
+
+        hbox:
+            label _("Y/Top Button")
+            text _("Hides the user interface.")
 
 ## Skip indicator screen #######################################################
 ##
