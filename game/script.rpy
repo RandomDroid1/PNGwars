@@ -35,7 +35,7 @@ default garn_hurt = False
 # The game starts here.
 
 label start:
-
+    play music "aura.mp3"
     # This launches the Start background and plays it
     show launch
     nar "Hello."
@@ -112,6 +112,7 @@ label start_continue:
     jump true_start
 # True starting zone
 label true_start: 
+    play music "pink.mp3"
 # This shows changes the background
     scene bg office:
         zoom .5
