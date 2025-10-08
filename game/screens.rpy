@@ -1299,6 +1299,7 @@ screen attributions():
         use attributions_cali
         use attributions_oval_office
         use attributions_vinick
+        use attributions_plane
 screen attributions_cali():
     frame:
         xsize .999
@@ -1373,42 +1374,48 @@ screen attributions_oval_office():
 screen attributions_vinick():
     frame:
         xsize .999
-        ysize 1000
+        ysize 600
         vbox:
             hbox: # Vinick Sit
                 label _("Vinick Sit"):
-                    yoffset 325
+                    yoffset 10
                 text _("Used as the first sprite the player sees, Vinick Meowstrong is the best silly guy. Anyway, this was taken by {a=https://unsplash.com/@vidak}Vidak on Unsplash{/a}"):
-                    yoffset 325
+                    yoffset 10
                 image _("vinick idle.png"):
                     zoom .5
                     xoffset -1225
-                    yoffset 300
 
             hbox: # Vinick Sit
-                label _("Vinick Look Up"):
-                    yoffset 300
-                text _("Used as the first sprite the player sees, Vinick Meowstrong is the best silly guy. Anyway, this was taken by {a=https://unsplash.com/@vidak}Vidak on Unsplash{/a}"):
-                    yoffset 300
+                label _("Vinick Look Up")
+                text _("Used as another Vinick sprite. this was taken by {a=https://unsplash.com/@luschetinger}Luísa Schetinger{/a} on{a=https://unsplash.com/photos/black-cat-on-white-floor-l8rgI_gH1YU}  Unsplash{/a}")      
                 image _("vinick lookup.png"):
                     zoom .4
-                    xoffset -1200
-                    yoffset 350
-screen attributions_three():
+                    xoffset -1100
+                    yoffset 35
+screen attributions_plane():
     frame:
         xsize .999
         ysize 1000
         vbox:
             
             hbox: # bg planeseat1
-                label _("Plane Seat"):
-                    yoffset 600
-                text _("Used as an alternate background when Cali Meowford enters the scene this was taken by White House Photographers and is {a=https://commons.wikimedia.org/wiki/File:Empty_Oval_Office_in_The_White_House.jpg?uselang=en#Licensing}public domain{/a}"):
-                    yoffset 600
-                image _("bg ovalofficeoverlook.jpg"):
-                    zoom .05
-                    xoffset -1125
-                    yoffset 700
+                label _("Plane Seat One"):
+                    yoffset 10
+                text _("Used as the background when you get onto the plane. Taken by{a=https://unsplash.com/@pino_rumbero} Micheal Pointer{/a} on {a=https://unsplash.com/photos/the-inside-of-an-airplane-with-the-lights-on-r12sSEwuMJo}Unsplash{/a}"):
+                    yoffset 10
+                image _("bg planeseat1.jpg"):
+                    zoom .04
+                    xoffset -1175
+                    yoffset 50
+            hbox: # bg planeseat1
+                label _("Plane Seat One"):
+                    yoffset 90
+                text _("Used as the background before you crash lmao. Taken by{a=https://unsplash.com/@sashafreemind} Sasha Freemind{/a} on {a=https://unsplash.com/photos/plane-window-overlooking-sea-of-clouds-cm0eSVxdLDg}Unsplash{/a}"):
+                    yoffset 90
+                image _("bg planewindow1.jpg"):
+                    zoom .04
+                    xoffset -1175
+                    yoffset 50
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
