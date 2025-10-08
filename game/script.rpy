@@ -10,7 +10,7 @@ define cali = Character("Cali Meowford", window_background=Image("textboxameowic
 
 # Animal Characters
 # Dog Characters
-define mosk = Character("Mischa Moskvi")
+define mosk = Character("Mischa Sobaka")
 define garn = Character("Sloan Garner") 
 define varam = Character ("Varash Moskvi")
 # Establishes the movie

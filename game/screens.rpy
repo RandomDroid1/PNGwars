@@ -1300,6 +1300,8 @@ screen attributions():
         use attributions_oval_office
         use attributions_vinick
         use attributions_plane
+        use attributions_forest
+        use attributions_mischa
 screen attributions_cali():
     frame:
         xsize .999
@@ -1395,7 +1397,7 @@ screen attributions_vinick():
 screen attributions_plane():
     frame:
         xsize .999
-        ysize 1000
+        ysize 550
         vbox:
             
             hbox: # bg planeseat1
@@ -1407,15 +1409,65 @@ screen attributions_plane():
                     zoom .04
                     xoffset -1175
                     yoffset 50
-            hbox: # bg planeseat1
-                label _("Plane Seat One"):
+            hbox: # bg planewindow1
+                label _("Plane Window"):
                     yoffset 90
                 text _("Used as the background before you crash lmao. Taken by{a=https://unsplash.com/@sashafreemind} Sasha Freemind{/a} on {a=https://unsplash.com/photos/plane-window-overlooking-sea-of-clouds-cm0eSVxdLDg}Unsplash{/a}"):
                     yoffset 90
                 image _("bg planewindow1.jpg"):
                     zoom .04
                     xoffset -1175
-                    yoffset 50
+                    yoffset 150
+
+screen attributions_forest():
+    frame:
+        xsize .999
+        ysize 250
+        vbox:
+            
+            hbox: # bg forest1
+                label _("Forest Background"):
+                    yoffset 10
+                text _("Used as the background once you crash and meet the dogs. Taken by{a=https://unsplash.com/@iriser} Irina Iriser{/a} on {a=https://unsplash.com/photos/green-leafed-trees-2Y4dE8sdhlc}Unsplash{/a}"):
+                    yoffset 10
+                image _("bg forest1.jpg"):
+                    zoom .04
+                    xoffset -1175
+                    yoffset 60
+
+screen attributions_mischa():
+    frame:
+        xsize .999
+        ysize 300
+        vbox:
+            
+            hbox: # mosk all
+                label _("Mischa Sobaka"):
+                    yoffset 10
+                text _("Mischa Sobaka! The military leader of the dogs, all images of mischa are done by {a=https://unsplash.com/photos/a-brown-and-white-dog-standing-on-top-of-snow-covered-ground-WYOJaVGprZY} Adrian 'Rosco' Stef{/a}"):
+                    yoffset 10
+                image _("mosk stand.png"):
+                    zoom .3
+                    xoffset -1175
+                    yoffset 60
+                image _("mosk standcutoff.png"):
+                    zoom .6
+                    xoffset -1175
+                    yoffset -75
+                image _("mosk standshock.png"):
+                    zoom .3
+                    xoffset -1175
+                    yoffset 80
+                image _("mosk standside.png"):
+                    zoom .4
+                    xoffset -1175
+                    yoffset 100
+                image _("mosk standsniff.png"):
+                    zoom .3
+                    xoffset -1175
+                    yoffset 80
+
+
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in

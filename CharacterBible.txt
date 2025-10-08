@@ -11,7 +11,7 @@ President Cali Meowford (cali) -
 
 ----- ANIMALS -----
     ----- DOGS -----
-        Bay leader Mischa Moskvi (mosk) -
-            Siberian Husky, lead military trainer of the dog pack.
+        Bay leader Mischa Sobaka (mosk) -
+            Mosk is a remnant of their old last name, hasn't been changed in code yet. Siberian Husky, lead military trainer of the dog pack.
         Bay XO Sloan Garner (garn) -
             Doberman, Moskvi's XO,
