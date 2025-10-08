@@ -1062,6 +1062,7 @@ screen keyboard_help():
         text _("Opens the accessibility menu.")
 
 
+
 screen mouse_help():
 
     hbox:
@@ -1288,31 +1289,42 @@ style confirm_button_text:
 #####################################
 screen attributions():
     tag menu
+
+    default device = "keyboard"
+
+    use game_menu(_("Help"), scroll="viewport"):
+
+        style_prefix "help"
+
+        use attributions_cali
+        use attributions_oval_office
+        use attributions_three
+screen attributions_cali():
     frame:
-        use game_menu(_("Attributions"), scroll="viewport"):
-            viewport id "my_viewport": # Assign an ID to your viewport
-                    mousewheel True # Allows scrolling with the mouse wheel
-                    scrollbars "vertical" # or "horizontal", or "both"
-            style_prefix "help"
+        xsize .999
+        ysize 560
+        vbox:
+
             hbox: # General Cali Tab
-                label _("Cali (All sprites)")
-                text _("All Cali Meowford sprite images, aside for one, are done by Jim/iqsphotography on Unsplash \ncheck out his work at {a=https://unsplash.com/@iqsphotography}This Link{/a}")
-                
+                label _("Cali (All sprites)"):
+                    yoffset 10
+                text _("All Cali Meowford sprite images, aside for one, are done by Jim/iqsphotography on Unsplash \ncheck out his work at {a=https://unsplash.com/@iqsphotography}This Link{/a}"):
+                    yoffset 10
                 image _("cali sit.png"):
                     zoom .4
-                    xoffset -1000
-                    yoffset 100
+                    xpos -1000
+                    yoffset 110
                 image _("cali sidelay.png"):
                     zoom .5
-                    xoffset -1000
+                    xpos -1000
                     yoffset 100
                 image _("cali lookback.png"):
                     zoom .45
-                    xoffset -1050
+                    xpos -1000
                     yoffset 125
                 image _("cali lay.png"):
                     zoom .5
-                    xoffset -1100
+                    xpos -1000
                     yoffset 100
             
             hbox: # Cali Jump Tab
@@ -1324,25 +1336,82 @@ screen attributions():
                     zoom .5
                     xoffset -1200
                     yoffset 150
-            
+
+screen attributions_oval_office():
+    frame:
+        xsize .999
+        ysize 900
+        vbox:            
             hbox: # bg office tab
-                label _("bg office.jpg"):
-                    yoffset 150
-                text _("Used as a background in the starting sequence, this was taken by {a=https://www.flickr.com/people/85936780@N00}Pelican on Flickrr{/a}, but can also be found on {a=https://commons.wikimedia.org/wiki/File:Calico_cat_(23454134083).jpg}wikimedia{/a}"):
-                    yoffset 150
+                label _("Oval Office Background"):
+                    yoffset 10
+                text _("Used as a background in the starting sequence, this was taken by {a=https://unsplash.com/@chapelbeach}Donghun Shin/chapelbeach on Unsplash{/a}"):
+                    yoffset 10
                 image _("bg office.jpg"):
                     zoom .05
                     xoffset -1200
-                    yoffset 200
-            hbox: # bg office tab
-                label _("bg office.jpg"):
+                    yoffset 100
+            hbox:
+                label _("Oval Office Background 2"):
                     yoffset 150
-                text _("Used as a background in the starting sequence, this was taken by {a=https://www.flickr.com/people/85936780@N00}Pelican on Flickrr{/a}, but can also be found on {a=https://commons.wikimedia.org/wiki/File:Calico_cat_(23454134083).jpg}wikimedia{/a}"):
+                text _("Used as an alternate background when Cali Meowford enters the scene this was taken by White House Photographers and is {a=https://commons.wikimedia.org/wiki/File:Empty_Oval_Office_in_The_White_House.jpg?uselang=en#Licensing}public domain{/a}"):
                     yoffset 150
-                image _("bg office.jpg"):
+                image _("bg ovalofficeoverlook.jpg"):
                     zoom .05
+                    xoffset -1125
+                    yoffset 250
+            hbox:
+                label _("Oval Office Chairs"):
+                    yoffset 150
+                text _("Used to give Cali Meowford somewhere to sit! Taken by Michael Barera, and can be found on {a=https://commons.wikimedia.org/wiki/File:Lyndon_Baines_Johnson_Library_and_Museum_July_2017_5_%28The_Oval_Office%29.jpg}on Wikimedia{/a}"):
+                    yoffset 150
+                image _("bg ovalofficeoverlook.jpg"):
+                    zoom .05
+                    xoffset -1125
+                    yoffset 250
+
+screen attributions_vinick():
+    frame:
+        xsize .999
+        ysize 9000
+        vbox:
+            text _("blah")
+screen attributions_three():
+    frame:
+        xsize .999
+        ysize 9000
+        vbox:
+                    
+            hbox: # Vinick Sit
+                label _("Vinick Sit"):
+                    yoffset 325
+                text _("Used as the first sprite the player sees, Vinick Meowstrong is the best silly guy. Anyway, this was taken by {a=https://unsplash.com/@vidak}Vidak on Unsplash{/a}"):
+                    yoffset 325
+                image _("vinick idle.png"):
+                    zoom .5
+                    xoffset -1225
+                    yoffset 300
+
+            hbox: # Vinick Sit
+                label _("Vinick Look Up"):
+                    yoffset 300
+                text _("Used as the first sprite the player sees, Vinick Meowstrong is the best silly guy. Anyway, this was taken by {a=https://unsplash.com/@vidak}Vidak on Unsplash{/a}"):
+                    yoffset 300
+                image _("vinick lookup.png"):
+                    zoom .4
                     xoffset -1200
-                    yoffset 200
+                    yoffset 350
+        
+
+            hbox: # bg planeseat1
+                label _("Plane Seat"):
+                    yoffset 600
+                text _("Used as an alternate background when Cali Meowford enters the scene this was taken by White House Photographers and is {a=https://commons.wikimedia.org/wiki/File:Empty_Oval_Office_in_The_White_House.jpg?uselang=en#Licensing}public domain{/a}"):
+                    yoffset 600
+                image _("bg ovalofficeoverlook.jpg"):
+                    zoom .05
+                    xoffset -1125
+                    yoffset 700
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
