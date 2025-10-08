@@ -1298,7 +1298,7 @@ screen attributions():
 
         use attributions_cali
         use attributions_oval_office
-        use attributions_three
+        use attributions_vinick
 screen attributions_cali():
     frame:
         xsize .999
@@ -1362,26 +1362,19 @@ screen attributions_oval_office():
                     yoffset 250
             hbox:
                 label _("Oval Office Chairs"):
-                    yoffset 150
-                text _("Used to give Cali Meowford somewhere to sit! Taken by Michael Barera, and can be found on {a=https://commons.wikimedia.org/wiki/File:Lyndon_Baines_Johnson_Library_and_Museum_July_2017_5_%28The_Oval_Office%29.jpg}on Wikimedia{/a}"):
-                    yoffset 150
-                image _("bg ovalofficeoverlook.jpg"):
-                    zoom .05
-                    xoffset -1125
-                    yoffset 250
+                    yoffset 300
+                text _("Used to give Cali Meowford somewhere to sit while yapping your ear off. Taken by Michael Barera, and can be found on {a=https://commons.wikimedia.org/wiki/File:Lyndon_Baines_Johnson_Library_and_Museum_July_2017_5_%28The_Oval_Office%29.jpg}on Wikimedia{/a}"):
+                    yoffset 300
+                image _("bg ovalofficesit.jpg"):
+                    zoom .055
+                    xoffset -1200
+                    yoffset 350
 
 screen attributions_vinick():
     frame:
         xsize .999
-        ysize 9000
+        ysize 1000
         vbox:
-            text _("blah")
-screen attributions_three():
-    frame:
-        xsize .999
-        ysize 9000
-        vbox:
-                    
             hbox: # Vinick Sit
                 label _("Vinick Sit"):
                     yoffset 325
@@ -1401,8 +1394,12 @@ screen attributions_three():
                     zoom .4
                     xoffset -1200
                     yoffset 350
-        
-
+screen attributions_three():
+    frame:
+        xsize .999
+        ysize 1000
+        vbox:
+            
             hbox: # bg planeseat1
                 label _("Plane Seat"):
                     yoffset 600
