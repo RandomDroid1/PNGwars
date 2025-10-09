@@ -1138,7 +1138,7 @@ style help_label_text:
     textalign 1.0
 
 #####################################
-# GOD HELP ME ITS THE NOTEBOOK SCREEN
+# HELP ME ITS THE NOTEBOOK SCREEN
 #####################################
 screen notebook():
 
@@ -1146,7 +1146,7 @@ screen notebook():
 
     default notebookscreen = "disclaimer"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("Notebook"), scroll="viewport"):
 
         style_prefix "help"
 
@@ -1292,7 +1292,7 @@ screen attributions():
 
     default device = "keyboard"
 
-    use game_menu(_("Help"), scroll="viewport"):
+    use game_menu(_("Attributions"), scroll="viewport"):
 
         style_prefix "help"
 

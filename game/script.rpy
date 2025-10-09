@@ -96,21 +96,25 @@ label start_continue:
             nar "These are red options! They are exclusive options unlocked by doing or selecting specific things."
             nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
             nar "For example, this red option has (state) before it, which means the state you selected is what unlocked this option for you"
-            # PLACEHOLDER // Put an image of the notebook tab up
+            show img notebook:
+                yalign .3
+                zoom .75
             nar "This is the notebook tab. It's evil"
             nar "No, im not kidding. its broken, it'll crash your game"
             nar "Now, if you are wondering why I left it in the game...{w=3} I spent hours on it and don't want to have wasted all that time"
+            show img attributions
+            nar "Moving on, this is the attributions screen. I also spent hours on it, but this one works"
+            nar "However be warned, it's a bit laggy, and has spoilers!"
+            nar "But also, this game was only possible because all these people decided to upload images that anyone can use, for free."
+            nar "So I'd check at least some of them out."
+            hide img attributions
+            nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
             nar "If you're sure... See you later then"
             $ metvini == False
  
-
-    with Dissolve(1)
-    pause .5
-    show bg white # PLACEHOLDER // This background will give a fade to white and then a fade to the new scene
-    pause .5
-    with Dissolve(1)
     hide launch
+    scene bg white
     jump true_start
 # True starting zone
 label true_start: 
