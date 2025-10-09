@@ -1303,6 +1303,7 @@ screen attributions():
         use attributions_forest
         use attributions_mischa
         use attributions_sloan
+        use attributions_dogcamp
 
 screen attributions_cali():
     frame:
@@ -1505,30 +1506,46 @@ screen attributions_sloan():
             hbox: # garn standalert
                 label _("Sloan Stand Alert"):
                     yoffset 110
-                text _("Currently used when you smack Sloan Garner. This is also taken by {a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
+                text _("Currently used when you smack Sloan Garner. This is also taken by{a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
                     yoffset 110
                 image _("garn standalert.png"):
                     zoom .4
                     xoffset -1200
                     yoffset 150
             hbox: # garn standcalm UNDONE
-                label _("Sloan Stand Alert"):
+                label _("Sloan Stand Calm"):
                     yoffset 150
-                text _("Currently used when you smack Sloan Garner. This is also taken by {a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
+                text _("Currently unused. This is taken by{a=https://unsplash.com/es/@elv3n_} Elven Guerin{/a} on {a=https://unsplash.com/es/fotos/un-perro-se-para-y-mira-directamente-a-la-camara-nynJybuAFWo}Unsplash{/a}"):
                     yoffset 150
                 image _("garn standcalm.png"):
                     zoom .4
-                    xoffset -1200
+                    xoffset -1100
                     yoffset 190
             hbox: # garn standlog UNDONE
-                label _("Sloan Stand Alert"):
+                label _("Sloan Stand Log"):
                     yoffset 200
-                text _("Currently used when you smack Sloan Garner. This is also taken by {a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
+                text _("Currently unused, seems like a very niche use but I want to use it. This is taken by{a=https://pixabay.com/users/yamabsm-1300729/} YamaBSM{/a} on {a=https://pixabay.com/photos/doberman-dog-beauty-nature-3478787/}Pixabay{/a}"):
                     yoffset 200
                 image _("garn standlog.png"):
                     zoom .4
                     xoffset -1200
                     yoffset 210
+    
+screen attributions_dogcamp():
+    frame:
+        xsize .999
+        ysize 350
+        vbox:
+            
+            hbox: # bg dogcampenterance
+                label _("Dog Camp Entrance"):
+                    yoffset 10
+                text _("Used as the background as you enter Dog Camp. Taken by{a=https://unsplash.com/es/@iozmen} Ilker Ozmen{/a} on {a=https://unsplash.com/es/fotos/una-persona-caminando-por-una-pasarela-en-una-ciudad-KWiUwltAG18}Unsplash{/a}"):
+                    yoffset 10
+                image _("bg dogcampentrance.jpg"):
+                    zoom .04
+                    xoffset -1200
+                    yoffset 100
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
