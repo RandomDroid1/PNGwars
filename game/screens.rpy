@@ -1302,6 +1302,8 @@ screen attributions():
         use attributions_plane
         use attributions_forest
         use attributions_mischa
+        use attributions_sloan
+
 screen attributions_cali():
     frame:
         xsize .999
@@ -1467,7 +1469,66 @@ screen attributions_mischa():
                     xoffset -1175
                     yoffset 80
 
-
+screen attributions_sloan():
+    frame:
+        xsize .999
+        ysize 1700  
+        vbox:
+            
+            hbox: # garn lqstandangry
+                label _("Small Angry Sloan"):
+                    yoffset 10
+                text _("Currently unused. Probably will be used for when Sloan is angry at something and far away. Taken by{a=https://unsplash.com/@gtsm} Gytis M{/a} on {a=https://unsplash.com/photos/black-and-tan-short-coat-medium-dog-on-snow-covered-ground-near-trees-during-daytime-pbf3j_MnvSo}Unsplash{/a}"):
+                    yoffset 10
+                image _("garn lqstandangry.png"):
+                    zoom .3
+                    xoffset -1175
+                    yoffset 50
+            hbox: # garn standlookback
+                label _("Sloan Lookback"):
+                    yoffset 35
+                text _("Currently unused. This is also taken by{a=https://unsplash.com/@gtsm} Gytis M{/a} on {a=https://unsplash.com/photos/a-black-and-brown-dog-standing-on-top-of-a-sandy-beach-5GcNMK0iQPk}Unsplash{/a}"):
+                    yoffset 35
+                image _("garn standlookback.png"):
+                    zoom .4
+                    xoffset -1100
+                    yoffset 75
+            hbox: # garn sitcurious
+                label _("Sloan Sit Curious"):
+                    yoffset 75
+                text _("Currently unused. This is also taken by{a=https://pixabay.com/users/yamabsm-1300729/} YamaBSM{/a} on {a=https://pixabay.com/photos/doberman-beauty-dog-1393918/}Pixabay{/a}"):
+                    yoffset 75
+                image _("garn sitcurious.png"):
+                    zoom .4
+                    xoffset -1100
+                    yoffset 100
+            hbox: # garn standalert
+                label _("Sloan Stand Alert"):
+                    yoffset 110
+                text _("Currently used when you smack Sloan Garner. This is also taken by {a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
+                    yoffset 110
+                image _("garn standalert.png"):
+                    zoom .4
+                    xoffset -1200
+                    yoffset 150
+            hbox: # garn standcalm UNDONE
+                label _("Sloan Stand Alert"):
+                    yoffset 150
+                text _("Currently used when you smack Sloan Garner. This is also taken by {a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
+                    yoffset 150
+                image _("garn standcalm.png"):
+                    zoom .4
+                    xoffset -1200
+                    yoffset 190
+            hbox: # garn standlog UNDONE
+                label _("Sloan Stand Alert"):
+                    yoffset 200
+                text _("Currently used when you smack Sloan Garner. This is also taken by {a=https://unsplash.com/@malcoemi} Emily Malcolmson{/a} on {a=https://unsplash.com/photos/C1eaHeuc_mU}Unsplash{/a}"):
+                    yoffset 200
+                image _("garn standlog.png"):
+                    zoom .4
+                    xoffset -1200
+                    yoffset 210
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
