@@ -114,33 +114,32 @@ label start_continue:
             $ metvini == False
  
     hide launch
-    scene bg white
     jump true_start
 # True starting zone
 label true_start: 
     play music "pink.mp3"
-# This shows changes the background
-    scene bg office:
+    scene bg office: # Shows the oval office
         zoom .5
         xpos -400
         ypos -500
+    player "One week ago, you recieved a call from the White House. They'd said something about having scouted you for a new position"
+    player "You hadn't believed it was real at first, but now here you are. In the oval office"
+    player "In front of you, is Secretary of State Vinick Meowstrong"
     
-    # This shows Secretary of State Vinicks character    
+    # Shows Vinick   
     show vinick idle:
         xalign 0.5
         yalign 0.35
     $ metvini = True
     $ clearnotebook = False
-    if name.lower() == "vinick":
+    if name.lower() == "vinick": # Just in case they name themselves Vinick
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
-    elif name == "goob":
+    elif name == "goob": # The True name
         vini "Hello! Your name... why?"
     else:
         vini "Hello! You are [name], I believe? You're that one from the University of [state]. It's nice to see you here, and if I may assume you are unsure as to why you were called here?"
 
-menu wawa:
-    # keeps Vinicks text on screen
-
+menu wawa: # Why is this menu named this?
     "'No, I wasn't actually told why the President called me here.'":
         $ knew_before = False
         player "No, I wasn't actually told why the President called me here."
@@ -155,8 +154,8 @@ menu wawa:
     "'Actually, I was told why the President called me here'":
         $ knew_before = True
         player "Actually, I was told about why I'm here."
-        vini "Huh, how's that work out. Any chance you'll tell me who told you?"
-        vini "I imagine not, whatever. You're still getting the whole spiel by the president, you don't get to skip it that easy."
+        vini "Well, that's interesting."
+        vini "I imagine you won't tell me who told you, so that's hardly my problem"
         show vinick idle:
             yzoom 1
             parallel:
@@ -185,9 +184,10 @@ label game_continue:
         his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
         on his desk, by the way."
     else:
-        vini "Well, this's hardly my problem, more a job for national security. Either way, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
+        vini "That is much more a job for the NSA than for me. Either way, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
         his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
         on his desk, by the way."
+        vini "Oh, and your still getting the whole thing explained, you don't get out of it that easy."
     show vinick lookup:
         linear .2 alpha 0
     show bg office: # The first transition animation for the oval office + cali
@@ -227,8 +227,7 @@ label president_introduced:
         yzoom 1.2
         linear .1 yzoom 1
         alpha 1
-    cali "Oh, we have a visitor! I assume this is the one from [state]? {p=3} Well, welcome to D.C., I assume this is your first visit here? 
-            You have a very important reason for being here." # add secret dialogue if you've beaten the game before
+    cali "Oh, is this the one from [state]?{p=3}Well, welcome to D.C. You have a very important reason for being here."
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=4} other countries." # This dialogue sucks so bad god help me
     cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
