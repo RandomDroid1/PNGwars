@@ -40,9 +40,15 @@ label start:
     show launch
     nar "Hello."
     nar "It's good to see you here. {p}You might imagine that I have some questions for you."
+    show img ameowica:
+        zoom 2
+        yalign .25
+        xalign .5
+        rotate -90
     nar "Let's start with something basic, you are Ameowican."
-    # PLACEHOLDER // Have a map appear with an arrow at america. Caw-nedia and Meow-xico
+    nar "How cool, you get to choose what state you're from. Big choice, think carefully"
 # This determines what state the character is from. It will unlock blue options later
+    hide img ameowica
 menu state:
     "I am from Mew-tah.":
         $ state = "Mew-tah"
@@ -56,12 +62,9 @@ menu state:
     "I am from Meowyland":
         $ state = "Meowyland"
         jump start_continue     
-    "I am from Mew York":
+    "I am from Mew York": # PLACEHOLDER // This is where parthenon is, maybe make a reference at that?
         $ state = "Mew York"
         jump start_continue 
-    "I am not from any of these places.":
-        nar "Yes you are."
-        jump state
 
 # Collects name info
 label start_continue:
@@ -81,23 +84,22 @@ label start_continue:
     menu game_tutorial:
         "Yeah, I'd like to know more":
             nar "Awesome. So, you see this cool thing"
-            # PLACEHOLDER // Put an image of a variable on screen
-            nar "This is a variable, very cool, very useful. It's what makes your decisions have impacts, 
-            and change how the story progresses. It changes based on what you do."
+            show img variable:
+                zoom 2
+                yalign .5
+                xalign .5
+            nar "This is a variable, very cool, very useful. It's what lets the game remember your decisions. For example, I know your from [state]."
             nar "But theres something extra it does in this game on top of that"
-            # PLACEHOLDER // Put an image of a blue option up
-            nar "These are blue options! They are exclusive options unlocked by doing or selecting specific things."
+            show img redoption:
+                yalign .5
+                xalign .5
+            nar "These are red options! They are exclusive options unlocked by doing or selecting specific things."
             nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
-            nar "For example, this blue option has (state) before it, which means the state you selected is what unlocked this option for you"
+            nar "For example, this red option has (state) before it, which means the state you selected is what unlocked this option for you"
             # PLACEHOLDER // Put an image of the notebook tab up
-            nar "Disclaimer: Hasn't been added yet, will be soon."
-            nar "Now, if you've played a Ren.PY game before, you might notice theres a new tab on the bottom called 'notebook'"
-            nar "This tab gives you a complete dictionary to every character you've met."
-            nar "With this button you can see each sprite you've seen"
-            nar "Over here, you can see how the character feels about you"
-            nar "Here, you can write as many notes as you would like about a character, maybe how you feel about them, maybe a path you want to follow later."
-            nar "Right here is a list of every interaciton you've had with a character."
-            nar "And if you enable it, you can see every variable relating to the character (though bewarned, spoilers lay in wait.)"
+            nar "This is the notebook tab. It's evil"
+            nar "No, im not kidding. its broken, it'll crash your game"
+            nar "Now, if you are wondering why I left it in the game...{w=3} I spent hours on it and don't want to have wasted all that time"
         "No, I'm ready":
             nar "If you're sure... See you later then"
             $ metvini == False
@@ -159,7 +161,7 @@ menu wawa:
                 linear .2 yoffset -200
         jump game_continue
     
-    "{color=#0080c0}Use the BBQ blast{/color}" if name == "whattah":
+    "{color=#F54927}(State) Use the BBQ blast{/color}" if name == "whattah":
         vini "wawawawaw"
         jump game_continue
 
