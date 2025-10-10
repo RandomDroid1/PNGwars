@@ -11,6 +11,5 @@ label demo_exit:
     player "Hello! As you might have anticipated, this screen means you've reached the end of the demo."
     player "It's not a super long game yet, but it's coming together."
     player "I hope you enjoyed it so far though."
-    player "Oh and fun fact, if you poke around the files there are some note pages that have spoilers (and just general facts), so if you want that, it's there"
-    player "Okay, well, see you."
-    return
+    player "I hope you have a good day, and really hope you do return to this game one day since hopefully it will continue beyond this point."
+return

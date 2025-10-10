@@ -4,11 +4,10 @@ label lietold_jamesmeowdisan:
         xoffset -200
         yoffset -600
         zoom .4
-    player "You trail behind Moskvi, keep your head down and maybe everything will be fine."
+    player "You trail behind Sobaka, keep your head down and maybe everything will be fine."
     player "You look up to see a sprawling city, almost everywhere you look, theres movement."
-    player "Dogs move in and out of buildings, living their lives as if everything is normal."
-    player "As you walk in, flanked by two high ranking military members, you see heads turn toward you, and whispers spread through a small crowd."
-    
+    player "As you walk in, flanked by two high ranking military members, that movement begins to still as heads turn toward you, and whispers spread through a small, but growing, crowd."
+    player
 label lietold_truthtold:
     jump demo_exit
 label lietold_espionage:
