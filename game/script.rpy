@@ -51,18 +51,23 @@ label start:
     hide img ameowica
 menu state:
     "I am from Mew-tah.":
+        play sound "click.wav"
         $ state = "Mew-tah"
         jump start_continue
     "I am from Meow-izona.":
+        play sound "click.wav"
         $ state = "Meow-izona"
         jump start_continue        
     "I am from Alaskat":
+        play sound "click.wav"
         $ state = "Alas-kat"
         jump start_continue
     "I am from Meowyland":
+        play sound "click.wav"
         $ state = "Meowyland"
         jump start_continue     
     "I am from Mew York": # PLACEHOLDER // This is where parthenon is, maybe make a reference at that?
+        play sound "click.wav"
         $ state = "Mew York"
         jump start_continue 
 
@@ -83,6 +88,7 @@ label start_continue:
     nar "Now, do you want to know a bit more about how this game works (I'd encourage this)"
     menu game_tutorial:
         "Yeah, I'd like to know more":
+            play sound "click.wav"
             nar "Awesome. So, you see this cool thing"
             show img variable:
                 zoom 2
@@ -110,6 +116,7 @@ label start_continue:
             hide img attributions
             nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
+            play sound "click.wav"
             nar "If you're sure... See you later then"
             $ metvini == False
  
@@ -141,6 +148,7 @@ label true_start:
 
 menu wawa: # Why is this menu named this?
     "'No, I wasn't actually told why the President called me here.'":
+        play sound "click.wav"
         $ knew_before = False
         player "No, I wasn't actually told why the President called me here."
         show vinick idle:
@@ -152,6 +160,7 @@ menu wawa: # Why is this menu named this?
         jump game_continue
     
     "'Actually, I was told why the President called me here'":
+        play sound "click.wav"
         $ knew_before = True
         player "Actually, I was told about why I'm here."
         vini "Well, that's interesting."
@@ -165,6 +174,7 @@ menu wawa: # Why is this menu named this?
         jump game_continue
     
     "{color=#F54927}(State) Use the BBQ blast{/color}" if name == "whattah":
+        play sound "click.wav"
         vini "wawawawaw"
         jump game_continue
 
@@ -260,28 +270,34 @@ label president_introduced:
 
     menu presidentquestion:
         "Yes Sir.": # choice 1,  very positive
+            play sound "click.wav"
             $ calirep += 2
             cali "Thats what I like to hear, we need more people like you in our government."
             cali "We don't have much for you in the way of a briefing, but we can get you on a plane in 1 hour."
             cali "You are now the sole US ambassador to PNGlandia, congrats."
             jump jet_plane
         "That sounds like something I can do.": # choice 1 variation basically
+            play sound "click.wav"
             $ calirep += 1
             cali "That's good, that's what we want to hear."
             cali "Truthfully, we've not much for you in terms of a briefing, {p=3}but we can get you on a ejnc f4"
         "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
+            play sound "click.wav"
             cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
             cali "On top of that, they have requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
             cali "We can get you on a plane in one hour, do you accept?"
             menu presidentsubquestion:
                 "Yes. I accept.":
+                    play sound "click.wav"
                     player "Yes, I accept."
                     jump jet_plane
                 "No, get someone qualified.":
+                    play sound "click.wav"
                     player "No... No, get someone qualified, i'm hardly qualified."
-                    cali "You..."
+                    cali "You..." # IMPORTANT WORK ON THIS?????
                     jump jet_plane
         "I can't do that.": # negative choice
+            play sound "click.wav"
             $ calirep -= 2
             cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
             cali "However, it might be worth reconsidering... theres a lot on the line."
@@ -289,12 +305,14 @@ label president_introduced:
             cali "Are you sure you want to turn your back on what you can do?"
             menu: # sub-choice of negative choice, chance to go back
                 "I am sure, I don't want to do this.":
+                    play sound "click.wav"
                     show cali sit
                     cali "Okay. Vinick, sorry to put this job on you, escort this young fellow out for me."
                     cali "... You could've done so much more. Sorry it ended like this"
                     cali "hey, maybe we'll call you back for something some other day."
                     return
                 "I'm... No, I can do this. Get me on the plane.":
+                    play sound "click.wav"
                     show cali sit
                     cali "Theres hope for you yet. We can have you on a plane in a few hours."
                     cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
@@ -319,17 +337,20 @@ label jet_plane: # The plane sequence that leads into
     player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
     menu plane_choice: # The illusion of choice hahaha
         "Sleep":
+            play sound "click.wav"
             player "You let your eyes shut as you drift to sleep."
             player "It's nice to get some rest before..."
             # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch a show":
+            play sound "click.wav"
             player "You turn on you favorite show, 'The Mewsroom', and sit back."
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
             # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
+            play sound "click.wav"
             # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
             player "You turn on the news, and sit back"
             player "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
@@ -340,7 +361,7 @@ label jet_plane: # The plane sequence that leads into
             jump jet_plane_crash
 
 label jet_plane_crash:
-    stop music
+    play music "planetense.ogg"
     show bg planewindow1:
         zoom .8
         xalign 0.5 ypos 400
@@ -367,6 +388,7 @@ label jet_plane_crash:
             linear 2 alpha .3
             repeat
     hide planescreen cali_jet_report
+    stop music
     play sound "planecrash.wav"
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
     # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
@@ -387,6 +409,7 @@ label jet_plane_crash:
         ypos 600
     menu dog_scary:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
+            play sound "click.wav"
             hide concussion with dissolve
             mosk "Lets go."
             garn "Surely we aren't taking them back to camp? Theres no way a nearly empty commerical flight just... happens to crash here."
@@ -394,6 +417,7 @@ label jet_plane_crash:
             garn "I don't know, but it's far too convenient. We can take them back, but we need to have at least two guards on them, at all times"
             mosk "There we go, that can happen. We can bring them to Caine, he has some good medical equipment"
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
+            play sound "click.wav"
             hide concussion with dissolve
             $ animalrep -= 1
             $ dogrep -= 2
@@ -408,6 +432,7 @@ label jet_plane_crash:
             mosk "Hold on! Lets see why this one is here."
             # PLACEHOLDER // Need continues
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
+            play sound "click.wav"
             player "Hey! Let me go... please."
             hide concussion with dissolve
             show bg forest1:
@@ -431,6 +456,7 @@ label jet_plane_crash:
 
 menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly explain
                 "Lie: I'm just a random cat! I was on the flight before I heard about the split":
+                    play sound "click.wav"
                     player "Look, I'm just so-some random cat. {w=1} I got on the flight before I heard about the split!"
                     $ moskrep -= 2
                     $ dogrep -= 1
@@ -441,11 +467,13 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     mosk "Personally, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
                         "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
+                            play sound "click.wav"
                             $ moskrep -= 1
                             mosk "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
                             mosk "Follow us, wandering around the forest isn't very safe nowadays. We wouldn't want anything bad to happen to you"
                             jump lietold_jamesmeowdisan
                         "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
+                            play sound "click.wav"
                             $ moskrep += 1
                             mosk "Thats better. At the very least it's more believable. {p=3}So, an Ameowican Ambassador crashes into our territory right after our country splits."
                             mosk "That's... at the very best unfortunate for you, assuming your telling the truth.{p=3}Luckily, i'd like to say you crashed in the right place."
@@ -453,6 +481,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                             jump lietold_truthtold
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
+                    play sound "click.wav"
                     $ garnrep -= 2
                     $ moskrep -= 2
                     $ dogrep -= 2
@@ -468,6 +497,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!":
+                    play sound "click.wav"
                     $ moskrep += 1
                     $ garnrep += 1 #you get a rep boost in this one because garn likes your spunk
                     $ animalrep += 1
@@ -480,6 +510,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
                     jump truthtold_spunky
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
+                    play sound "click.wav"
                     $ moskrep += 1
                     $ animalrep += 1
                     $ dogrep += 2 # A small reward for choosing the peaceful option. 
