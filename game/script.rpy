@@ -271,7 +271,7 @@ label president_introduced:
             cali "Truthfully, we've not much for you in terms of a briefing, {p=3}but we can get you on a ejnc f4"
         "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
             cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
-            cali "Anyway, they've requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
+            cali "On top of that, they have requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
             cali "We can get you on a plane in one hour, do you accept?"
             menu presidentsubquestion:
                 "Yes. I accept.":
@@ -300,6 +300,7 @@ label president_introduced:
                     cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
                     jump jet_plane
 label jet_plane: # The plane sequence that leads into
+    play music "motif.mp3"
     hide cali
     show bg planeseat1:
         zoom 1.5
@@ -339,6 +340,7 @@ label jet_plane: # The plane sequence that leads into
             jump jet_plane_crash
 
 label jet_plane_crash:
+    stop music
     show bg planewindow1:
         zoom .8
         xalign 0.5 ypos 400
@@ -365,6 +367,7 @@ label jet_plane_crash:
             linear 2 alpha .3
             repeat
     hide planescreen cali_jet_report
+    play sound "planecrash.wav"
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
     # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
     mosk "Hey! Can we get some... The pilot's are dead."
@@ -401,7 +404,6 @@ label jet_plane_crash:
             garn "you {cps=7}BASTARD{/cps}"
             garn "I'm going to-"
             # PLACEHOLDER // find some way to make it clear Garner makes a go at you. Initialize a battle UI?
-            show battle garnui
             show mosk stand
             mosk "Hold on! Lets see why this one is here."
             # PLACEHOLDER // Need continues
