@@ -388,7 +388,8 @@ label jet_plane_crash:
             mosk "Lets go."
             garn "Surely we aren't taking them back to camp? Theres no way a nearly empty commerical flight just... happens to crash here."
             mosk "What are you suggesting? That the Ameowicans intentionally crashed a plane to... do what?"
-            garn "I don't know, but it's far too convenient. "
+            garn "I don't know, but it's far too convenient. We can take them back, but we need to have at least two guards on them, at all times"
+            mosk "There we go, that can happen. We can bring them to Caine, he has some good medical equipment"
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
             hide concussion with dissolve
             $ animalrep -= 1
@@ -433,17 +434,18 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     $ dogrep -= 1
                     $ animalrep -= 1
                     mosk "Your Ameowican, I presume... {w=3} Your flight would've taken, what? 2 hours to get here."
-                    mosk "The news broke 3 hours ago, and a vast majority of flights here were cancelled."
+                    mosk "The news broke 3 hours ago, and I really find it hard to believe you convinced the airline to keep this one going"
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
                     mosk "Personally, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
                         "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
                             $ moskrep -= 1
                             mosk "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
+                            mosk "Follow us, wandering around the forest isn't very safe nowadays. We wouldn't want anything bad to happen to you"
                             jump lietold_jamesmeowdisan
                         "Truth: My name is [name]. I'm an ambassador from the United States of Ameowica.":
                             $ moskrep += 1
-                            mosk "Thats better. So, an Ameowican Ambassador crashes into our territory right after our country splits."
+                            mosk "Thats better. At the very least it's more believable. {p=3}So, an Ameowican Ambassador crashes into our territory right after our country splits."
                             mosk "That's... at the very best unfortunate for you, assuming your telling the truth.{p=3}Luckily, i'd like to say you crashed in the right place."
                             mosk "Follow us. Believe me, you'll fare better than if you run around the forest alone."
                             jump lietold_truthtold
@@ -452,14 +454,14 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     $ garnrep -= 2
                     $ moskrep -= 2
                     $ dogrep -= 2
-                    $ animalrep -= 1
+                    $ animalrep -= 1 # you making some crazy enemies
                     # they hate this more than the lie about being someone random because you are pretending to be one of the
                     player "Okay! Okay! Look, I'm one of yours, you hired me to tell you what the cats were up to!"
                     mosk "Who hired you?"
                     player "They didn't tell me their name! Okay?"
                     garn "Captain, it's obvious their lying, I say we-"
-                    mosk "I don't disagree with you, but whats the harm in taking them back to camp."
-                    mosk "See how truthful they're being about this whole spy thing"
+                    mosk "I don't disagree with you. But why not bring them back to camp?"
+                    mosk "Let's see how truthful they're being about this whole spy thing."
                     jump lietold_espionage
                     # PLACEHOLDER // Need continues
 
@@ -471,7 +473,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "What, they're sending fiesty children to negotiate in other countries now?"
                     garn "What an absolutely pathetic display, how do you expec-"
-                    mosk "Wait just a second Garner, let's give this cat a {i}small{/i}chance. {w=3} They just got out of a plane crash, they might be injured"
+                    mosk "Wait just a second Garner, let's give this cat a {i}small{/i}chance. {w=3} They just got out of a plane crash, they are probably pretty injured beyond the adrenaline keeping them running."
                     mosk "Follow us. Not like you have much of a choice. These forests aren't safe nowadays."
                     # PLACEHOLDER // Need continues
                     jump truthtold_spunky
