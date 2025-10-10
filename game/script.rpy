@@ -1,17 +1,17 @@
-﻿# Structure of textbox image names "textbox(Faction)_(Rank)(Any Other Details)"
+﻿# Structure of textbox image names "textbox_(Faction)_(Rank)(Any Other Details)"
 # character name structures (4 letters of first name)(1 letter of last name)(vini, cali, mosk, garn made before this)
 # Meta Characters
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
-define nar = Character("Narrative Ender", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
+define nar = Character("Narrator", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 
 # Ameowican Characters
-define vini = Character("Secretary Meowstrong", window_background=Image("textboxameowican.png")) 
-define cali = Character("Cali Meowford", window_background=Image("textboxameowican.png"))
+define vini = Character("Vinick Meowstrong", window_background=Image("textbox_ameowican_secretaryofstate.png"), namebox_background=Frame("namebox_ameowican.png")) 
+define cali = Character("Cali Meowford", window_background=Image("textbox_ameowican_president.png"), namebox_background=Frame("namebox_ameowican.png"))
 
 # Animal Characters
 # Dog Characters
-define mosk = Character("Mischa Sobaka")
-define garn = Character("Sloan Garner") 
+define mosk = Character("Mischa Sobaka", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+define garn = Character("Sloan Garner", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png")) 
 define varam = Character ("Varash Moskvi")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
@@ -114,7 +114,7 @@ label start_continue:
             $ metvini == False
  
     hide launch
-    scene bg white
+    scene bg white    
     jump true_start
 # True starting zone
 label true_start: 
