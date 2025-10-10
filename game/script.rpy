@@ -294,8 +294,9 @@ label president_introduced:
                 "No, get someone qualified.":
                     play sound "click.wav"
                     player "No... No, get someone qualified, i'm hardly qualified."
-                    cali "You..." # IMPORTANT WORK ON THIS?????
-                    jump jet_plane
+                    cali "You..."
+                    cali "Okay... well. Not much we can do about that then. Vinick will see you out."
+                    return
         "I can't do that.": # negative choice
             play sound "click.wav"
             $ calirep -= 2
@@ -389,7 +390,7 @@ label jet_plane_crash:
             repeat
     hide planescreen cali_jet_report
     stop music
-    play sound "planecrash.wav"
+    play sound "planecrash.wav" # This is one of the funniest sound effects I've heard. It's so goofy its so so goofy. It just keeps going
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
     # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
     mosk "Hey! Can we get some... The pilot's are dead."
@@ -403,6 +404,7 @@ label jet_plane_crash:
         linear .5 alpha 0
     pause .5
     hide concussion
+    play music "Jungle.mp3"
     show bg forest1:
         zoom 1
         xalign 0
@@ -424,13 +426,29 @@ label jet_plane_crash:
             $ garnrep -= -2
             $ garn_hurt = True
             player "you twist around to smack the dog holding you with your claws"
-            show garn standalert
-            garn "you {cps=7}BASTARD{/cps}"
+            show bg forest1 with vpunch
+            show garn standalert:
+                ypos 600
+                xpos 1000
+                linear .3 yoffset -300
+            show bg forest1:
+                linear .3 yoffset -300
+            garn "you BASTARD"
             garn "I'm going to-"
+            show garn standalert:
+                parallel:
+                    linear .5 xalign .3
+                parallel:
+                    linear .5 zoom .8
             # PLACEHOLDER // find some way to make it clear Garner makes a go at you. Initialize a battle UI?
-            show mosk stand
-            mosk "Hold on! Lets see why this one is here."
-            # PLACEHOLDER // Need continues
+            show mosk stand:
+                xalign 1
+                yoffset 300
+                linear .5 xalign .7
+                
+            mosk "Hold on!"
+            mosk "Let's see what they have to say for themselves."
+            garn "Sir! "
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             play sound "click.wav"
             player "Hey! Let me go... please."
