@@ -108,6 +108,7 @@ label start_continue:
             nar "This is the notebook tab. It's evil"
             nar "No, im not kidding. its broken, it'll crash your game"
             nar "Now, if you are wondering why I left it in the game...{w=3} I spent hours on it and don't want to have wasted all that time"
+            nar "Also this is Super-Duper early access, and I hope to have this fixed by the time I ship it properly"
             show img attributions
             nar "Moving on, this is the attributions screen. I also spent hours on it, but this one works"
             nar "However be warned, it's a bit laggy, and has spoilers!"
@@ -331,33 +332,32 @@ label jet_plane: # The plane sequence that leads into
             linear 3 xpos -300
         parallel:
             linear 3 ypos -300
-    show planescreen cali_jet_report # PLACEHOLDER
-    player "The plane is relatively empty. A vast majority of flights to PNGlandia had been grounded, and the only reason this one is still flying to PNGlandia is because the President ordered it."
-    player "All this stuff had hit the news sooner than the president expected, his press conference was pretty clearly prepared on a moments notice" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
-    player "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3}Or maybe you don't, i'm not in charge of you."
-    player "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
+    nar "The plane is relatively empty. A vast majority of flights to PNGlandia had been grounded, and the only reason this one is still flying to PNGlandia is because the President ordered it."
+    nar "All this stuff had hit the news sooner than the president expected, his press conference was pretty clearly prepared on a moments notice" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
+    nar "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3}Or maybe you don't, i'm not in charge of you."
+    nar "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
     menu plane_choice: # The illusion of choice hahaha
         "Sleep":
             play sound "click.wav"
-            player "You let your eyes shut as you drift to sleep."
-            player "It's nice to get some rest before..."
+            nar "You let your eyes shut as you drift to sleep."
+            nar "It's nice to get some rest before..."
             # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch a show":
             play sound "click.wav"
-            player "You turn on you favorite show, 'The Mewsroom', and sit back."
-            player "Soon, you begin to feel your eyes drift shut"
-            player "Maybe it's a good idea to get some rest before..."
+            nar "You turn on you favorite show, 'The Mewsroom', and sit back."
+            nar "Soon, you begin to feel your eyes drift shut"
+            nar "Maybe it's a good idea to get some rest before..."
             # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
             play sound "click.wav"
             # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
-            player "You turn on the news, and sit back"
-            player "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
-            player "However despite your best efforts, you begin to feel drowsy"
-            player "Soon, you begin to feel your eyes drift shut"
-            player "Maybe it's a good idea to get some rest before..."
+            nar "You turn on the news, and sit back"
+            nar "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
+            nar "However despite your best efforts, you begin to feel drowsy"
+            nar "Soon, you begin to feel your eyes drift shut"
+            nar "Maybe it's a good idea to get some rest before..."
             # PLACEHOLDER // add this background later
             jump jet_plane_crash
 
@@ -366,7 +366,7 @@ label jet_plane_crash:
     show bg planewindow1:
         zoom .8
         xalign 0.5 ypos 400
-    player "You hear a loud bang from somewhere on your right. As you turn to look..."
+    nar "You hear a loud bang from somewhere on your right. As you turn to look..."
     show bg black:
         zoom 20
     pause .5
@@ -399,7 +399,7 @@ label jet_plane_crash:
     garn "Weren't all flights supposed to be grounded? They're shooting down anything they see!"
     mosk "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
     mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
-    player "You feel yourself begin to wake up"
+    nar "You feel yourself begin to wake up"
     show concussion:
         linear .5 alpha 0
     pause .5
@@ -418,6 +418,7 @@ label jet_plane_crash:
             mosk "What are you suggesting? That the Ameowicans intentionally crashed a plane to... do what?"
             garn "I don't know, but it's far too convenient. We can take them back, but we need to have at least two guards on them, at all times"
             mosk "There we go, that can happen. We can bring them to Caine, he has some good medical equipment"
+            jump demo_exit
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
             play sound "click.wav"
             hide concussion with dissolve
@@ -448,7 +449,27 @@ label jet_plane_crash:
                 
             mosk "Hold on!"
             mosk "Let's see what they have to say for themselves."
-            garn "Sir! "
+            show mosk stand:
+                linear .3 zoom .8
+            show garn standalert:
+                linear .3 zoom 1
+            garn "Sir! We can't assume they have any good intentions."
+            show mosk stand:
+                linear .3 zoom 1
+            show garn standalert:
+                linear .3 zoom .8
+            mosk "We won't be, but look at how small they are. Do you think they are in any position to be much of a threat?"
+            show mosk stand:
+                linear .3 zoom .8
+            show garn standalert:
+                linear .3 zoom 1
+            garn "No sir. They aren't."
+            show mosk stand:
+                linear .3 zoom 1
+            show garn standalert:
+                linear .3 zoom .8
+            mosk "So, cat, who are you?"
+            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY.
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             play sound "click.wav"
             player "Hey! Let me go... please."
