@@ -324,13 +324,11 @@ label jet_plane: # The plane sequence that leads into
             jump jet_plane_crash
         "Watch a show":
             player "You turn on you favorite show, 'The Mewsroom', and sit back."
-            show planescreen Mewsroom
             player "Soon, you begin to feel your eyes drift shut"
             player "Maybe it's a good idea to get some rest before..."
             # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
-            show planescreen Mews
             # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
             player "You turn on the news, and sit back"
             player "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
@@ -344,7 +342,7 @@ label jet_plane_crash:
     show bg planewindow1:
         zoom .8
         xalign 0.5 ypos 400
-    player "You look out the window, and for just a moment, wonder why the pilot is flying so low, and why the turbulence was so bad."
+    player "You hear a loud bang from somewhere on your right. As you turn to look..."
     show bg black:
         zoom 20
     pause .5
@@ -372,8 +370,8 @@ label jet_plane_crash:
     mosk "Hey! Can we get some... The pilot's are dead."
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
     garn "We have a survivor!"
-    vara "Weren't all flights supposed to be grounded? They're shooting down anything they see!"
-    garn "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
+    garn "Weren't all flights supposed to be grounded? They're shooting down anything they see!"
+    mosk "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
     mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
     player "You feel yourself begin to wake up"
     show concussion:
@@ -388,6 +386,9 @@ label jet_plane_crash:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
             hide concussion with dissolve
             mosk "Lets go."
+            garn "Surely we aren't taking them back to camp? Theres no way a nearly empty commerical flight just... happens to crash here."
+            mosk "What are you suggesting? That the Ameowicans intentionally crashed a plane to... do what?"
+            garn "I don't know, but it's far too convenient. "
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
             hide concussion with dissolve
             $ animalrep -= 1
