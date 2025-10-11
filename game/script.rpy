@@ -32,6 +32,7 @@ default moskrep = 0
 # Other
 default knew_before = False
 default garn_hurt = False
+default window_icon = "standard"
 # The game starts here.
 
 label start:
@@ -46,7 +47,9 @@ label start:
         xalign .5
         rotate -90
     nar "Let's start with something basic, you are Ameowican."
+    $ window_icon = "office"
     nar "How cool, you get to choose what state you're from. Big choice, think carefully"
+    $ window_icon = "forest"
 # This determines what state the character is from. It will unlock blue options later
     hide img ameowica
 menu state:
@@ -136,14 +139,18 @@ label true_start:
     
     # Shows Vinick   
     show vinick idle:
+        alpha .2
         xalign 0.5
         yalign 0.35
+        linear .3 alpha 1
     $ metvini = True
     $ clearnotebook = False
     if name.lower() == "vinick": # Just in case they name themselves Vinick
         vini "Hello! Your name, your name... is Vinick? What a interesting coincidence. You're the one from the University of [state]?"
-    elif name == "goob": # The True name
+    elif name == "goob": # The True name.
         vini "Hello! Your name... why?"
+    elif name == "2149-0403":
+        jump jet_plane_crash
     else:
         vini "Hello! You are [name], I believe? You're that one from the University of [state]. It's nice to see you here, and if I may assume you are unsure as to why you were called here?"
 
@@ -164,8 +171,9 @@ menu wawa: # Why is this menu named this?
         play sound "click.wav"
         $ knew_before = True
         player "Actually, I was told about why I'm here."
-        vini "Well, that's interesting."
-        vini "I imagine you won't tell me who told you, so that's hardly my problem"
+        vini "Well, that's interesting... Any chance you'll tell me who told you?"
+        player "No sir."
+        vini "Well, that..."
         show vinick idle:
             yzoom 1
             parallel:

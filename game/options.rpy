@@ -152,7 +152,6 @@ define config.save_directory = "PNGwars-1757201373"
 
 define config.window_icon = "gui/window_icon.png"
 
-
 ## Build configuration #########################################################
 ##
 ## This section controls how Ren'Py turns your project into distribution files.
