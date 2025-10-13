@@ -84,7 +84,8 @@ label start_continue:
     if name.lower() in ("whattah", "aidan", "djroxalot", "devin", "killeville", "amber", "bbq", "burger", "bbq burger", "jbowler12", "jacob", "potatojay", "ryder", "daniel"): # looks case insensitively
         $ bbq = True
         nar "...[name]? [name]?? Oh man your playing this game. Go message BBQ about it or something. {p}Okay, well go continue I guess. This is scary. (If you weren't from bbq you just caught a crazy stray)"
- 
+    elif name.lower() in ("wawa"):
+        nar "... {p=2}[name], that's a good choice. It was also the name used for the development of most of this game. Rainworld fan spotted"
     else:
         nar "... {p=2}[name], that's a good choice."
 
@@ -150,6 +151,7 @@ label true_start:
     elif name == "goob": # The True name.
         vini "Hello! Your name... why?"
     elif name == "2149-0403":
+        nar "You've entered a dev skip name, go back if unintended"
         jump jet_plane_crash
     else:
         vini "Hello! You are [name], I believe? You're that one from the University of [state]. It's nice to see you here, and if I may assume you are unsure as to why you were called here?"
@@ -173,7 +175,7 @@ menu wawa: # Why is this menu named this?
         player "Actually, I was told about why I'm here."
         vini "Well, that's interesting... Any chance you'll tell me who told you?"
         player "No sir."
-        vini "Well, that..."
+        vini "Well, that... You know what, nope. It's not my problem, I've got other things to deal with"
         show vinick idle:
             yzoom 1
             parallel:
@@ -206,7 +208,7 @@ label game_continue:
         vini "That is much more a job for the NSA than for me. Either way, we've been waiting for you. {color=#FF4D29}The President{/color} will arrive back from
         his meeting soon, something about the budget, nothing you need to care about. {p=3}Don't tell him I was laying
         on his desk, by the way."
-        vini "Oh, and your still getting the whole thing explained, you don't get out of it that easy."
+        vini "Oh, and your still getting the whole thing explained to you by President Meowford, you don't get out of it that easy." # This guy hates you fr. I Can't decide if he hates his job or not though
     show vinick lookup:
         linear .2 alpha 0
     show bg office: # The first transition animation for the oval office + cali
@@ -235,7 +237,7 @@ label president_introduced:
         linear .2 alpha 1
         
 
-    cali "What a meeting. {p=3}you sure those ones were from Congress?"
+    cali "What a meeting. Vinick, are you sure those ones were from Congress?"
     vini "Yes sir, they were. We have the-"
   
     show cali lookback:
@@ -246,7 +248,23 @@ label president_introduced:
         yzoom 1.2
         linear .1 yzoom 1
         alpha 1
-    cali "Oh, is this the one from [state]?{p=3}Well, welcome to D.C. You have a very important reason for being here."
+    cali "Ah, is this the one from [state]? I'd been wondering when their flight would come in. Well, [name], welcome to the White House, It's a very lovely place.{p=2}We'll have to get you a tour once you get back"
+menu meowford_rhetorical:
+
+    "Thank you. I imag- Wait... What do you mean when I get back?": # Channel your inner Cal Bradford
+        cali "I was wondering when you'd pick up on that. Sounds like your already pretty good at listening to what people are saying. {w=3} That's good. You're going to need that"
+        cali "3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
+        cali "Truthfully, we don't know all too much beyond that, our intelligence services are focused on.... {w=4} other countries"
+        cali "I shouldn't have to explain to you that this is a big problem, especially once the press gets a hold of it in a few days. Ameowica has vested interests in the success of Png-landia, or at least the stability of it"
+        cali "Not to mention it's not good for me politically if one of our allies collapses under my watch, but that parts less your problem and more mine" # holy yapathon
+        cali "I should get to the point... The four factions will only let us send a negotiator if it's someone who hasn't been in the DC system for all that long. That, combined with other factors, led us to start doing some scouting"
+        cali "Eventually Vinick started looking at your college, asking around, seeing who'd be a good fit." # establishes that it was Vinick who chose you... maybe it wasn't as much of a coincidence as it sounds like. I feel like Vinick is evil, I really do. Wait I'm the game dev I decide
+        cali "Your name began to come up, some polsci teachers, a few clubs."
+        jump main_continue
+    "Thank you. I imagine it is, and I'll be looking forward to that":
+        cali "Really, your not going to... You're going to have to get better at listening to conversations"
+        jump main_continue
+label main_continue:
     cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
     cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=4} other countries." # This dialogue sucks so bad god help me
     cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
