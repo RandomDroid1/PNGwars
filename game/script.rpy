@@ -259,15 +259,15 @@ menu meowford_rhetorical:
         cali "Not to mention it's not good for me politically if one of our allies collapses under my watch, but that parts less your problem and more mine" # holy yapathon
         cali "I should get to the point... The four factions will only let us send a negotiator if it's someone who hasn't been in the DC system for all that long. That, combined with other factors, led us to start doing some scouting"
         cali "Eventually Vinick started looking at your college, asking around, seeing who'd be a good fit." # establishes that it was Vinick who chose you... maybe it wasn't as much of a coincidence as it sounds like. I feel like Vinick is evil, I really do. Wait I'm the game dev I decide
-        cali "Your name began to come up, some polsci teachers, a few clubs."
+        cali "Your name began to come up, some Political Science teachers mention you, a few clubs too. So Vinick made a few calls, and then we called you."
+        cali "And now your here, with the opportunity of a lifetime in front of you."
+        cali "Will you accept our offer to be the official ambassador of the United States of Ameowica to the PNG-landia factions. We can get you on a plane in an hour, just say yes."
         jump main_continue
     "Thank you. I imagine it is, and I'll be looking forward to that":
-        cali "Really, your not going to... You're going to have to get better at listening to conversations"
+        cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
+        cali ""
         jump main_continue
 label main_continue:
-    cali "This hasn't hit the news yet, but 3 days ago the country of Pnglandia split into 4 factions. Each with warring interests and ideals"
-    cali "We... truthfully don't know too much about each faction. All of our resources are focused on... {w=4} other countries." # This dialogue sucks so bad god help me
-    cali "That's where you come in, [name]. You will be on a flight to PNGlandia before the sun sets, and you will arrive around dawn. "
     show bg ovalofficeoverlook:
         parallel:
             linear .2 xoffset -200  
