@@ -250,8 +250,8 @@ label president_introduced:
         alpha 1
     cali "Ah, is this the one from [state]? I'd been wondering when their flight would come in. Well, [name], welcome to the White House, It's a very lovely place.{p=2}We'll have to get you a tour once you get back"
 menu meowford_rhetorical:
-
     "Thank you. I imag- Wait... What do you mean when I get back?": # Channel your inner Cal Bradford
+        $ calirep += 1
         cali "I was wondering when you'd pick up on that. Sounds like your already pretty good at listening to what people are saying. {w=3} That's good. You're going to need that"
         cali "3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
         cali "Truthfully, we don't know all too much beyond that, our intelligence services are focused on.... {w=4} other countries"
@@ -261,9 +261,10 @@ menu meowford_rhetorical:
         cali "Eventually Vinick started looking at your college, asking around, seeing who'd be a good fit." # establishes that it was Vinick who chose you... maybe it wasn't as much of a coincidence as it sounds like. I feel like Vinick is evil, I really do. Wait I'm the game dev I decide
         cali "Your name began to come up, some Political Science teachers mention you, a few clubs too. So Vinick made a few calls, and then we called you."
         cali "And now your here, with the opportunity of a lifetime in front of you."
-        cali "Will you accept our offer to be the official ambassador of the United States of Ameowica to the PNG-landia factions. We can get you on a plane in an hour, just say {i}yes.{/i}"
+        cali "Will you accept our offer to be the official ambassador of the United States of Ameowica to the PNG-landia factions. We can get you on a plane in an hour, just say {color=#00A36C}{i}yes.{/i}{/color}"
         jump main_continue
     "Thank you. I imagine it is, and I'll be looking forward to that":
+        $ calirep -= 1
         cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
         cali "I had a whole bit going, whatever."
         cali "3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
@@ -273,42 +274,39 @@ menu meowford_rhetorical:
         cali "So we started scourting colleges. Eventually Vinick landed on your college, he asked around... {w=3} time and time again we'd here your name be mentioned"
         cali "So he made some calls, and eventually we called you. Your first test was actually agreeing to the flight, I know a lot of people might not have"
         cali "But you did, and now you've ended up here"
-        cali "So... Will you accept our offer, and be the first official ambassador of the United States of America to the Png-landia factions. Cmon, we can get you on a plane in an hour, just say {i}yes.{/i}"
+        cali "So... Will you accept our offer, and be the first official ambassador of the United States of America to the Png-landia factions. C'mon, we can get you on a plane in an hour, just say {color=#00A36C}{i}yes.{/i}{/color}"
         jump main_continue
 label main_continue:
-    show bg ovalofficeoverlook:
-        parallel:
-            linear .2 xoffset -200  
-        parallel:
-            linear .2  xzoom 1.1  
-    show cali sit:
-        alpha 1
-        linear .2 alpha 0
-    pause .2
-    show bg ovalofficesit:
-        xoffset -400
-        yzoom .8
-        xzoom 1
-        parallel:
-            linear .1 xzoom .8
-        parallel:
-            linear .1 xoffset -100
-    show cali sidelay:
-        rotate 0
-        xoffset 400
-        zoom 1
-        alpha 0
-        linear .2 alpha 1
-    pause .2
-    cali "Now, we need you to try and get them to agree on some stuff, {w=2} or at least tell us who to give {i}limited{/i} military assistance to."
-    cali "Are you ready for this?"
-
     menu presidentquestion:
-        "Yes Sir.": # choice 1,  very positive
+        "Yes Sir. I accept your offer": # choice 1,  very positive
             play sound "click.wav"
             $ calirep += 2
-            cali "Thats what I like to hear, we need more people like you in our government."
-            cali "We don't have much for you in the way of a briefing, but we can get you on a plane in 1 hour."
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
+            pause .2
+            cali "Theres the good news I needed. We will get you everythin you need for your trip, request anything we miss"
+            cali "We don't have much for you in the way of a briefing, "
             cali "You are now the sole US ambassador to PNGlandia, congrats."
             jump jet_plane
         "That sounds like something I can do.": # choice 1 variation basically
