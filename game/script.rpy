@@ -261,11 +261,19 @@ menu meowford_rhetorical:
         cali "Eventually Vinick started looking at your college, asking around, seeing who'd be a good fit." # establishes that it was Vinick who chose you... maybe it wasn't as much of a coincidence as it sounds like. I feel like Vinick is evil, I really do. Wait I'm the game dev I decide
         cali "Your name began to come up, some Political Science teachers mention you, a few clubs too. So Vinick made a few calls, and then we called you."
         cali "And now your here, with the opportunity of a lifetime in front of you."
-        cali "Will you accept our offer to be the official ambassador of the United States of Ameowica to the PNG-landia factions. We can get you on a plane in an hour, just say yes."
+        cali "Will you accept our offer to be the official ambassador of the United States of Ameowica to the PNG-landia factions. We can get you on a plane in an hour, just say {i}yes.{/i}"
         jump main_continue
     "Thank you. I imagine it is, and I'll be looking forward to that":
         cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
-        cali ""
+        cali "I had a whole bit going, whatever."
+        cali "3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
+        cali "We've no idea why yet. Our resources are spread very thin with the state of the world already, and we haven't had the time to get that info out of them, to tell you the truth" # he sounds depressed now that you messed up the course of his speech poor cat he doesn't even know his secretary of state is evil. I want Vinick to be somewhat responsible for the state of the world
+        cali "They also don't want to talk to anyone thats been in the DC system for that long. They almost hung up on me, and as the leader of the free world, I can say that is one of the first times thats happened" # Just like his namesake cal bradford (this is nothin glike the plot of paradise Im just saying things)
+        cali "So, what we needed was a negotiator who wasn't in the DC system, who wouldn't demand too much info beforehand or now, and who would be capable of it"
+        cali "So we started scourting colleges. Eventually Vinick landed on your college, he asked around... {w=3} time and time again we'd here your name be mentioned"
+        cali "So he made some calls, and eventually we called you. Your first test was actually agreeing to the flight, I know a lot of people might not have"
+        cali "But you did, and now you've ended up here"
+        cali "So... Will you accept our offer, and be the first official ambassador of the United States of America to the Png-landia factions. Cmon, we can get you on a plane in an hour, just say {i}yes.{/i}"
         jump main_continue
 label main_continue:
     show bg ovalofficeoverlook:
