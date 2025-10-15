@@ -16,4 +16,4 @@ calirep - Tracks the players reputation with Cali Meowford
 
 OTHER
 knew_before - Tracks if the player told vinick that they already knew why they were here. Essentially just for some special dialogue.
-garn_hurt - Tracks if you smacked the shit out of Garner in the dog confrontation
+garn_hurt - Tracks if you smacked Garner in the dog confrontation

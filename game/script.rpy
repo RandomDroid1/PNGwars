@@ -12,7 +12,7 @@ define cali = Character("Cali Meowford", window_background=Image("textbox_ameowi
 # Dog Characters
 define mosk = Character("Mischa Sobaka", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 define garn = Character("Sloan Garner", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png")) 
-define varam = Character ("Varash Moskvi")
+define varam = Character ("Plankton from spongebob")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
@@ -525,13 +525,14 @@ label jet_plane_crash:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
             play sound "click.wav"
             hide concussion with dissolve
-            mosk "Lets go."
-            garn "Surely we aren't taking them back to camp? Theres no way a nearly empty commerical flight just... happens to crash here."
-            mosk "What are you suggesting? That the Ameowicans intentionally crashed a plane to... do what?"
-            garn "I don't know, but it's far too convenient. We can take them back, but we need to have at least two guards on them, at all times"
-            mosk "There we go, that can happen. We can bring them to Caine, he has some good medical equipment"
+            mosk "Lets go. Theres no one else here to save."
+            garn "Sir, we shouldn't take them back to our camp. There is no way a completely empty commercial flight just... crashes here."
+            mosk "So what are you suggesting, then? The Ameowicans intentionally crashed a plane... to get access to the medical wing of our camp?"
+            garn "No... but it's far too convenient. We need to keep them under guard, at- at least two, around the clock"
+            mosk "There we go, that's better. We can bring them to Caine, he has some good medical equipment" # a little bit of teaching from Mischa here
             jump demo_exit
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
+            # Not Revamped, small edits done.
             play sound "click.wav"
             hide concussion with dissolve
             $ animalrep -= 1
@@ -546,6 +547,7 @@ label jet_plane_crash:
                 linear .3 yoffset -300
             show bg forest1:
                 linear .3 yoffset -300
+            pause 1
             garn "you BASTARD"
             garn "I'm going to-"
             show garn standalert:
@@ -557,15 +559,14 @@ label jet_plane_crash:
             show mosk stand:
                 xalign 1
                 yoffset 300
-                linear .5 xalign .7
-                
+                linear .5 xalign .7    
             mosk "Hold on!"
             mosk "Let's see what they have to say for themselves."
-            show mosk stand:
+            show mosk stand: #experiment with this type of dual dialogue system since their dialogue boxes are really similar
                 linear .3 zoom .8
             show garn standalert:
                 linear .3 zoom 1
-            garn "Sir! We can't assume they have any good intentions."
+            garn "Sir, we can't assume they have any good intentions. Especially if their first instict is to fight"
             show mosk stand:
                 linear .3 zoom 1
             show garn standalert:
@@ -580,9 +581,11 @@ label jet_plane_crash:
                 linear .3 zoom 1
             show garn standalert:
                 linear .3 zoom .8
-            mosk "So, cat, who are you?"
+            mosk "So, let's give them a chance. Cat, who are you?"
             # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY.
+            jump wake_up_calm_dog_confrontation
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
+            # Not Revamped
             play sound "click.wav"
             player "Hey! Let me go... please."
             hide concussion with dissolve
@@ -605,15 +608,16 @@ label jet_plane_crash:
             # PLACEHOLDER // see if you can make this timed?
             jump wake_up_calm_dog_confrontation
 
-menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly explain
+menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly expain
                 "Lie: I'm just a random cat! I was on the flight before I heard about the split":
+                    # Not Revamped
                     play sound "click.wav"
                     player "Look, I'm just so-some random cat. {w=1} I got on the flight before I heard about the split!"
                     $ moskrep -= 2
                     $ dogrep -= 1
                     $ animalrep -= 1
-                    mosk "Your Ameowican, I presume... {w=3} Your flight would've taken, what? 2 hours to get here."
-                    mosk "The news broke 3 hours ago, and I really find it hard to believe you convinced the airline to keep this one going"
+                    mosk "So... you, a random cat... Got on a commercial flight, from what we can tell completely alone aside from one pilot"
+                    mosk "Then your flight went into a pretty strict no-fly zone, and presumably planned to land "
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
                     mosk "Personally, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
@@ -632,6 +636,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                             jump lietold_truthtold
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
+                    # Not Revamped
                     play sound "click.wav"
                     $ garnrep -= 2
                     $ moskrep -= 2
@@ -648,6 +653,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!":
+                    # Not Revamped
                     play sound "click.wav"
                     $ moskrep += 1
                     $ garnrep += 1 #you get a rep boost in this one because garn likes your spunk
@@ -661,6 +667,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
                     jump truthtold_spunky
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
+                    # Not Revamped
                     play sound "click.wav"
                     $ moskrep += 1
                     $ animalrep += 1
