@@ -305,45 +305,81 @@ label main_continue:
                 alpha 0
                 linear .2 alpha 1 # end of cali Transition
             pause .2
-            cali "Theres the good news I needed. We will get you everythin you need for your trip, request anything we miss"
-            cali "We don't have much for you in the way of a briefing, "
+            cali "Theres the good news I needed. We will get you everything you need for your trip, please... request anything we miss"
+            cali "We don't have much for you in the way of a briefing, which I imagine you might have figured out already"
             cali "You are now the sole US ambassador to PNGlandia, congrats."
-            jump jet_plane
+            if calirep == 3:
+                cali "good luck, I mean it. I'm not just saying that, I really think you can do some good stuff out there."
+                jump jet_plane
+            else:
+                jump jet_plane
         "That sounds like something I can do.": # choice 1 variation basically
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
             play sound "click.wav"
             $ calirep += 1
             cali "That's good, that's what we want to hear."
-            cali "Truthfully, we've not much for you in terms of a briefing, {p=3}but we can get you on a ejnc f4"
+            cali "Truthfully, we've not got much for you in terms of a briefing, {p=3}but we can get you on a plane in a few hours"
+            cali "We'll get you on a plane in an hour, you'll be given everything you need for your trip"
         "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
             play sound "click.wav"
-            cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
-            cali "On top of that, they have requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
-            cali "We can get you on a plane in one hour, do you accept?"
+            cali "We... have all of our negotiators working on some more deals with some folks from other countries."
+            cali "You are... our most qualified option. At least the only one we can get without screwing up some other deal"
+            if calirep == -1:
+                cali "Anyway, you seem... clever enough... {w=2}Nah, I'm kidding, you seem pretty smart."
+            else:
+                cali "Anyway, you seem pretty clever, I hope anyway. Clever enough to be picked out in a competition you didn't even know you were in"
+            cali "So that brings us right back around, do you accept our offer?" 
             menu presidentsubquestion:
                 "Yes. I accept.":
                     play sound "click.wav"
                     player "Yes, I accept."
+                    cali "That's the news we needed"
+                    cali "You'll be on a plane in an hour, we'll get you everything you need." #hmmmm, hes a little angry after having to think about how bad the world is. We aint elaborating though
                     jump jet_plane
                 "No, get someone qualified.":
                     play sound "click.wav"
                     player "No... No, get someone qualified, i'm hardly qualified."
                     cali "You..."
-                    cali "Okay... well. Not much we can do about that then. Vinick will see you out."
+                    pause 1
+                    cali "Okay... well. Not much we can do about that then. Security will see you out."
+                    # PLACEHOLDER // Make it clear your leaving
+                    cali "Thats... do we have a next on the list? Please tell me we have a next on the list, Vinick."
                     return
         "I can't do that.": # negative choice
             play sound "click.wav"
             $ calirep -= 2
-            cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
-            cali "However, it might be worth reconsidering... theres a lot on the line."
-            cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
-            cali "Are you sure you want to turn your back on what you can do?"
+            cali "That... was an answer we'd thought about, especially considering how little we told you"
+            cali "But please reconsider, theres a... lot more depending on this than you realize"
+            cali "Enough to get the leader of the free world to beg, which is more than most world leaders could get"
+            cali "We know your capable of this, even if you don't. So if you can't trust yourself, trust us. Trust me."
             menu: # sub-choice of negative choice, chance to go back
-                "I am sure, I don't want to do this.":
+                "No. I'm sure, I don't want to do this.":
                     play sound "click.wav"
                     show cali sit
-                    cali "Okay. Vinick, sorry to put this job on you, escort this young fellow out for me."
-                    cali "... You could've done so much more. Sorry it ended like this"
-                    cali "hey, maybe we'll call you back for something some other day."
+                    cali "Alright. Security will escort you out soon"
+                    cali "Vinick, can we... get the next person on the list."
                     return
                 "I'm... No, I can do this. Get me on the plane.":
                     play sound "click.wav"
