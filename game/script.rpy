@@ -5,7 +5,7 @@ define player = Character("[name]", window_background=Frame("narbox.png"), nameb
 define nar = Character("Narrator", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 
 # Ameowican Characters
-define vini = Character("Vinick Meowstrong", window_background=Image("textbox_ameowican_secretaryofstate.png"), namebox_background=Frame("namebox_ameowican.png")) 
+define vini = Character("Vinick Meowsker", window_background=Image("textbox_ameowican_secretaryofstate.png"), namebox_background=Frame("namebox_ameowican.png")) 
 define cali = Character("Cali Meowford", window_background=Image("textbox_ameowican_president.png"), namebox_background=Frame("namebox_ameowican.png"))
 
 # Animal Characters
@@ -343,6 +343,29 @@ label main_continue:
             cali "Truthfully, we've not got much for you in terms of a briefing, {p=3}but we can get you on a plane in a few hours"
             cali "We'll get you on a plane in an hour, you'll be given everything you need for your trip"
         "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
             play sound "click.wav"
             cali "We... have all of our negotiators working on some more deals with some folks from other countries."
             cali "You are... our most qualified option. At least the only one we can get without screwing up some other deal"
@@ -364,15 +387,38 @@ label main_continue:
                     cali "You..."
                     pause 1
                     cali "Okay... well. Not much we can do about that then. Security will see you out."
-                    # PLACEHOLDER // Make it clear your leaving
+                    # PLACEHOLDER // Link this to the I can't do that option??
                     cali "Thats... do we have a next on the list? Please tell me we have a next on the list, Vinick."
                     return
         "I can't do that.": # negative choice
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
             play sound "click.wav"
-            $ calirep -= 2
+            $ calirep -= 3 # You shouldn't have made me beg, John.
             cali "That... was an answer we'd thought about, especially considering how little we told you"
             cali "But please reconsider, theres a... lot more depending on this than you realize"
-            cali "Enough to get the leader of the free world to beg, which is more than most world leaders could get"
+            cali "Enough to get the leader of the free world to beg, which is more than most world leaders could get" 
             cali "We know your capable of this, even if you don't. So if you can't trust yourself, trust us. Trust me."
             menu: # sub-choice of negative choice, chance to go back
                 "No. I'm sure, I don't want to do this.":
@@ -384,8 +430,8 @@ label main_continue:
                 "I'm... No, I can do this. Get me on the plane.":
                     play sound "click.wav"
                     show cali sit
-                    cali "Theres hope for you yet. We can have you on a plane in a few hours."
-                    cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
+                    cali "Theres hope for you yet. We can have you on a plane in an hour."
+                    cali "Security will escort you to the Roosevelt room. You'll get everything you need."
                     jump jet_plane
 label jet_plane: # The plane sequence that leads into
     play music "motif.mp3"
@@ -400,30 +446,28 @@ label jet_plane: # The plane sequence that leads into
             linear 3 xpos -300
         parallel:
             linear 3 ypos -300
-    nar "The plane is relatively empty. A vast majority of flights to PNGlandia had been grounded, and the only reason this one is still flying to PNGlandia is because the President ordered it."
-    nar "All this stuff had hit the news sooner than the president expected, his press conference was pretty clearly prepared on a moments notice" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
+    nar "The flight is completely empty aside from you. You were on the only Ameowican flight allowed to cross into Pnglandia Airspace"
+    nar "The Pnglandia Government dissolving had hit the news sooner than the President expected. He had an absolutely disasterous press conference you got to watch as you waited to board"
     nar "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3}Or maybe you don't, i'm not in charge of you."
-    nar "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
+    nar "You have an hour and a half until you touch down on the airport closest to the Pnglandia capitol, what do you want to do?"
     menu plane_choice: # The illusion of choice hahaha
         "Sleep":
             play sound "click.wav"
             nar "You let your eyes shut as you drift to sleep."
             nar "It's nice to get some rest before..."
-            # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch a show":
             play sound "click.wav"
             nar "You turn on you favorite show, 'The Mewsroom', and sit back."
             nar "Soon, you begin to feel your eyes drift shut"
             nar "Maybe it's a good idea to get some rest before..."
-            # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
             play sound "click.wav"
             # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
             nar "You turn on the news, and sit back"
-            nar "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
-            nar "However despite your best efforts, you begin to feel drowsy"
+            nar "It's probably a good idea to get an idea of just how bad the current geopolitical climate before you go in and try to negotiate a treaty"
+            nar "However despite your best efforts, after half an hour you begin to feel drowsy"
             nar "Soon, you begin to feel your eyes drift shut"
             nar "Maybe it's a good idea to get some rest before..."
             # PLACEHOLDER // add this background later
@@ -458,15 +502,15 @@ label jet_plane_crash:
             repeat
     hide planescreen cali_jet_report
     stop music
-    play sound "planecrash.wav" # This is one of the funniest sound effects I've heard. It's so goofy its so so goofy. It just keeps going
+    play sound "planecrash.wav" # This is one of the funniest sound effects I've heard. It's so goofy its so so goofy. It just keeps going oh my god
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
-    # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
-    mosk "Hey! Can we get some... The pilot's are dead."
+    # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss ):
+    mosk "What the hell was- They actually went down?"
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
-    garn "We have a survivor!"
-    garn "Weren't all flights supposed to be grounded? They're shooting down anything they see!"
+    garn "Both pilots are dead... The plane hit the ground nose first, there was no surviving that for them."
+    garn "We have a survivor in the cabin! Looks like they might've been the only one in there..."
     mosk "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
-    mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
+    mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over a no fly zone."
     nar "You feel yourself begin to wake up"
     show concussion:
         linear .5 alpha 0
