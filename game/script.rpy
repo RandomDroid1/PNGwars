@@ -253,7 +253,7 @@ menu meowford_rhetorical:
     "Thank you. I imag- Wait... What do you mean when I get back?": # Channel your inner Cal Bradford
         $ calirep += 1
         cali "I was wondering when you'd pick up on that. Sounds like your already pretty good at listening to what people are saying. {w=3} That's good. You're going to need that"
-        cali "3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
+        cali "Let's start at the beginning. 3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
         cali "Truthfully, we don't know all too much beyond that, our intelligence services are focused on.... {w=4} other countries"
         cali "I shouldn't have to explain to you that this is a big problem, especially once the press gets a hold of it in a few days. Ameowica has vested interests in the success of Png-landia, or at least the stability of it"
         cali "Not to mention it's not good for me politically if one of our allies collapses under my watch, but that parts less your problem and more mine" # holy yapathon
@@ -267,7 +267,7 @@ menu meowford_rhetorical:
         $ calirep -= 1
         cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
         cali "I had a whole bit going, whatever."
-        cali "3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
+        cali "Let's start at the beginning. 3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
         cali "We've no idea why yet. Our resources are spread very thin with the state of the world already, and we haven't had the time to get that info out of them, to tell you the truth" # he sounds depressed now that you messed up the course of his speech poor cat he doesn't even know his secretary of state is evil. I want Vinick to be somewhat responsible for the state of the world
         cali "They also don't want to talk to anyone thats been in the DC system for that long. They almost hung up on me, and as the leader of the free world, I can say that is one of the first times thats happened" # Just like his namesake cal bradford (this is nothin glike the plot of paradise Im just saying things)
         cali "So, what we needed was a negotiator who wasn't in the DC system, who wouldn't demand too much info beforehand or now, and who would be capable of it"
@@ -582,7 +582,7 @@ label jet_plane_crash:
             show garn standalert:
                 linear .3 zoom .8
             mosk "So, let's give them a chance. Cat, who are you?"
-            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY.
+            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY. // Does it? Check back later.
             jump wake_up_calm_dog_confrontation
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             # Not Revamped
@@ -616,12 +616,12 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     $ moskrep -= 2
                     $ dogrep -= 1
                     $ animalrep -= 1
-                    mosk "So... you, a random cat... Got on a commercial flight, from what we can tell completely alone aside from one pilot"
+                    mosk "So... you, a random cat... Got on a commercial flight, and at least from what we can tell completely alone aside from one pilot"
                     mosk "Then your flight went into a pretty strict no-fly zone, and presumably planned to land "
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
                     mosk "Personally, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
-                        "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
+                        "Lie: My name is James Meowdisan. I just wanted to take a vacation.":
                             play sound "click.wav"
                             $ moskrep -= 1
                             mosk "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"

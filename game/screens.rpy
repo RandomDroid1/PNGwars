@@ -1295,7 +1295,7 @@ screen attributions():
     use game_menu(_("Attributions"), scroll="viewport"):
 
         style_prefix "help"
-
+        #this can be split like the helpt screen Laggy atm
         use attributions_cali
         use attributions_oval_office
         use attributions_vinick
@@ -1304,6 +1304,7 @@ screen attributions():
         use attributions_mischa
         use attributions_sloan
         use attributions_dogcamp
+        use attributions_caine
 
 screen attributions_cali():
     frame:
@@ -1546,6 +1547,18 @@ screen attributions_dogcamp():
                     zoom .04
                     xoffset -1200
                     yoffset 100
+screen attributions_caine():
+    frame:
+        xsize .999
+        ysize 350
+        vbox:
+            hbox: # caine doctor doctor
+                label _("Doctor Caine")
+                text _("Used as the sprite for Doctor Caine when you get medical treatment. Taken by {a=https://unsplash.com/@laura_paraschivescu}Laura Paraschivescu{/a} on {a=https://unsplash.com/photos/a-dog-wearing-a-face-mask-sitting-on-a-wooden-floor-gSrrEvIaPII}Unsplash{/a}")
+                image _("caine sit.png"):
+                    zoom .5
+                    yoffset 20
+                    xoffset -1200
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
