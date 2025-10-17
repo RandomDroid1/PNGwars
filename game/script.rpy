@@ -12,7 +12,8 @@ define cali = Character("Cali Meowford", window_background=Image("textbox_ameowi
 # Dog Characters
 define mosk = Character("Mischa Sobaka", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 define garn = Character("Sloan Garner", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png")) 
-define varam = Character ("Plankton from spongebob")
+define varam = Character("Plankton from spongebob")
+define cain = Character("Caine Wooflinson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))

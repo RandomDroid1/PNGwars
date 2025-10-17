@@ -26,9 +26,9 @@ label truthtold_calm: # First draft
     nar "They don't look hostile, and they seem to keep their distance from you, most seem eager to return to whatever they were doing beforehand."
     nar "Sobaka takes a look back at you..."
     if garn_hurt == True:
-        mosk "We're going to get you... and Garner... some medical attention."
+        mosk "We're going to get you... and Garner... some medical attention. "
     else:
-        mosk "We're going to get you some medical attention."
-    show bg doctors office
+        mosk "We're going to get you some medical attention. You look like you need it."
+    show bg doctors office # PLACEHOLDER // FIX ALL THE UH THE UH
     jump demo_exit
 return

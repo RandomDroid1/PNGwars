@@ -1290,21 +1290,38 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default device = "keyboard"
+    default page = "1"
 
     use game_menu(_("Attributions"), scroll="viewport"):
 
         style_prefix "help"
+        vbox:
+            spacing 23
+
+            hbox:
+                textbutton _("Page 1") action SetScreenVariable("page", "1")
+                textbutton _("Page 2") action SetScreenVariable("page", "2")
+                textbutton _("Page 3") action SetScreenVariable("page", "3")
+                textbutton _("Page 4") action SetScreenVariable("page", "4")
+                textbutton _("Page 5") action SetScreenVariable("page", "5")
+                textbutton _(page)
+            if page == "1":
+                use attributions_cali
+                use attributions_oval_office
+            elif page == "2":
+                use attributions_vinick
+                use attributions_plane
+            elif page == "3":
+                use attributions_forest
+                use attributions_mischa
+            elif page == "4":
+                use attributions_sloan
+            elif page == "5":
+                use attributions_dogcamp
+                use attributions_caine
+                use attributions_doctor
         #this can be split like the helpt screen Laggy atm
-        use attributions_cali
-        use attributions_oval_office
-        use attributions_vinick
-        use attributions_plane
-        use attributions_forest
-        use attributions_mischa
-        use attributions_sloan
-        use attributions_dogcamp
-        use attributions_caine
+        
 
 screen attributions_cali():
     frame:
@@ -1550,7 +1567,7 @@ screen attributions_dogcamp():
 screen attributions_caine():
     frame:
         xsize .999
-        ysize 350
+        ysize 300
         vbox:
             hbox: # caine doctor doctor
                 label _("Doctor Caine")
@@ -1559,6 +1576,18 @@ screen attributions_caine():
                     zoom .5
                     yoffset 20
                     xoffset -1200
+screen attributions_doctor:
+    frame:
+        xsize .999
+        ysize 350
+        vbox:
+            hbox: # Doctors Office
+                label _("Doctors Office")
+                text _("Used for when the Dogs give you medical treatment. Photo by {a=https://unsplash.com/@fr0ggy5?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText>}fr0ggy5{/a} on {a=https://unsplash.com/photos/a-room-with-a-desk-phone-and-other-items-on-the-wall-717W1DqDka0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText}Unsplash{/a}")
+                image _("bg doctorsoffice.jpg"):
+                    xoffset -1200
+                    zoom .05
+                    yoffset 30
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in
