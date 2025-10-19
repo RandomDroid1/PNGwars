@@ -1290,7 +1290,7 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default page = "1"
+    default page = "6"
 
     use game_menu(_("Attributions"), scroll="viewport"):
 
@@ -1304,6 +1304,7 @@ screen attributions():
                 textbutton _("Page 3") action SetScreenVariable("page", "3")
                 textbutton _("Page 4") action SetScreenVariable("page", "4")
                 textbutton _("Page 5") action SetScreenVariable("page", "5")
+                textbutton _("Page 6") action SetScreenVariable("page", "6") # more efficient way?
                 textbutton _(page)
             if page == "1":
                 use attributions_cali
@@ -1320,6 +1321,8 @@ screen attributions():
                 use attributions_dogcamp
                 use attributions_caine
                 use attributions_doctor
+            elif page == "6":
+                use attributions_dogcastle
         #this can be split like the helpt screen Laggy atm
         
 
@@ -1579,7 +1582,7 @@ screen attributions_caine():
 screen attributions_doctor:
     frame:
         xsize .999
-        ysize 350
+        ysize 300
         vbox:
             hbox: # Doctors Office
                 label _("Doctors Office")
@@ -1587,7 +1590,50 @@ screen attributions_doctor:
                 image _("bg doctorsoffice.jpg"):
                     xoffset -1200
                     zoom .05
-                    yoffset 30
+                    yoffset 50
+screen attributions_dogcastle:
+    frame:
+        xsize .999
+        ysize 1000
+        vbox:
+            hbox: # Dogcastle
+                label _("Dog Castle"):
+                    yoffset 10
+                text _("Is used as the Dog capitol. Is actually the Schloss in Wolfenbüttel, Germany. Photo by Jan-Herm Janßen on {a=https://en.wikipedia.org/wiki/Schloss_Wolfenb%C3%BCttel#/media/File:Wolfenbuettel_Schloss_07.jpg}Wikipedia{/a}"):
+                    yoffset 10
+                image _("bg dogcastleoutside.jpg"):
+                    xoffset -1160
+                    yoffset 60
+                    zoom .2
+            hbox: # dogcastlecourtyard
+                label _("Dog Castle courtyard"):
+                    yoffset 80
+                text _("Used as the Interior of the dog's capitol. Is also actually the Schloss in Wolfenbüttel. Photo by Losch on {a=https://en.wikipedia.org/wiki/Schloss_Wolfenb%C3%BCttel#/media/File:Hofblick_im_Schloss_Wolfenb%C3%BCttel_IMG_2981.jpg}Wikipedia{/a}"):
+                    yoffset 80
+                image _("bg dogcastlecourtyard.jpg"):
+                    yoffset 175
+                    xoffset -1200
+                    zoom .2
+            hbox: # dogcastledoor
+                label _("Dog Castle"):
+                    yoffset 200
+                text _("Front of the dog capitol, also the Schloss in Wolfebüttel, Germany. Photo by Brunswyk on {a=https://en.wikipedia.org/wiki/Schloss_Wolfenb%C3%BCttel#/media/File:Wolfenbuettel_Schlossportal_(2006).jpg}Wikipedia{/a}"):
+                    yoffset 200
+                image _("bg dogcastledoor.jpg"):
+                    yoffset 270
+                    xoffset -1200
+                    zoom .4
+                
+screen attributions_template:
+    frame:
+        xsize .999
+        ysize 1000
+        vbox:
+            hbox: # 
+                label _("Dog Castle")
+                text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
+                image _("bg dogcastle.jpg"):
+                    xoffset -1200
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in

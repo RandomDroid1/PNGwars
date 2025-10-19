@@ -30,5 +30,12 @@ label truthtold_calm: # First draft
     else:
         mosk "We're going to get you some medical attention. You look like you need it."
     show bg doctors office # PLACEHOLDER // FIX ALL THE UH THE UH
+    cain "Hm... you seem almost perfectly fine. Truthfully, I did not expect that considering everything."
+    cain "In most circumstances I'd keep you for observation, but you have a lot of people who want to talk to you"
+    cain "So I'm clearing you to leave. Do return if you feel any pain, light-headedness, or general issues with your head"
+    if garn_hurt == True:
+        cain "General Sobaka is here to escort "
+    elif == False:
+        cain "Sobaka sent Commander Garner to escort you to the Capitol. Don't worry, it's not very far from here."
     jump demo_exit
 return
