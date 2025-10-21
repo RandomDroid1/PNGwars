@@ -34,6 +34,7 @@ default moskrep = 0
 default knew_before = False
 default garn_hurt = False
 default window_icon = "standard"
+default alternate_forest = False
 # The game starts here.
 
 label start:
@@ -525,7 +526,7 @@ label jet_plane_crash:
     menu dog_scary:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
             play sound "click.wav"
-            hide concussion with dissolve
+            hide concussion with dissolve #make Garners text box different ts pmo
             mosk "Lets go. Theres no one else here to save."
             garn "Sir, we shouldn't take them back to our camp. There is no way a completely empty commercial flight just... crashes here."
             mosk "So what are you suggesting, then? The Ameowicans intentionally crashed a plane... to get access to the medical wing of our camp?"
@@ -583,8 +584,9 @@ label jet_plane_crash:
             show garn standalert:
                 linear .3 zoom .8
             mosk "So, let's give them a chance. Cat, who are you?"
-            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY. // Does it? Check back later.
-            jump wake_up_calm_dog_confrontation
+            $ alternate_forest = True
+            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY. Your options should be severely limited. Consequences
+            jump garn_hurt_choice
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
             # Not Revamped
             play sound "click.wav"
@@ -673,9 +675,21 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     $ moskrep += 1
                     $ animalrep += 1
                     $ dogrep += 2 # A small reward for choosing the peaceful option. 
+                    if alternate_forest == True:
+                        # PLACEHOLDER // BRING GARNER IN
+                    else:
+                        # PLACEHOLDER // CONTINUE AS NORMAL.
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "They're sending children to try and fix other countries business now?"
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."
                     jump truthtold_calm
+
+menu garn_hurt_choice:
+    "Lie: Fine! I'm... Special Agent Jefferey Steel.": # better call saul, more like better call meowl
+        jump demo_exit
+    "Truth: I'm [name], I work for Ameowica, as a diplomat. They sent me as a negotiator.":
+        jump demo_exit
+    "Run. It's your only way out.":
+        jump the_forest

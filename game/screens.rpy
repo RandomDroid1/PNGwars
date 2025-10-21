@@ -1594,7 +1594,7 @@ screen attributions_doctor:
 screen attributions_dogcastle:
     frame:
         xsize .999
-        ysize 1000
+        ysize 800
         vbox:
             hbox: # Dogcastle
                 label _("Dog Castle"):
