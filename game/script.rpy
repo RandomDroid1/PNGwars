@@ -5,16 +5,20 @@
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrator", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 
-# Ameowican Characters
+# Ameowican Clan
 define vini = Character("Vinick Meowsker", window_background=Image("textbox_ameowican_secretaryofstate.png"), namebox_background=Frame("namebox_ameowican.png")) 
 define cali = Character("Cali Meowford", window_background=Image("textbox_ameowican_president.png"), namebox_background=Frame("namebox_ameowican.png"))
 
-# Animal Characters
-# Dog Characters
+# Dog Clan
 define mosk = Character("Mischa Sobaka", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 define garn = Character("Sloan Garner", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png")) 
 define varam = Character("Plankton from spongebob")
 define cain = Character("Caine Wooflinson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+
+# Bird Clan
+define pewt = Character("Pewter Johnson")
+define elea = Character("Eleanor Chirpberry")
+define wood = Character("Woody Chirper")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
@@ -718,8 +722,22 @@ menu the_forest:
         nar "You keep moving forward, this forest can only be so large, and you think it's better to get out of it sooner rather than later"
         nar "The faction leaders would be expecting you soon, and they already don't like eachother"
         nar "God knows what would happen if their negotiator mysteriously disappeared, with no one taking the blame"
-        nar "..."
+        nar "..." # holy yapathon
         nar "You push through a particularly thick set of bushes that seem to be almost more wall than plant, and you see a city in front of you."
+        nar "It's a very beautiful city. However, despite the cleanup efforts, the marks of the war that must've gripped this place for weeks don't escape you"
+        nar "It's empty, almost desolate, but it's also exactly where you need to be."
+        nar "Welcome to Capitol City, I hope you enjoy your visit."
+        nar "Where do you go now?" # I wonder if how I write dialogue has changed notably thoughout this code (I haven't written a lot of dialogue before this)
+        jump forest_capitol_enter
+    
+menu forest_capitol_enter:
+    "Continue forward, straight to the Capitol":
+        nar "You move forward, theres no time to waste."
+        nar "You pass through the city, luckily, uneventfully. Eventually, the capitol looms in front of you. It's quiet, the faction leaders wouldn't be here for a few hours yet." # PLACEHOLDER // Have occasinal bird chirp and ruffle noise, show not tell
         nar ""
         jump demo_exit
+    "Take a minute to look around, get familiar with where you are":
+        jump demo_exit
+
+
 
