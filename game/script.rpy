@@ -1,4 +1,5 @@
-﻿# Structure of textbox image names "textbox_(Faction)_(Rank)(Any Other Details)"
+﻿# Retcon the whole people thing, it's just animal clans hell yeah. How do the dogs not just overrun the smaller animals... David v goliath buddy
+# Structure of textbox image names "textbox_(Faction)_(Rank)(Any Other Details)"
 # character name structures (4 letters of first name)(1 letter of last name)(vini, cali, mosk, garn made before this)
 # Meta Characters
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
@@ -674,10 +675,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     play sound "click.wav"
                     $ moskrep += 1
                     $ animalrep += 1
-                    $ dogrep += 2 # A small reward for choosing the peaceful option. 
-                    if alternate_forest == True:
-                        # PLACEHOLDER // BRING GARNER IN
-                    else:
+                    $ dogrep += 2 # A small reward for choosing the peaceful option.
                         # PLACEHOLDER // CONTINUE AS NORMAL.
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "They're sending children to try and fix other countries business now?"
@@ -691,5 +689,37 @@ menu garn_hurt_choice:
         jump demo_exit
     "Truth: I'm [name], I work for Ameowica, as a diplomat. They sent me as a negotiator.":
         jump demo_exit
-    "Run. It's your only way out.":
+    "Run. It's your only way out.": # First draft
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        nar "You turn and dash away, pushing yourself through a small thicket of brambles, hoping it makes them have a harder time following you"
+        mosk "Garner! Let them go, they won't last long. Hell, Even if they do, it's not like they're a threat."
+        nar "As you push through the brambles, the dogs voices getting quieter as you move, the forest seems to stretch out infinitely in front of you"
+        nar "Where do you go?"
         jump the_forest
+
+menu the_forest:
+    "Forward":
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        # This gets your paw caught in a trap and brings you to the rebellion
+        # symbolism with the idea of moving forward?
+        # You establish they've had a cat in the rebellion before?
+        # Ahahaha evil vinick is evil..
+        jump demo_exit
+    "Left":
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        # You run right into the hands of the foxes
+        jump demo_exit
+    "Right": # First Draft
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        # you run to the capitol. The right direction is literally the *right* way i guess
+        nar "As you run through the forest, hoping Sobaka doesn't change their mind, you make a hard right."
+        nar "You keep running until your breath runs out."
+        nar "As you slow to a stop, you look behind you and see no movement. It's just you."
+        nar "You keep moving forward, this forest can only be so large, and you think it's better to get out of it sooner rather than later"
+        nar "The faction leaders would be expecting you soon, and they already don't like eachother"
+        nar "God knows what would happen if their negotiator mysteriously disappeared, with no one taking the blame"
+        nar "..."
+        nar "You push through a particularly thick set of bushes that seem to be almost more wall than plant, and you see a city in front of you."
+        nar ""
+        jump demo_exit
+
