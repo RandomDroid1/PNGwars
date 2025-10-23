@@ -1158,28 +1158,37 @@ screen notebook():
                 textbutton _("Other") action SetScreenVariable("notebookselector", "other")
                 textbutton _(notebookselector)
             if notebookselector == "vinick":
-                use notebooktest
+                use notepage_vinick
             elif notebookselector == "other":
                 use mouse_help
             elif notebookselector == "gamepad":
                 use gamepad_help
 
-screen notebooktest():
-    tag menu
-    default notebookselector2 = "none"
-    vbox:
-            hbox:
-
-                textbutton _("Vinick") action SetLocalVariable("notebookselector2", "vinick")
-                textbutton _("Other") action SetLocalVariable("notebookselector2", "other")
-                textbutton _(notebookselector2)
-            if notebookselector2 == "vinick":
-                use attributions_cali
-            elif notebookselector2 == "other":
-                use attributions_forest
-            elif notebookselector2 == "gamepad":
-                use gamepad_help
-
+screen notepage_vinick():
+    tag menu # BRICK BY BRICK
+    default vinick_image = "none"
+    frame: # FOR THE IMAGES
+        xsize .2
+        ysize 300
+        viewport:
+            mousewheel "horizontal"
+            draggable True
+            scrollbars "horizontal"
+            vbox:
+                hbox:
+                    textbutton _("Sit") action SetLocalVariable("vinick_image", "idle")
+                    textbutton _("Other") action SetLocalVariable("vinick_image", "other")
+                    textbutton _(vinick_image)
+                if vinick_image == "idle":
+                    image _("vinick idle.png"):
+                        xoffset -1200
+                        zoom 2
+                elif vinick_image == "other":
+                    use attributions_forest
+                elif vinick_image == "gamepad":
+                    use gamepad_help
+screen notepage_vinick_image():
+    
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
