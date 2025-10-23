@@ -1170,8 +1170,8 @@ screen notebooktest():
     vbox:
             hbox:
 
-                textbutton _("Vinick") action SetScreenVariable("notebookselector2", "vinick")
-                textbutton _("Other") action SetScreenVariable("notebookselector2", "other")
+                textbutton _("Vinick") action SetLocalVariable("notebookselector2", "vinick")
+                textbutton _("Other") action SetLocalVariable("notebookselector2", "other")
                 textbutton _(notebookselector2)
             if notebookselector2 == "vinick":
                 use attributions_cali
