@@ -40,6 +40,7 @@ default knew_before = False
 default garn_hurt = False
 default window_icon = "standard"
 default alternate_forest = False
+default notebook_unlocked = False
 # The game starts here.
 
 label start:
@@ -731,11 +732,17 @@ menu the_forest:
         jump forest_capitol_enter
     
 menu forest_capitol_enter:
-    "Continue forward, straight to the Capitol":
+    "Continue forward, straight to the Capitol": # First Draft
         nar "You move forward, theres no time to waste."
         nar "You pass through the city, luckily, uneventfully. Eventually, the capitol looms in front of you. It's quiet, the faction leaders wouldn't be here for a few hours yet." # PLACEHOLDER // Have occasinal bird chirp and ruffle noise, show not tell
-        nar ""
-        jump demo_exit
+        nar "You should spend some time getting prepared, you lost all your luggage and documents in the flight." #OH SHOOT HAVE THE NOTEBOOK UNLOCK HERE! WHEN yOU GET PAPER! PapeprER
+        nar "As you push the doors to the Capitol open, you hear voices a couple rooms away"
+        pewt "That's what I'm talking about Ellie, now keep going, you got this." # Yapathon
+        elea "Yeah... 'We, the people of Birdaria, demand independance'. That sounds weak...{w=3} What about 'demand sovereignty', it comes off stronger, more commanding"
+        pewt "That's strong, we should keep it. Don't fret too much, we have a few hours before... D'you you hear the door open?"
+        elea "Yes... Sounds like someone also had the idea to arrive early. Let's see what we have to deal with."
+        # PLACEHOLDER // get some images in this dang place
+        jump demo_exit 
     "Take a minute to look around, get familiar with where you are":
         jump demo_exit
 

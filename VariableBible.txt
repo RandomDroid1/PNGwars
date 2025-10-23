@@ -18,3 +18,4 @@ OTHER
 knew_before - Tracks if the player told vinick that they already knew why they were here. Essentially just for some special dialogue.
 garn_hurt - Tracks if you smacked Garner in the dog confrontation
 alternate_forest - tracks if you need alternate appearances in the forest. I hate my previous choices.
+notebook_unlocked - Tracks if you've unlocked the notebook tab, not functional yet
