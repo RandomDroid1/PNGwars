@@ -1141,39 +1141,10 @@ style help_label_text:
 # HELP ME ITS THE NOTEBOOK SCREEN
 #####################################
 screen notebook():
-
     tag menu
 
-    default notebookscreen = "disclaimer"
-
-    use game_menu(_("Notebook"), scroll="viewport"):
-
-        style_prefix "help"
-
-        vbox:
-            spacing 23
-
-            hbox:
-
-                textbutton _("Wa") action ShowMenu("one_help")
-                textbutton _("wa") action SetScreenVariable("notebookscreen", "cali")
-
-                
-                textbutton _("WAA") action SetScreenVariable("notebookscreen", "mosk")
-                textbutton _(notebookscreen)
-            if notebookscreen == "vini":
-                use one_help
-            if notebookscreen == "disclaimer":
-                label _("Disclaimer:")
-                text _("This menu is incomplete and messing with it will probably crash your game lol")
-                text _("(Im a responsible game dev)")
-
-
-screen one_help():
-    tag menu
-
-    default notebookscreen = "keyboard"
-
+    default notebookselector = "none"
+    default notebookselector2 = "none"
     use game_menu(_("Help"), scroll="viewport"):
 
         style_prefix "help"
@@ -1183,18 +1154,31 @@ screen one_help():
 
             hbox:
 
-                textbutton _("Wa") action ShowMenu("two_help")
-                textbutton _("wa") action SetScreenVariable("notebookscreen", "cali")
+                textbutton _("Vinick") action SetScreenVariable("notebookselector", "vinick")
+                textbutton _("Other") action SetScreenVariable("notebookselector", "other")
+                textbutton _(notebookselector)
+            if notebookselector == "vinick":
+                use notebooktest
+            elif notebookselector == "other":
+                use mouse_help
+            elif notebookselector == "gamepad":
+                use gamepad_help
 
-                
-                textbutton _("WAA") action SetScreenVariable("notebookscreen", "mosk")
-                textbutton _("wawa")
-            if notebookscreen == "vini":
-                use two_help
-screen two_help():
-    textbutton _(notebookscreen)
+screen notebooktest():
+    tag menu
+    default notebookselector2 = "none"
+    vbox:
+            hbox:
 
-
+                textbutton _("Vinick") action SetScreenVariable("notebookselector2", "vinick")
+                textbutton _("Other") action SetScreenVariable("notebookselector2", "other")
+                textbutton _(notebookselector2)
+            if notebookselector2 == "vinick":
+                use attributions_cali
+            elif notebookselector2 == "other":
+                use attributions_forest
+            elif notebookselector2 == "gamepad":
+                use gamepad_help
 
 style help_button is gui_button
 style help_button_text is gui_button_text
