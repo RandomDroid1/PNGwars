@@ -1143,7 +1143,7 @@ style help_label_text:
 screen notebook():
     tag menu
 
-    default notebookselector = "none"
+    default notebookselector = "vinick"
     default notebookselector2 = "none"
     use game_menu(_("Help"), scroll="viewport"):
 
@@ -1166,10 +1166,10 @@ screen notebook():
 
 screen notepage_vinick():
     tag menu # BRICK BY BRICK
-    default vinick_image = "none"
+    default vinick_image = "idle"
     frame: # FOR THE IMAGES
-        xsize .2
-        ysize 300
+        xsize .9
+        ysize 5000
         viewport:
             mousewheel "horizontal"
             draggable True
@@ -1181,14 +1181,11 @@ screen notepage_vinick():
                     textbutton _(vinick_image)
                 if vinick_image == "idle":
                     image _("vinick idle.png"):
-                        xoffset -1200
-                        zoom 2
+                        zoom 1
                 elif vinick_image == "other":
                     use attributions_forest
                 elif vinick_image == "gamepad":
                     use gamepad_help
-screen notepage_vinick_image():
-    
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
