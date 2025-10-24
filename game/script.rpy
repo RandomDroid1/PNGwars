@@ -31,6 +31,7 @@ default dogrep = 0
 default animalrep = 0
 
 # Personal Reputations
+default vinirep = 0
 default calirep = 0
 default garnrep = 0
 default moskrep = 0

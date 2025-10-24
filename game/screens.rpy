@@ -1198,10 +1198,41 @@ screen notepage_vinick():
                 zoom .6
                 yoffset -10
                 xoffset 40
-    frame: # FOR THE EVENT LOG
-        ypos -200
+    frame: # FOR THE NOTES
+        ypos -595
         xpos 375
-        textbutton _("test")
+        xsize .7
+        ysize 500
+        text _("Notes"):
+            xoffset 10
+    frame: # FOR THE EVENT LOG
+        ypos -590
+        xpos 375
+        xsize .7
+        ysize 230
+        text _("Event log"):
+            xoffset 10
+        viewport:   
+            xsize .99999 
+            arrowkeys True
+            draggable True
+            scrollbars "vertical"
+            frame:
+                xsize .9
+                ysize 50
+                xoffset 50
+                label _("1.")
+                text _("Player met Vinick in the Oval Office")
+    frame: # FOR THE REPUTATION LOG
+        ypos -780
+        ysize 167
+        xsize .25
+        text _("Reputation:"):
+            xoffset 10
+        if vinirep == 0:
+            text _("{b}Neutral{/b} (0)"):
+                xoffset 60
+                yoffset 70
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
