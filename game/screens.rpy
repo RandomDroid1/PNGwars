@@ -1167,25 +1167,41 @@ screen notebook():
 screen notepage_vinick():
     tag menu # BRICK BY BRICK
     default vinick_image = "idle"
-    frame: # FOR THE IMAGES
-        xsize .9
-        ysize 5000
+    frame: # FOR THE IMAGE SELECTOR
+        xsize .25
+        ysize 150
+        text _("Sprites"):
+            xpos 10
         viewport:
             mousewheel "horizontal"
+            arrowkeys True
             draggable True
             scrollbars "horizontal"
             vbox:
                 hbox:
-                    textbutton _("Sit") action SetLocalVariable("vinick_image", "idle")
-                    textbutton _("Other") action SetLocalVariable("vinick_image", "other")
-                    textbutton _(vinick_image)
-                if vinick_image == "idle":
-                    image _("vinick idle.png"):
-                        zoom 1
-                elif vinick_image == "other":
-                    use attributions_forest
-                elif vinick_image == "gamepad":
-                    use gamepad_help
+                    ypos 50
+                    textbutton _("Idle") action SetLocalVariable("vinick_image", "idle")
+                    textbutton _("Lookup") action SetLocalVariable("vinick_image", "lookup")
+    if vinick_image == "idle": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("vinick idle.png"):
+                zoom .75
+                yoffset -50
+                xoffset -40
+    elif vinick_image == "lookup": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("vinick lookup.png"):
+                zoom .6
+                yoffset -10
+                xoffset 40
+    frame: # FOR THE EVENT LOG
+        ypos -200
+        xpos 375
+        textbutton _("test")
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
