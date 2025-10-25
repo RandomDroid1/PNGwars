@@ -1686,7 +1686,7 @@ screen attributions_capitol:
 screen attributions_pewter:
     frame:
         xsize .999
-        ysize 1000
+        ysize 100
         vbox:
             hbox: # 
                 label _("Dog Castle")
@@ -1696,13 +1696,62 @@ screen attributions_pewter:
 screen attributions_chirpberry:
     frame:
         xsize .999
-        ysize 1000
+        ysize 1400
         vbox:
-            hbox: # 
-                label _("Dog Castle")
-                text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
-                image _("bg capitolentrance.jpg"):
-                    xoffset -1200
+            hbox: # Elea lookup
+                label _("Chirpberry Lookup")
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=watts_photos}watts_photos{/a} on {a=https://openverse.org/image/482ed256-7ed5-4dcf-9b9a-669fd22be235?q=Bluejay&p=94}Flickr{/a}")
+                image _("elea lookup.png"):
+                    xoffset -740
+                    yoffset 50
+                    zoom .25
+            hbox: # elea glare
+                label _("Chirpberry Glare"):
+                    yoffset 50
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=bobistraveling}bobistraveling{/a} on {a=https://openverse.org/image/ff411fc8-6a4b-4aea-8b41-e6678f4fc70d?q=Bluejay&p=96}Flickr{/a}"):
+                    yoffset 50
+                image _("elea glare.png"):
+                    xoffset -900
+                    yoffset 60
+                    zoom .5
+            hbox: # elea lookback
+                label _("Chirpberry Lookback"):
+                    yoffset 50
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Charles+Patrick+Ewing}Charles Patrick Ewing{/a} on {a=https://openverse.org/image/d1598c01-c045-44c2-85ef-320bbc1638b6?q=Bluejay&p=3}Flickr{/a}"):
+                    yoffset 50
+                image _("elea lookback.png"):
+                    xoffset -1000
+                    zoom .5
+                    yoffset 80
+            hbox: # elea stand
+                label _("Chirpberry Stand"):
+                    yoffset 80
+                text _("Photo by {a=https://openverse.org/image/collection?source=wikimedia&creator=Darren+Swim}Darren Swim{/a} on {a=https://commons.wikimedia.org/w/index.php?curid=2918281}Wikimedia Commons{/a}"):
+                    yoffset 80
+                image _("elea stand.png"):
+                    xoffset -1100
+                    zoom .4
+                    yoffset 110
+            hbox: # elea swoon
+                label _("Chirpberry lean"):
+                    yoffset 150
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Tobyotter}Tobyotter{/a} on {a=https://www.flickr.com/photos/78428166@N00/7081531755}Flickr{/a}"):
+                    yoffset 150
+                image _("elea swoon.png"):
+                    xoffset -800
+                    zoom .4
+                    yoffset 200
+            hbox: # elea sideeye
+                label _("Chirpberry side-eye"):
+                    yoffset 250
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Tobyotter}Tony Altar{/a} on {a=https://www.flickr.com/photos/78428166@N00/49962265657}Flickr{/a}"):
+                    yoffset 250
+                image _("elea sideeye.png"):
+                    xoffset -800 
+                    zoom .4         
+                    yoffset 300  
+                
+
 screen attributions_template:
     frame:
         xsize .999
