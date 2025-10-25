@@ -1218,11 +1218,12 @@ screen notepage_vinick():
             draggable True
             scrollbars "vertical"
             frame:
-                xsize .9
+                xsize .99999
                 ysize 50
-                xoffset 50
-                label _("1.")
-                text _("Player met Vinick in the Oval Office")
+                label _("1."):
+                    xoffset -300
+                text _("Player met Vinick in the Oval Office"):
+                    xoffset 60
     frame: # FOR THE REPUTATION LOG
         ypos -780
         ysize 167
@@ -1233,6 +1234,8 @@ screen notepage_vinick():
             text _("{b}Neutral{/b} (0)"):
                 xoffset 60
                 yoffset 70
+        if vinirep == 1:
+            text _("What the freaky")
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
@@ -1327,7 +1330,7 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default page = "6"
+    default page = "7"
 
     use game_menu(_("Attributions"), scroll="viewport"):
 
@@ -1341,7 +1344,9 @@ screen attributions():
                 textbutton _("Page 3") action SetScreenVariable("page", "3")
                 textbutton _("Page 4") action SetScreenVariable("page", "4")
                 textbutton _("Page 5") action SetScreenVariable("page", "5")
-                textbutton _("Page 6") action SetScreenVariable("page", "6") # more efficient way?
+                textbutton _("Page 6") action SetScreenVariable("page", "6")
+                textbutton _("Page 7") action SetScreenVariable("page", "7")
+                # more efficient way?
                 textbutton _(page)
             if page == "1":
                 use attributions_cali
@@ -1360,6 +1365,12 @@ screen attributions():
                 use attributions_doctor
             elif page == "6":
                 use attributions_dogcastle
+            elif page == "7":
+                use attributions_capitol
+                use attributions_pewter
+                use attributions_chirpberry
+            else:
+                text _("The page numbers have been messed up somehow, you should not be able to see this. Explode")
         #this can be split like the helpt screen Laggy atm
         
 
@@ -1660,7 +1671,38 @@ screen attributions_dogcastle:
                     yoffset 270
                     xoffset -1200
                     zoom .4
-                
+screen attributions_capitol:
+    frame:
+        xsize .999
+        ysize 325
+        vbox:
+            hbox: # CapitolEntrance
+                label _("The Capitol Entrance")
+                text _("Used as the entrance to the capitol when you get to it from the forest. Photo by {a=https://unsplash.com/@peternoah?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText}Peter Noah{/a} on {a=https://unsplash.com/photos/black-and-yellow-pedestrian-lane-in-between-of-high-rise-buildings-during-daytime-58qVxGi7slU}Unsplash{/a}")
+                image _("bg capitolentrance.jpg"):
+                    xoffset -1075
+                    yoffset 95
+                    zoom .05
+screen attributions_pewter:
+    frame:
+        xsize .999
+        ysize 1000
+        vbox:
+            hbox: # 
+                label _("Dog Castle")
+                text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
+                image _("bg capitolentrance.jpg"):
+                    xoffset -1200
+screen attributions_chirpberry:
+    frame:
+        xsize .999
+        ysize 1000
+        vbox:
+            hbox: # 
+                label _("Dog Castle")
+                text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
+                image _("bg capitolentrance.jpg"):
+                    xoffset -1200
 screen attributions_template:
     frame:
         xsize .999
@@ -1669,7 +1711,7 @@ screen attributions_template:
             hbox: # 
                 label _("Dog Castle")
                 text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
-                image _("bg dogcastle.jpg"):
+                image _("bg capitolentrance.jpg"):
                     xoffset -1200
 ## Skip indicator screen #######################################################
 ##

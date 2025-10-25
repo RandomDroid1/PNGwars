@@ -115,24 +115,23 @@ label start_continue:
             nar "These are red options! They are exclusive options unlocked by doing or selecting specific things."
             nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
             nar "For example, this red option has (state) before it, which means the state you selected is what unlocked this option for you"
-            show img notebook:
-                yalign .3
-                zoom .75
-            nar "This is the notebook tab. It's evil"
-            nar "No, im not kidding. its broken, it'll crash your game"
-            nar "Now, if you are wondering why I left it in the game...{w=3} I spent hours on it and don't want to have wasted all that time"
-            nar "Also this is Super-Duper early access, and I hope to have this fixed by the time I ship it properly"
             show img attributions
             nar "Moving on, this is the attributions screen. I also spent hours on it, but this one works"
             nar "However be warned, it's a bit laggy, and has spoilers!"
             nar "But also, this game was only possible because all these people decided to upload images that anyone can use, for free."
             nar "So I'd check at least some of them out."
             hide img attributions
+            nar "There is also a notebook tab"
+            nar "It is supposed to be unlocked later in the game (How late depends on what route you take)."
+            nar "However due to how little time you will have it unlocked (due to how early in development this game is)"
+            nar "And how long I spent working on it (so many hours). I'm leaving it unlocked the whole game"
+            nar "If you want to wait until where you would normally access it, you can keep playing and I promise 
+            you'll know when you were supposed to unlock it"
+            nar "and it also has spoilers (if you can call them that), so maybe wait, but I'm not your boss"
             nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
             play sound "click.wav"
             nar "If you're sure... See you later then"
-            $ metvini == False
  
     hide launch
     jump true_start
