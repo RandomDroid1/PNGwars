@@ -1330,7 +1330,7 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default page = "7"
+    default page = "6"
 
     use game_menu(_("Attributions"), scroll="viewport"):
 
@@ -1365,9 +1365,9 @@ screen attributions():
                 use attributions_doctor
             elif page == "6":
                 use attributions_dogcastle
+                use attributions_pewter
             elif page == "7":
                 use attributions_capitol
-                use attributions_pewter
                 use attributions_chirpberry
             else:
                 text _("The page numbers have been messed up somehow, you should not be able to see this. Explode")
@@ -1670,7 +1670,7 @@ screen attributions_dogcastle:
                 image _("bg dogcastledoor.jpg"):
                     yoffset 270
                     xoffset -1200
-                    zoom .4
+                    zoom .35
 screen attributions_capitol:
     frame:
         xsize .999
@@ -1686,13 +1686,44 @@ screen attributions_capitol:
 screen attributions_pewter:
     frame:
         xsize .999
-        ysize 100
+        ysize 1030
         vbox:
-            hbox: # 
-                label _("Dog Castle")
-                text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
-                image _("bg capitolentrance.jpg"):
-                    xoffset -1200
+            hbox: # pewt glare
+                label _("Pewter Glare"):
+                    yoffset 50
+                text _("Photo by {a=https://unsplash.com/@aliceteh}Alice Teh Larsson{/a} on {a=https://unsplash.com/photos/gray-pelican-on-body-of-water-during-daytime-ga9aBmbNGks}Unsplash{/a}"):
+                    yoffset 50
+                image _("pewt glare.png"):
+                    xoffset -900
+                    yoffset 70
+                    zoom .3
+            hbox: # pewt stand
+                label _("Pewter Stand"):
+                    yoffset 100
+                text _("Photo by {a=https://unsplash.com/@veverkolog}Dušan veverkolog{/a} on {a=https://unsplash.com/photos/grey-and-white-bird-standing-on-grass-covered-ground-mP3xh_3ni24}Unsplash{/a}"):
+                    yoffset 100
+                image _("pewt stand.png"):
+                    xoffset -900
+                    yoffset 135
+                    zoom .3
+            hbox: # pewt standzoomout
+                label _("Pewter Stand 2"):
+                    yoffset 150
+                text _("Photo by {a=https://unsplash.com/@melissaaskew}Melissa Askew{/a} on {a=https://unsplash.com/photos/white-and-gray-bird-on-brown-tree-branch-during-daytime--OOGt3Yede0}Unsplash{/a}"):
+                    yoffset 150
+                image _("pewt standzoomout.png"):
+                    xoffset -900
+                    zoom .4
+                    yoffset 175
+            hbox: # pewt walkglare
+                label _("Pewter Walk and Glare"):
+                    yoffset 200
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Eric+Kilby}Eric Kilby{/a} on {a=https://www.flickr.com/photos/8749778@N06/34011990510}Flickr{/a}"):
+                    yoffset 200
+                image _("pewt walkglare.png"):
+                    xoffset -700
+                    zoom .3
+                    yoffset 230
 screen attributions_chirpberry:
     frame:
         xsize .999
