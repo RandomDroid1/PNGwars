@@ -16,8 +16,8 @@ define varam = Character("Plankton from spongebob")
 define cain = Character("Caine Wooflinson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 
 # Bird Clan
-define pewt = Character("Pewter Johnson")
-define elea = Character("Eleanor Chirpberry")
+define pewt = Character("Pewter Johnson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+define elea = Character("Eleanor Chirpberry", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 define wood = Character("Woody Chirper")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
@@ -764,21 +764,18 @@ menu forest_capitol_enter:
         show bg capitolroomstart with dissolve:
             reset
             zoom .5
-            yoffset -840
+            yoffset -820
             xoffset -700
         nar "As you push the doors to the Capitol open, you hear voices a couple rooms away"
         pewt "That's what I'm talking about Ellie, now keep going, you got this." # Yapathon
         elea "Yeah... 'We, the people of Birdaria, demand independence'... {w=3} It's written well, but sounds weak...{w=3} What about 'demand sovereignty', it comes off stronger, more commanding"
         pewt "That's strong, we should keep it. Don't fret too much, we have a few hours before... D'you you hear the door open?"
         elea "Yes... Sounds like someone also had the idea to arrive early. Let's see what we have to deal with."
+        pewt "I'll go check, keep reading over the script."
         show bg capitolroomstart:
             linear .5 xpan -90
-        show elea stand
-        show pewt walkglare
-        elea "Test"
-        elea "test2"
         # PLACEHOLDER // get some images in this dang place
-        jump demo_exit 
+        jump pewter_meeting 
     "Take a minute to look around, get familiar with where you are":
         jump demo_exit
 
