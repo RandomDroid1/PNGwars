@@ -1330,7 +1330,7 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default page = "6"
+    default page = "7"
 
     use game_menu(_("Attributions"), scroll="viewport"):
 
@@ -1494,7 +1494,7 @@ screen attributions_plane():
 screen attributions_forest():
     frame:
         xsize .999
-        ysize 250
+        ysize 750
         vbox:
             
             hbox: # bg forest1
@@ -1506,7 +1506,24 @@ screen attributions_forest():
                     zoom .04
                     xoffset -1175
                     yoffset 60
-
+            hbox: # bg forestrun
+                label _("Forest 2"):
+                    yoffset 70
+                text _("Photo by {a=https://unsplash.com/@skamenar}Steven Kamenar{/a} on {a=https://unsplash.com/photos/photography-of-tall-trees-at-daytime-MMJx78V7xS8}Unsplash{/a}"):
+                    yoffset 70
+                image _("bg forestrun.jpg"):
+                    zoom .075
+                    yoffset 120
+                    xoffset -925
+            hbox: # Forest right
+                label _("Forest 3"):
+                    yoffset 140
+                text _("Photo by {a=https://unsplash.com/@outoforbit}Gustav Gullstrand{/a} on {a=https://unsplash.com/photos/green-pine-trees-d6kSvT2xZQo}Unsplash{/a}"):
+                    yoffset 140
+                image _("bg forestright.jpg"):
+                    xoffset -950
+                    zoom .075
+                    yoffset 185
 screen attributions_mischa():
     frame:
         xsize .999
@@ -1674,7 +1691,7 @@ screen attributions_dogcastle:
 screen attributions_capitol:
     frame:
         xsize .999
-        ysize 325
+        ysize 1180
         vbox:
             hbox: # CapitolEntrance
                 label _("The Capitol Entrance")
@@ -1682,6 +1699,33 @@ screen attributions_capitol:
                 image _("bg capitolentrance.jpg"):
                     xoffset -1075
                     yoffset 95
+                    zoom .05
+            hbox: # meetingroom
+                label _("Meeting room"):
+                    yoffset 135
+                text _("Photo by {a=https://unsplash.com/@samtakespictures}Sam Szuchan{/a} on {a=https://unsplash.com/photos/a-conference-room-with-a-round-table-and-black-chairs-2s6Gw6n7J9Q}Unsplash{/a}"):
+                    yoffset 135
+                image _("bg meetingroom.jpg"):
+                    xoffset -850
+                    yoffset 180
+                    zoom .05
+            hbox: # capitolroomstart
+                label _("Capitol Start!"):
+                    yoffset 220
+                text _("Photo by {a=https://unsplash.com/photos/grand-hall-with-columns-and-ornate-ceiling-iZ27UoaKb6g}Nhan Hoang{/a} on {a=https://unsplash.com/photos/grand-hall-with-columns-and-ornate-ceiling-iZ27UoaKb6g}Unsplash{/a}"):
+                    yoffset 220
+                image _("bg capitolroomstart.jpg"):
+                    xoffset -850
+                    yoffset 270
+                    zoom .05
+            hbox: # capitolfront
+                label _("The Capitol."):
+                    yoffset 300
+                text _("Photo by {a=https://unsplash.com/@sammy}Samuel Schroth{/a} on {a=https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-hyPt63Df3Dw}Unsplash{/a}"):
+                    yoffset 300
+                image _("bg capitolfront.jpg"):
+                    xoffset -900
+                    yoffset 350
                     zoom .05
 screen attributions_pewter:
     frame:
@@ -1792,7 +1836,7 @@ screen attributions_template:
                 label _("Dog Castle")
                 text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
                 image _("bg capitolentrance.jpg"):
-                    xoffset -1200
+                    xoffset -1000
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in

@@ -695,7 +695,9 @@ menu garn_hurt_choice:
     "Truth: I'm [name], I work for Ameowica, as a diplomat. They sent me as a negotiator.":
         jump demo_exit
     "Run. It's your only way out.": # First draft
-        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        hide mosk
+        hide garn
+        show bg forestrun with vpunch
         nar "You turn and dash away, pushing yourself through a small thicket of brambles, hoping it makes them have a harder time following you"
         mosk "Garner! Let them go, they won't last long. Hell, Even if they do, it's not like they're a threat."
         nar "As you push through the brambles, the dogs voices getting quieter as you move, the forest seems to stretch out infinitely in front of you"
