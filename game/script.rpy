@@ -717,6 +717,12 @@ menu the_forest:
         # You run right into the hands of the foxes
         jump demo_exit
     "Right": # First Draft
+        show bg forestrun:
+            linear .2 xpan 40
+        pause .2
+        show bg forestright:
+            xpos 200
+            linear .2 xpan 80
         # IMPORTANT // PLACEHOLDER // NEED IMAGES
         # you run to the capitol. The right direction is literally the *right* way i guess
         nar "As you run through the forest, hoping Sobaka doesn't change their mind, you make a hard right."
@@ -725,10 +731,15 @@ menu the_forest:
         nar "You keep moving forward, this forest can only be so large, and you think it's better to get out of it sooner rather than later"
         nar "The faction leaders would be expecting you soon, and they already don't like eachother"
         nar "God knows what would happen if their negotiator mysteriously disappeared, with no one taking the blame"
+        show bg forestright:
+            linear .5 zoom 1.5
+        pause .5
+        show bg capitolentrance with dissolve:
+            ypos -100
         nar "..." # holy yapathon
         nar "You push through a particularly thick set of bushes that seem to be almost more wall than plant, and you see a city in front of you."
-        nar "It's a very beautiful city. However, despite the cleanup efforts, the marks of the war that must've gripped this place for weeks don't escape you"
-        nar "It's empty, almost desolate, but it's also exactly where you need to be."
+        nar "It's a very beautiful city. You almost can't tell a war had started here so recently"
+        nar "It's empty, almost desolate except for the few abandoned cars, but it's also exactly where you need to be."
         nar "Welcome to Capitol City, I hope you enjoy your visit."
         nar "Where do you go now?" # I wonder if how I write dialogue has changed notably thoughout this code (I haven't written a lot of dialogue before this)
         jump forest_capitol_enter
@@ -737,12 +748,35 @@ menu forest_capitol_enter:
     "Continue forward, straight to the Capitol": # First Draft
         nar "You move forward, theres no time to waste."
         nar "You pass through the city, luckily, uneventfully. Eventually, the capitol looms in front of you. It's quiet, the faction leaders wouldn't be here for a few hours yet." # PLACEHOLDER // Have occasinal bird chirp and ruffle noise, show not tell
+        show bg capitolfront with dissolve:
+            reset
+            zoom .45
+            ypos -500
         nar "You should spend some time getting prepared, you lost all your luggage and documents in the flight." #OH SHOOT HAVE THE NOTEBOOK UNLOCK HERE! WHEN yOU GET PAPER! PapeprER
+        show bg capitolfront:
+            parallel:
+                linear .5 zoom 1
+            parallel:
+                linear .5 xpos -1500
+            parallel:
+                linear .5 ypos -2000
+        pause .4
+        show bg capitolroomstart with dissolve:
+            reset
+            zoom .5
+            yoffset -840
+            xoffset -700
         nar "As you push the doors to the Capitol open, you hear voices a couple rooms away"
         pewt "That's what I'm talking about Ellie, now keep going, you got this." # Yapathon
-        elea "Yeah... 'We, the people of Birdaria, demand independance'. That sounds weak...{w=3} What about 'demand sovereignty', it comes off stronger, more commanding"
+        elea "Yeah... 'We, the people of Birdaria, demand independence'... {w=3} It's written well, but sounds weak...{w=3} What about 'demand sovereignty', it comes off stronger, more commanding"
         pewt "That's strong, we should keep it. Don't fret too much, we have a few hours before... D'you you hear the door open?"
         elea "Yes... Sounds like someone also had the idea to arrive early. Let's see what we have to deal with."
+        show bg capitolroomstart:
+            linear .5 xpan -90
+        show elea stand
+        show pewt walkglare
+        elea "Test"
+        elea "test2"
         # PLACEHOLDER // get some images in this dang place
         jump demo_exit 
     "Take a minute to look around, get familiar with where you are":
