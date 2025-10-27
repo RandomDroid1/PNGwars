@@ -16,8 +16,8 @@ define varam = Character("Plankton from spongebob")
 define cain = Character("Caine Wooflinson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 
 # Bird Clan
-define pewt = Character("Pewter Johnson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
-define elea = Character("Eleanor Chirpberry", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+define pewt = Character("Pewter Johnson", window_background=Image("textbox_animal_bird.png"), namebox_background=Frame("namebox_bird.png"))
+define elea = Character("Eleanor Chirpberry", window_background=Image("textbox_animal_bird.png"), namebox_background=Frame("namebox_bird.png"))
 define wood = Character("Woody Chirper")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
@@ -515,7 +515,7 @@ label jet_plane_crash:
     # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss ):
     mosk "What the hell was- They actually went down?"
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
-    garn "Both pilots are dead... The plane hit the ground nose first, there was no surviving that for them."
+    garn "Both pilots are dead... The plane hit the ground nose first, the cockpit is completely obliterated."
     garn "We have a survivor in the cabin! Looks like they might've been the only one in there..."
     mosk "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
     mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over a no fly zone."
@@ -691,10 +691,14 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
 
 menu garn_hurt_choice:
     "Lie: Fine! I'm... Special Agent Jefferey Steel.": # better call saul, more like better call meowl
+        play sound "click.wav"
         jump demo_exit
     "Truth: I'm [name], I work for Ameowica, as a diplomat. They sent me as a negotiator.":
+        play sound "click.wav"
         jump demo_exit
     "Run. It's your only way out.": # First draft
+        play sound "click.wav"
+        play music "heartbeat.mp3"
         hide mosk
         hide garn
         show bg forestrun with vpunch
@@ -706,6 +710,7 @@ menu garn_hurt_choice:
 
 menu the_forest:
     "Forward":
+        play sound "click.wav"
         # IMPORTANT // PLACEHOLDER // NEED IMAGES
         # This gets your paw caught in a trap and brings you to the rebellion
         # symbolism with the idea of moving forward?
@@ -713,15 +718,17 @@ menu the_forest:
         # Ahahaha evil vinick is evil..
         jump demo_exit
     "Left":
+        play sound "click.wav"
         # IMPORTANT // PLACEHOLDER // NEED IMAGES
         # You run right into the hands of the foxes
         jump demo_exit
     "Right": # First Draft
+        play sound "click.wav"
         show bg forestrun:
             linear .2 xpan 40
         pause .2
         show bg forestright:
-            xpos 200
+            xpos 100
             linear .2 xpan 80
         # IMPORTANT // PLACEHOLDER // NEED IMAGES
         # you run to the capitol. The right direction is literally the *right* way i guess
@@ -731,12 +738,12 @@ menu the_forest:
         nar "You keep moving forward, this forest can only be so large, and you think it's better to get out of it sooner rather than later"
         nar "The faction leaders would be expecting you soon, and they already don't like eachother"
         nar "God knows what would happen if their negotiator mysteriously disappeared, with no one taking the blame"
+        nar "..." # holy yapathon
         show bg forestright:
             linear .5 zoom 1.5
         pause .5
         show bg capitolentrance with dissolve:
             ypos -100
-        nar "..." # holy yapathon
         nar "You push through a particularly thick set of bushes that seem to be almost more wall than plant, and you see a city in front of you."
         nar "It's a very beautiful city. You almost can't tell a war had started here so recently"
         nar "It's empty, almost desolate except for the few abandoned cars, but it's also exactly where you need to be."
@@ -746,6 +753,7 @@ menu the_forest:
     
 menu forest_capitol_enter:
     "Continue forward, straight to the Capitol": # First Draft
+        play sound "click.wav"
         nar "You move forward, theres no time to waste."
         nar "You pass through the city, luckily, uneventfully. Eventually, the capitol looms in front of you. It's quiet, the faction leaders wouldn't be here for a few hours yet." # PLACEHOLDER // Have occasinal bird chirp and ruffle noise, show not tell
         show bg capitolfront with dissolve:
@@ -777,6 +785,7 @@ menu forest_capitol_enter:
         # PLACEHOLDER // get some images in this dang place
         jump pewter_meeting 
     "Take a minute to look around, get familiar with where you are":
+        play sound "click.wav"
         jump demo_exit
 
 
