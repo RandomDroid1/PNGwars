@@ -44,6 +44,7 @@ default garn_hurt = False
 default window_icon = "standard"
 default alternate_forest = False
 default notebook_unlocked = False
+default fast_end = False
 # The game starts here.
 
 label start:
@@ -114,13 +115,12 @@ label start_continue:
             show img redoption:
                 yalign .5
                 xalign .5
-            nar "These are red options! They are exclusive options unlocked by doing or selecting specific things."
+            nar "These are red options! They are exclusive options unlocked by doing or selecting specific things. *disclaimer: There actually aren't any of these in the game right now oops"
             nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
             nar "For example, this red option has (state) before it, which means the state you selected is what unlocked this option for you"
             show img attributions
-            nar "Moving on, this is the attributions screen. I also spent hours on it, but this one works"
-            nar "However be warned, it's a bit laggy, and has spoilers!"
-            nar "But also, this game was only possible because all these people decided to upload images that anyone can use, for free."
+            nar "Moving on, this is the attributions screen. It is a comprehensive list of every image used in the game (and some not used (yet))"
+            nar "This game was only possible because all these people decided to upload images that anyone can use, for free."
             nar "So I'd check at least some of them out."
             hide img attributions
             nar "There is also a notebook tab"
@@ -277,15 +277,15 @@ menu meowford_rhetorical:
         $ cali_observant = False
         $ calirep -= 1
         cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
-        cali "I had a whole bit going, whatever."
-        cali "Let's start at the beginning. 3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
+        cali "I had a whole bit going, whatever... "
+        cali "Let's start at the beginning, so I can tell you why I brought you here. {w=1} 3 days ago, the country of Png-landia, you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
         cali "We've no idea why yet. Our resources are spread very thin with the state of the world already, and we haven't had the time to get that info out of them, to tell you the truth" # he sounds depressed now that you messed up the course of his speech poor cat he doesn't even know his secretary of state is evil. I want Vinick to be somewhat responsible for the state of the world
         cali "They also don't want to talk to anyone thats been in the DC system for that long. They almost hung up on me, and as the leader of the free world, I can say that is one of the first times thats happened" # Just like his namesake cal bradford (this is nothin glike the plot of paradise Im just saying things)
-        cali "So, what we needed was a negotiator who wasn't in the DC system, who wouldn't demand too much info beforehand or now, and who would be capable of it"
-        cali "So we started scourting colleges. Eventually Vinick landed on your college, he asked around... {w=3} time and time again we'd here your name be mentioned"
-        cali "So he made some calls, and eventually we called you. Your first test was actually agreeing to the flight, I know a lot of people might not have"
+        cali "So, what we needed was a negotiator who wasn't in the DC system, who wouldn't demand too much info, and would be capable of negotiating a treaty"
+        cali "So we started scouting colleges. Eventually Vinick landed on your college, he asked around... {w=3} time and time again we'd hear your name be mentioned"
+        cali "So he made some calls, and eventually I called you. Your first test was actually agreeing to the flight, I know a lot of people might not have..."
         cali "But you did, and now you've ended up here"
-        cali "So... Will you accept our offer, and be the first official ambassador of the United States of America to the Png-landia factions. C'mon, we can get you on a plane in an hour, just say {color=#00A36C}{i}yes.{/i}{/color}"
+        cali "So... We need a diplomat. Will you accept our offer and be the first official ambassador of the United States of America to the Png-landia factions. C'mon, we can get you on a plane in an hour, just say {color=#00A36C}{i}yes.{/i}{/color}"
         jump main_continue
 label main_continue:
     menu presidentquestion:
@@ -542,6 +542,7 @@ label jet_plane_crash:
             garn "No... but it's far too convenient. We need to keep them under guard, at- at least two, around the clock"
             mosk "There we go, that's better. We can bring them to Caine, he has some good medical equipment" # a little bit of teaching from Mischa here
             jump demo_exit
+            $ fast_end = True
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
             # Not Revamped, small edits done.
             play sound "click.wav"
@@ -674,7 +675,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "What, they're sending fiesty children to negotiate in other countries now?"
                     garn "What an absolutely pathetic display, how do you expec-"
-                    mosk "Wait just a second Garner, let's give this cat a {i}small{/i}chance. {w=3} They just got out of a plane crash, they are probably pretty injured beyond the adrenaline keeping them running."
+                    mosk "Wait just a second Garner, let's give this cat a {i}small{/i} chance. {w=3} They just got out of a plane crash, they are probably pretty injured beyond the adrenaline keeping them running."
                     mosk "Follow us. Not like you have much of a choice. These forests aren't safe nowadays."
                     # PLACEHOLDER // Need continues
                     jump truthtold_spunky

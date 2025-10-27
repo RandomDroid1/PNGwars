@@ -8,8 +8,11 @@ label lietold_jamesmeowdisan: # First Draft
     nar "You look up to see a sprawling city, almost everywhere you look, theres movement."
     nar "As you walk in, flanked by two high ranking military members, that movement begins to still as heads turn toward you, and whispers spread through a small, but growing, crowd."
     nar "They don't look hostile, but theres a lot of them, and they are all much larger than you"
+    jump demo_exit
+    $ fast_end = True
 label lietold_truthtold:
     jump demo_exit
+    $ fast_end = True
 label lietold_espionage: # First draft
     show bg dogcampentrance:
         reset
@@ -20,6 +23,7 @@ label lietold_espionage: # First draft
     jump demo_exit
 label truthtold_spunky:
     jump demo_exit
+    $ fast_end = True
 label truthtold_calm: # First draft
     show bg dogcampentrance:
         reset
