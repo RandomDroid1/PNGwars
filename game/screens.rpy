@@ -1136,7 +1136,8 @@ style help_label_text:
 #####################################
 screen notebook():
     tag menu
-
+    # So, the notebook might technically not be the most important thing,
+    # but it fills me with so much joy when I see it. I love it so much.
     default notebookselector = "vinick"
     default notebookselector2 = "none"
     use game_menu(_("Help"), scroll="viewport"):
@@ -1197,8 +1198,20 @@ screen notepage_vinick():
         xpos 375
         xsize .7
         ysize 500
-        text _("Notes"):
+        text _("{b}Notes{/b}"):
             xoffset 10
+        if (knew_before == False) and (metvini == True): # NEED A NEW WAY!
+            text _("Name: Vinick Meowsker \nSpecies: Cat\nRole: Ameowican Secretary of State\n\nYou'd only ever seen Vinick on TV before your brief meeting. He seemed nice enough, if not a bit quiet."):
+                yoffset 50
+                xoffset 20
+        elif (knew_before == True) and (metvini == True): # THOUGH THIS WORKS JUST THIS ONCE AND JUST FOR NOW!
+            text _("Name: Vinick Meowsker \nSpecies: Cat\nRole: Ameowican Secretary of State\n\nYou'd only ever seen Vinick on TV before your brief meeting. He seemed suspicious of you, at best."):
+                yoffset 50
+                xoffset 20
+        else: 
+            text _("Name: Vinick Meowsker \nSpecies: Cat\nRole: Ameowican Secretary of State\n\nYou've only ever seen Vinick on the Television. He seemed extremely reserved, but also very clever. You hope to meet him one day."):
+                yoffset 50
+                xoffset 20
     frame: # FOR THE EVENT LOG
         ypos -590
         xpos 375
@@ -1211,18 +1224,19 @@ screen notepage_vinick():
             arrowkeys True
             draggable True
             scrollbars "vertical"
-            frame:
-                xsize .99999
-                ysize 50
-                label _("1."):
-                    xoffset -300
-                text _("Player met Vinick in the Oval Office"):
-                    xoffset 60
+            if (metvini == True):
+                frame:
+                    xsize .99999
+                    ysize 50
+                    label _("1."):
+                        xoffset -300
+                    text _("Player met Vinick in the Oval Office"):
+                        xoffset 60
     frame: # FOR THE REPUTATION LOG
         ypos -780
         ysize 167
         xsize .25
-        text _("Reputation:"):
+        text _("Reputation"):
             xoffset 10
         if vinirep == 0:
             text _("{b}Neutral{/b} (0)"):
@@ -1324,8 +1338,7 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default page = "7"
-
+    default page = "1"
     use game_menu(_("Attributions"), scroll="viewport"):
 
         style_prefix "help"

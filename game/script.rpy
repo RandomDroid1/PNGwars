@@ -123,11 +123,9 @@ label start_continue:
             hide img attributions
             nar "There is also a notebook tab"
             nar "It is supposed to be unlocked later in the game (How late depends on what route you take)."
-            nar "However due to how little time you will have it unlocked (due to how early in development this game is)"
-            nar "And how long I spent working on it (so many hours). I'm leaving it unlocked the whole game"
-            nar "If you want to wait until where you would normally access it, you can keep playing and I promise 
-            you'll know when you were supposed to unlock it"
-            nar "and it also has spoilers (if you can call them that), so maybe wait, but I'm not your boss"
+            nar "However due to how early in development this game is you don't unlock it."
+            nar "Due how long I spent working on it (so many hours). I'm leaving it unlocked the whole game."
+            nar "and it also has spoilers (if you can call them that, I don't think you can), so maybe wait to the end of the game, but I'm not your boss"
             nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
             play sound "click.wav"

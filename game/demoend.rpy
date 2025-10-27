@@ -1,6 +1,8 @@
 label demo_exit:
     hide mosk
     hide garn
+    hide pewt
+    hide elea
     show bg white:
         zoom 20
     player "Hello! As you might have anticipated, this screen means you've reached the end of the demo."
