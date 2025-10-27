@@ -1141,39 +1141,10 @@ style help_label_text:
 # HELP ME ITS THE NOTEBOOK SCREEN
 #####################################
 screen notebook():
-
     tag menu
 
-    default notebookscreen = "disclaimer"
-
-    use game_menu(_("Notebook"), scroll="viewport"):
-
-        style_prefix "help"
-
-        vbox:
-            spacing 23
-
-            hbox:
-
-                textbutton _("Wa") action ShowMenu("one_help")
-                textbutton _("wa") action SetScreenVariable("notebookscreen", "cali")
-
-                
-                textbutton _("WAA") action SetScreenVariable("notebookscreen", "mosk")
-                textbutton _(notebookscreen)
-            if notebookscreen == "vini":
-                use one_help
-            if notebookscreen == "disclaimer":
-                label _("Disclaimer:")
-                text _("This menu is incomplete and messing with it will probably crash your game lol")
-                text _("(Im a responsible game dev)")
-
-
-screen one_help():
-    tag menu
-
-    default notebookscreen = "keyboard"
-
+    default notebookselector = "vinick"
+    default notebookselector2 = "none"
     use game_menu(_("Help"), scroll="viewport"):
 
         style_prefix "help"
@@ -1183,19 +1154,88 @@ screen one_help():
 
             hbox:
 
-                textbutton _("Wa") action ShowMenu("two_help")
-                textbutton _("wa") action SetScreenVariable("notebookscreen", "cali")
+                textbutton _("Vinick") action SetScreenVariable("notebookselector", "vinick")
+                textbutton _("Other") action SetScreenVariable("notebookselector", "other")
+                textbutton _(notebookselector)
+            if notebookselector == "vinick":
+                use notepage_vinick
+            elif notebookselector == "other":
+                use mouse_help
+            elif notebookselector == "gamepad":
+                use gamepad_help
 
-                
-                textbutton _("WAA") action SetScreenVariable("notebookscreen", "mosk")
-                textbutton _("wawa")
-            if notebookscreen == "vini":
-                use two_help
-screen two_help():
-    textbutton _(notebookscreen)
-
-
-
+screen notepage_vinick():
+    tag menu # BRICK BY BRICK
+    default vinick_image = "idle"
+    frame: # FOR THE IMAGE SELECTOR
+        xsize .25
+        ysize 150
+        text _("Sprites"):
+            xpos 10
+        viewport:
+            mousewheel "horizontal"
+            arrowkeys True
+            draggable True
+            scrollbars "horizontal"
+            vbox:
+                hbox:
+                    ypos 50
+                    textbutton _("Idle") action SetLocalVariable("vinick_image", "idle")
+                    textbutton _("Lookup") action SetLocalVariable("vinick_image", "lookup")
+    if vinick_image == "idle": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("vinick idle.png"):
+                zoom .75
+                yoffset -50
+                xoffset -40
+    elif vinick_image == "lookup": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("vinick lookup.png"):
+                zoom .6
+                yoffset -10
+                xoffset 40
+    frame: # FOR THE NOTES
+        ypos -595
+        xpos 375
+        xsize .7
+        ysize 500
+        text _("Notes"):
+            xoffset 10
+    frame: # FOR THE EVENT LOG
+        ypos -590
+        xpos 375
+        xsize .7
+        ysize 230
+        text _("Event log"):
+            xoffset 10
+        viewport:   
+            xsize .99999 
+            arrowkeys True
+            draggable True
+            scrollbars "vertical"
+            frame:
+                xsize .99999
+                ysize 50
+                label _("1."):
+                    xoffset -300
+                text _("Player met Vinick in the Oval Office"):
+                    xoffset 60
+    frame: # FOR THE REPUTATION LOG
+        ypos -780
+        ysize 167
+        xsize .25
+        text _("Reputation:"):
+            xoffset 10
+        if vinirep == 0:
+            text _("{b}Neutral{/b} (0)"):
+                xoffset 60
+                yoffset 70
+        if vinirep == 1:
+            text _("What the freaky")
 style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
@@ -1290,20 +1330,49 @@ style confirm_button_text:
 screen attributions():
     tag menu
 
-    default device = "keyboard"
+    default page = "7"
 
     use game_menu(_("Attributions"), scroll="viewport"):
 
         style_prefix "help"
+        vbox:
+            spacing 23
 
-        use attributions_cali
-        use attributions_oval_office
-        use attributions_vinick
-        use attributions_plane
-        use attributions_forest
-        use attributions_mischa
-        use attributions_sloan
-        use attributions_dogcamp
+            hbox:
+                textbutton _("Page 1") action SetScreenVariable("page", "1")
+                textbutton _("Page 2") action SetScreenVariable("page", "2")
+                textbutton _("Page 3") action SetScreenVariable("page", "3")
+                textbutton _("Page 4") action SetScreenVariable("page", "4")
+                textbutton _("Page 5") action SetScreenVariable("page", "5")
+                textbutton _("Page 6") action SetScreenVariable("page", "6")
+                textbutton _("Page 7") action SetScreenVariable("page", "7")
+                # more efficient way?
+                textbutton _(page)
+            if page == "1":
+                use attributions_cali
+                use attributions_oval_office
+            elif page == "2":
+                use attributions_vinick
+                use attributions_plane
+            elif page == "3":
+                use attributions_forest
+                use attributions_mischa
+            elif page == "4":
+                use attributions_sloan
+            elif page == "5":
+                use attributions_dogcamp
+                use attributions_caine
+                use attributions_doctor
+            elif page == "6":
+                use attributions_dogcastle
+                use attributions_pewter
+            elif page == "7":
+                use attributions_capitol
+                use attributions_chirpberry
+            else:
+                text _("The page numbers have been messed up somehow, you should not be able to see this. Explode")
+        #this can be split like the helpt screen Laggy atm
+        
 
 screen attributions_cali():
     frame:
@@ -1425,7 +1494,7 @@ screen attributions_plane():
 screen attributions_forest():
     frame:
         xsize .999
-        ysize 250
+        ysize 750
         vbox:
             
             hbox: # bg forest1
@@ -1437,7 +1506,24 @@ screen attributions_forest():
                     zoom .04
                     xoffset -1175
                     yoffset 60
-
+            hbox: # bg forestrun
+                label _("Forest 2"):
+                    yoffset 70
+                text _("Photo by {a=https://unsplash.com/@skamenar}Steven Kamenar{/a} on {a=https://unsplash.com/photos/photography-of-tall-trees-at-daytime-MMJx78V7xS8}Unsplash{/a}"):
+                    yoffset 70
+                image _("bg forestrun.jpg"):
+                    zoom .075
+                    yoffset 120
+                    xoffset -925
+            hbox: # Forest right
+                label _("Forest 3"):
+                    yoffset 140
+                text _("Photo by {a=https://unsplash.com/@outoforbit}Gustav Gullstrand{/a} on {a=https://unsplash.com/photos/green-pine-trees-d6kSvT2xZQo}Unsplash{/a}"):
+                    yoffset 140
+                image _("bg forestright.jpg"):
+                    xoffset -950
+                    zoom .075
+                    yoffset 185
 screen attributions_mischa():
     frame:
         xsize .999
@@ -1546,6 +1632,211 @@ screen attributions_dogcamp():
                     zoom .04
                     xoffset -1200
                     yoffset 100
+screen attributions_caine():
+    frame:
+        xsize .999
+        ysize 300
+        vbox:
+            hbox: # caine doctor doctor
+                label _("Doctor Caine")
+                text _("Used as the sprite for Doctor Caine when you get medical treatment. Taken by {a=https://unsplash.com/@laura_paraschivescu}Laura Paraschivescu{/a} on {a=https://unsplash.com/photos/a-dog-wearing-a-face-mask-sitting-on-a-wooden-floor-gSrrEvIaPII}Unsplash{/a}")
+                image _("caine sit.png"):
+                    zoom .5
+                    yoffset 20
+                    xoffset -1200
+screen attributions_doctor:
+    frame:
+        xsize .999
+        ysize 300
+        vbox:
+            hbox: # Doctors Office
+                label _("Doctors Office")
+                text _("Used for when the Dogs give you medical treatment. Photo by {a=https://unsplash.com/@fr0ggy5?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText>}fr0ggy5{/a} on {a=https://unsplash.com/photos/a-room-with-a-desk-phone-and-other-items-on-the-wall-717W1DqDka0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText}Unsplash{/a}")
+                image _("bg doctorsoffice.jpg"):
+                    xoffset -1200
+                    zoom .05
+                    yoffset 50
+screen attributions_dogcastle:
+    frame:
+        xsize .999
+        ysize 800
+        vbox:
+            hbox: # Dogcastle
+                label _("Dog Castle"):
+                    yoffset 10
+                text _("Is used as the Dog capitol. Is actually the Schloss in Wolfenbüttel, Germany. Photo by Jan-Herm Janßen on {a=https://en.wikipedia.org/wiki/Schloss_Wolfenb%C3%BCttel#/media/File:Wolfenbuettel_Schloss_07.jpg}Wikipedia{/a}"):
+                    yoffset 10
+                image _("bg dogcastleoutside.jpg"):
+                    xoffset -1160
+                    yoffset 60
+                    zoom .2
+            hbox: # dogcastlecourtyard
+                label _("Dog Castle courtyard"):
+                    yoffset 80
+                text _("Used as the Interior of the dog's capitol. Is also actually the Schloss in Wolfenbüttel. Photo by Losch on {a=https://en.wikipedia.org/wiki/Schloss_Wolfenb%C3%BCttel#/media/File:Hofblick_im_Schloss_Wolfenb%C3%BCttel_IMG_2981.jpg}Wikipedia{/a}"):
+                    yoffset 80
+                image _("bg dogcastlecourtyard.jpg"):
+                    yoffset 175
+                    xoffset -1200
+                    zoom .2
+            hbox: # dogcastledoor
+                label _("Dog Castle"):
+                    yoffset 200
+                text _("Front of the dog capitol, also the Schloss in Wolfebüttel, Germany. Photo by Brunswyk on {a=https://en.wikipedia.org/wiki/Schloss_Wolfenb%C3%BCttel#/media/File:Wolfenbuettel_Schlossportal_(2006).jpg}Wikipedia{/a}"):
+                    yoffset 200
+                image _("bg dogcastledoor.jpg"):
+                    yoffset 270
+                    xoffset -1200
+                    zoom .35
+screen attributions_capitol:
+    frame:
+        xsize .999
+        ysize 1180
+        vbox:
+            hbox: # CapitolEntrance
+                label _("The Capitol Entrance")
+                text _("Used as the entrance to the capitol when you get to it from the forest. Photo by {a=https://unsplash.com/@peternoah?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText}Peter Noah{/a} on {a=https://unsplash.com/photos/black-and-yellow-pedestrian-lane-in-between-of-high-rise-buildings-during-daytime-58qVxGi7slU}Unsplash{/a}")
+                image _("bg capitolentrance.jpg"):
+                    xoffset -1075
+                    yoffset 95
+                    zoom .05
+            hbox: # meetingroom
+                label _("Meeting room"):
+                    yoffset 135
+                text _("Photo by {a=https://unsplash.com/@samtakespictures}Sam Szuchan{/a} on {a=https://unsplash.com/photos/a-conference-room-with-a-round-table-and-black-chairs-2s6Gw6n7J9Q}Unsplash{/a}"):
+                    yoffset 135
+                image _("bg meetingroom.jpg"):
+                    xoffset -850
+                    yoffset 180
+                    zoom .05
+            hbox: # capitolroomstart
+                label _("Capitol Start!"):
+                    yoffset 220
+                text _("Photo by {a=https://unsplash.com/photos/grand-hall-with-columns-and-ornate-ceiling-iZ27UoaKb6g}Nhan Hoang{/a} on {a=https://unsplash.com/photos/grand-hall-with-columns-and-ornate-ceiling-iZ27UoaKb6g}Unsplash{/a}"):
+                    yoffset 220
+                image _("bg capitolroomstart.jpg"):
+                    xoffset -850
+                    yoffset 270
+                    zoom .05
+            hbox: # capitolfront
+                label _("The Capitol."):
+                    yoffset 300
+                text _("Photo by {a=https://unsplash.com/@sammy}Samuel Schroth{/a} on {a=https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-hyPt63Df3Dw}Unsplash{/a}"):
+                    yoffset 300
+                image _("bg capitolfront.jpg"):
+                    xoffset -900
+                    yoffset 350
+                    zoom .05
+screen attributions_pewter:
+    frame:
+        xsize .999
+        ysize 1030
+        vbox:
+            hbox: # pewt glare
+                label _("Pewter Glare"):
+                    yoffset 50
+                text _("Photo by {a=https://unsplash.com/@aliceteh}Alice Teh Larsson{/a} on {a=https://unsplash.com/photos/gray-pelican-on-body-of-water-during-daytime-ga9aBmbNGks}Unsplash{/a}"):
+                    yoffset 50
+                image _("pewt glare.png"):
+                    xoffset -900
+                    yoffset 70
+                    zoom .3
+            hbox: # pewt stand
+                label _("Pewter Stand"):
+                    yoffset 100
+                text _("Photo by {a=https://unsplash.com/@veverkolog}Dušan veverkolog{/a} on {a=https://unsplash.com/photos/grey-and-white-bird-standing-on-grass-covered-ground-mP3xh_3ni24}Unsplash{/a}"):
+                    yoffset 100
+                image _("pewt stand.png"):
+                    xoffset -900
+                    yoffset 135
+                    zoom .3
+            hbox: # pewt standzoomout
+                label _("Pewter Stand 2"):
+                    yoffset 150
+                text _("Photo by {a=https://unsplash.com/@melissaaskew}Melissa Askew{/a} on {a=https://unsplash.com/photos/white-and-gray-bird-on-brown-tree-branch-during-daytime--OOGt3Yede0}Unsplash{/a}"):
+                    yoffset 150
+                image _("pewt standzoomout.png"):
+                    xoffset -900
+                    zoom .4
+                    yoffset 175
+            hbox: # pewt walkglare
+                label _("Pewter Walk and Glare"):
+                    yoffset 200
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Eric+Kilby}Eric Kilby{/a} on {a=https://www.flickr.com/photos/8749778@N06/34011990510}Flickr{/a}"):
+                    yoffset 200
+                image _("pewt walkglare.png"):
+                    xoffset -700
+                    zoom .3
+                    yoffset 230
+screen attributions_chirpberry:
+    frame:
+        xsize .999
+        ysize 1400
+        vbox:
+            hbox: # Elea lookup
+                label _("Chirpberry Lookup")
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=watts_photos}watts_photos{/a} on {a=https://openverse.org/image/482ed256-7ed5-4dcf-9b9a-669fd22be235?q=Bluejay&p=94}Flickr{/a}")
+                image _("elea lookup.png"):
+                    xoffset -740
+                    yoffset 50
+                    zoom .25
+            hbox: # elea glare
+                label _("Chirpberry Glare"):
+                    yoffset 50
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=bobistraveling}bobistraveling{/a} on {a=https://openverse.org/image/ff411fc8-6a4b-4aea-8b41-e6678f4fc70d?q=Bluejay&p=96}Flickr{/a}"):
+                    yoffset 50
+                image _("elea glare.png"):
+                    xoffset -900
+                    yoffset 60
+                    zoom .5
+            hbox: # elea lookback
+                label _("Chirpberry Lookback"):
+                    yoffset 50
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Charles+Patrick+Ewing}Charles Patrick Ewing{/a} on {a=https://openverse.org/image/d1598c01-c045-44c2-85ef-320bbc1638b6?q=Bluejay&p=3}Flickr{/a}"):
+                    yoffset 50
+                image _("elea lookback.png"):
+                    xoffset -1000
+                    zoom .5
+                    yoffset 80
+            hbox: # elea stand
+                label _("Chirpberry Stand"):
+                    yoffset 80
+                text _("Photo by {a=https://openverse.org/image/collection?source=wikimedia&creator=Darren+Swim}Darren Swim{/a} on {a=https://commons.wikimedia.org/w/index.php?curid=2918281}Wikimedia Commons{/a}"):
+                    yoffset 80
+                image _("elea stand.png"):
+                    xoffset -1100
+                    zoom .4
+                    yoffset 110
+            hbox: # elea swoon
+                label _("Chirpberry lean"):
+                    yoffset 150
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Tobyotter}Tobyotter{/a} on {a=https://www.flickr.com/photos/78428166@N00/7081531755}Flickr{/a}"):
+                    yoffset 150
+                image _("elea swoon.png"):
+                    xoffset -800
+                    zoom .4
+                    yoffset 200
+            hbox: # elea sideeye
+                label _("Chirpberry side-eye"):
+                    yoffset 250
+                text _("Photo by {a=https://openverse.org/image/collection?source=flickr&creator=Tobyotter}Tony Altar{/a} on {a=https://www.flickr.com/photos/78428166@N00/49962265657}Flickr{/a}"):
+                    yoffset 250
+                image _("elea sideeye.png"):
+                    xoffset -800 
+                    zoom .4         
+                    yoffset 300  
+                
+
+screen attributions_template:
+    frame:
+        xsize .999
+        ysize 1000
+        vbox:
+            hbox: # 
+                label _("Dog Castle")
+                text _("Photo by {a=wa}{/a} on {a=wa}{/a}")
+                image _("bg capitolentrance.jpg"):
+                    xoffset -1000
 ## Skip indicator screen #######################################################
 ##
 ## The skip_indicator screen is displayed to indicate that skipping is in

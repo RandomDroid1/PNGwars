@@ -1,18 +1,24 @@
-﻿# Structure of textbox image names "textbox_(Faction)_(Rank)(Any Other Details)"
+﻿# Retcon the whole people thing, it's just animal clans hell yeah. How do the dogs not just overrun the smaller animals... David v goliath buddy
+# Structure of textbox image names "textbox_(Faction)_(Rank)(Any Other Details)"
 # character name structures (4 letters of first name)(1 letter of last name)(vini, cali, mosk, garn made before this)
 # Meta Characters
 define player = Character("[name]", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 define nar = Character("Narrator", window_background=Frame("narbox.png"), namebox_background=Frame("narname.png"))
 
-# Ameowican Characters
-define vini = Character("Vinick Meowstrong", window_background=Image("textbox_ameowican_secretaryofstate.png"), namebox_background=Frame("namebox_ameowican.png")) 
+# Ameowican Clan
+define vini = Character("Vinick Meowsker", window_background=Image("textbox_ameowican_secretaryofstate.png"), namebox_background=Frame("namebox_ameowican.png")) 
 define cali = Character("Cali Meowford", window_background=Image("textbox_ameowican_president.png"), namebox_background=Frame("namebox_ameowican.png"))
 
-# Animal Characters
-# Dog Characters
+# Dog Clan
 define mosk = Character("Mischa Sobaka", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
 define garn = Character("Sloan Garner", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png")) 
-define varam = Character ("Varash Moskvi")
+define varam = Character("Plankton from spongebob")
+define cain = Character("Caine Wooflinson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+
+# Bird Clan
+define pewt = Character("Pewter Johnson", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+define elea = Character("Eleanor Chirpberry", window_background=Image("textbox_animal_dog.png"), namebox_background=Frame("namebox_dog.png"))
+define wood = Character("Woody Chirper")
 # Establishes the movie
 image launch = Movie(play="movies/Pngwars Backgrounds.webm", pos=(10, 10), anchor=(0, 0)) 
 image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anchor=(0, 0))
@@ -25,6 +31,7 @@ default dogrep = 0
 default animalrep = 0
 
 # Personal Reputations
+default vinirep = 0
 default calirep = 0
 default garnrep = 0
 default moskrep = 0
@@ -33,6 +40,8 @@ default moskrep = 0
 default knew_before = False
 default garn_hurt = False
 default window_icon = "standard"
+default alternate_forest = False
+default notebook_unlocked = False
 # The game starts here.
 
 label start:
@@ -106,24 +115,23 @@ label start_continue:
             nar "These are red options! They are exclusive options unlocked by doing or selecting specific things."
             nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
             nar "For example, this red option has (state) before it, which means the state you selected is what unlocked this option for you"
-            show img notebook:
-                yalign .3
-                zoom .75
-            nar "This is the notebook tab. It's evil"
-            nar "No, im not kidding. its broken, it'll crash your game"
-            nar "Now, if you are wondering why I left it in the game...{w=3} I spent hours on it and don't want to have wasted all that time"
-            nar "Also this is Super-Duper early access, and I hope to have this fixed by the time I ship it properly"
             show img attributions
             nar "Moving on, this is the attributions screen. I also spent hours on it, but this one works"
             nar "However be warned, it's a bit laggy, and has spoilers!"
             nar "But also, this game was only possible because all these people decided to upload images that anyone can use, for free."
             nar "So I'd check at least some of them out."
             hide img attributions
+            nar "There is also a notebook tab"
+            nar "It is supposed to be unlocked later in the game (How late depends on what route you take)."
+            nar "However due to how little time you will have it unlocked (due to how early in development this game is)"
+            nar "And how long I spent working on it (so many hours). I'm leaving it unlocked the whole game"
+            nar "If you want to wait until where you would normally access it, you can keep playing and I promise 
+            you'll know when you were supposed to unlock it"
+            nar "and it also has spoilers (if you can call them that), so maybe wait, but I'm not your boss"
             nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
             play sound "click.wav"
             nar "If you're sure... See you later then"
-            $ metvini == False
  
     hide launch
     jump true_start
@@ -253,7 +261,7 @@ menu meowford_rhetorical:
     "Thank you. I imag- Wait... What do you mean when I get back?": # Channel your inner Cal Bradford
         $ calirep += 1
         cali "I was wondering when you'd pick up on that. Sounds like your already pretty good at listening to what people are saying. {w=3} That's good. You're going to need that"
-        cali "3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
+        cali "Let's start at the beginning. 3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
         cali "Truthfully, we don't know all too much beyond that, our intelligence services are focused on.... {w=4} other countries"
         cali "I shouldn't have to explain to you that this is a big problem, especially once the press gets a hold of it in a few days. Ameowica has vested interests in the success of Png-landia, or at least the stability of it"
         cali "Not to mention it's not good for me politically if one of our allies collapses under my watch, but that parts less your problem and more mine" # holy yapathon
@@ -267,7 +275,7 @@ menu meowford_rhetorical:
         $ calirep -= 1
         cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
         cali "I had a whole bit going, whatever."
-        cali "3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
+        cali "Let's start at the beginning. 3 days ago, the country of Png-landia,{w=2} you know that one, right? Of course you do. Well, it's government dissolved, very suddenly" # buddy is a little petty
         cali "We've no idea why yet. Our resources are spread very thin with the state of the world already, and we haven't had the time to get that info out of them, to tell you the truth" # he sounds depressed now that you messed up the course of his speech poor cat he doesn't even know his secretary of state is evil. I want Vinick to be somewhat responsible for the state of the world
         cali "They also don't want to talk to anyone thats been in the DC system for that long. They almost hung up on me, and as the leader of the free world, I can say that is one of the first times thats happened" # Just like his namesake cal bradford (this is nothin glike the plot of paradise Im just saying things)
         cali "So, what we needed was a negotiator who wasn't in the DC system, who wouldn't demand too much info beforehand or now, and who would be capable of it"
@@ -305,51 +313,133 @@ label main_continue:
                 alpha 0
                 linear .2 alpha 1 # end of cali Transition
             pause .2
-            cali "Theres the good news I needed. We will get you everythin you need for your trip, request anything we miss"
-            cali "We don't have much for you in the way of a briefing, "
+            cali "Theres the good news I needed. We will get you everything you need for your trip, please... request anything we miss"
+            cali "We don't have much for you in the way of a briefing, which I imagine you might have figured out already"
             cali "You are now the sole US ambassador to PNGlandia, congrats."
-            jump jet_plane
+            if calirep == 3:
+                cali "good luck, I mean it. I'm not just saying that, I really think you can do some good stuff out there."
+                jump jet_plane
+            else:
+                jump jet_plane
         "That sounds like something I can do.": # choice 1 variation basically
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
             play sound "click.wav"
             $ calirep += 1
             cali "That's good, that's what we want to hear."
-            cali "Truthfully, we've not much for you in terms of a briefing, {p=3}but we can get you on a ejnc f4"
+            cali "Truthfully, we've not got much for you in terms of a briefing, {p=3}but we can get you on a plane in a few hours"
+            cali "We'll get you on a plane in an hour, you'll be given everything you need for your trip"
         "Why don't you send a trained negotiator?": # a bit more skeptical, can lead you either way
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
             play sound "click.wav"
-            cali "We... have all of our negotiators working on some more underground deals with some folks from other countries"
-            cali "On top of that, they have requested someone who hasn't been in the DC system a long time. So we did some research, and landed on you."
-            cali "We can get you on a plane in one hour, do you accept?"
+            cali "We... have all of our negotiators working on some more deals with some folks from other countries."
+            cali "You are... our most qualified option. At least the only one we can get without screwing up some other deal"
+            if calirep == -1:
+                cali "Anyway, you seem... clever enough... {w=2}Nah, I'm kidding, you seem pretty smart."
+            else:
+                cali "Anyway, you seem pretty clever, I hope anyway. Clever enough to be picked out in a competition you didn't even know you were in"
+            cali "So that brings us right back around, do you accept our offer?" 
             menu presidentsubquestion:
                 "Yes. I accept.":
                     play sound "click.wav"
                     player "Yes, I accept."
+                    cali "That's the news we needed"
+                    cali "You'll be on a plane in an hour, we'll get you everything you need." #hmmmm, hes a little angry after having to think about how bad the world is. We aint elaborating though
                     jump jet_plane
                 "No, get someone qualified.":
                     play sound "click.wav"
                     player "No... No, get someone qualified, i'm hardly qualified."
                     cali "You..."
-                    cali "Okay... well. Not much we can do about that then. Vinick will see you out."
+                    pause 1
+                    cali "Okay... well. Not much we can do about that then. Security will see you out."
+                    # PLACEHOLDER // Link this to the I can't do that option??
+                    cali "Thats... do we have a next on the list? Please tell me we have a next on the list, Vinick."
                     return
         "I can't do that.": # negative choice
+            show bg ovalofficeoverlook: # Cali Transition
+                parallel:
+                    linear .2 xoffset -200  
+                parallel:
+                    linear .2  xzoom 1.1  
+            show cali sit:
+                alpha 1
+                linear .2 alpha 0
+            pause .2
+            show bg ovalofficesit:
+                xoffset -400
+                yzoom .8
+                xzoom 1
+                parallel:
+                    linear .1 xzoom .8
+                parallel:
+                    linear .1 xoffset -100
+            show cali sidelay:
+                rotate 0
+                xoffset 400
+                zoom 1
+                alpha 0
+                linear .2 alpha 1 # end of cali Transition
             play sound "click.wav"
-            $ calirep -= 2
-            cali "That was an answer we thought about. Especially considering how secretive we were about the whole thing."
-            cali "However, it might be worth reconsidering... theres a lot on the line."
-            cali "We know you are capable of this. {w=2} would be a damn shame if you backed out now."
-            cali "Are you sure you want to turn your back on what you can do?"
+            $ calirep -= 3 # You shouldn't have made me beg, John.
+            cali "That... was an answer we'd thought about, especially considering how little we told you"
+            cali "But please reconsider, theres a... lot more depending on this than you realize"
+            cali "Enough to get the leader of the free world to beg, which is more than most world leaders could get" 
+            cali "We know your capable of this, even if you don't. So if you can't trust yourself, trust us. Trust me."
             menu: # sub-choice of negative choice, chance to go back
-                "I am sure, I don't want to do this.":
+                "No. I'm sure, I don't want to do this.":
                     play sound "click.wav"
                     show cali sit
-                    cali "Okay. Vinick, sorry to put this job on you, escort this young fellow out for me."
-                    cali "... You could've done so much more. Sorry it ended like this"
-                    cali "hey, maybe we'll call you back for something some other day."
+                    cali "Alright. Security will escort you out soon"
+                    cali "Vinick, can we... get the next person on the list."
                     return
                 "I'm... No, I can do this. Get me on the plane.":
                     play sound "click.wav"
                     show cali sit
-                    cali "Theres hope for you yet. We can have you on a plane in a few hours."
-                    cali "Vinick will lead you to the Roosevelt room, and before you know it, you will be the sole US ambassador to Pnglandia."
+                    cali "Theres hope for you yet. We can have you on a plane in an hour."
+                    cali "Security will escort you to the Roosevelt room. You'll get everything you need."
                     jump jet_plane
 label jet_plane: # The plane sequence that leads into
     play music "motif.mp3"
@@ -364,30 +454,28 @@ label jet_plane: # The plane sequence that leads into
             linear 3 xpos -300
         parallel:
             linear 3 ypos -300
-    nar "The plane is relatively empty. A vast majority of flights to PNGlandia had been grounded, and the only reason this one is still flying to PNGlandia is because the President ordered it."
-    nar "All this stuff had hit the news sooner than the president expected, his press conference was pretty clearly prepared on a moments notice" # PLACEHOLDER // Put an image of that poor dishelveled calico on screen. maybe on like the plane screen
+    nar "The flight is completely empty aside from you. You were on the only Ameowican flight allowed to cross into Pnglandia Airspace"
+    nar "The Pnglandia Government dissolving had hit the news sooner than the President expected. He had an absolutely disasterous press conference you got to watch as you waited to board"
     nar "You wonder if that bodes well for the quality of the intelligence the US has on this.{p=3}Or maybe you don't, i'm not in charge of you."
-    nar "You have about half an hour until you touch down on the airport closest to the PNGlandia capitol, what do you want to do?"
+    nar "You have an hour and a half until you touch down on the airport closest to the Pnglandia capitol, what do you want to do?"
     menu plane_choice: # The illusion of choice hahaha
         "Sleep":
             play sound "click.wav"
             nar "You let your eyes shut as you drift to sleep."
             nar "It's nice to get some rest before..."
-            # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch a show":
             play sound "click.wav"
             nar "You turn on you favorite show, 'The Mewsroom', and sit back."
             nar "Soon, you begin to feel your eyes drift shut"
             nar "Maybe it's a good idea to get some rest before..."
-            # PLACEHOLDER // add this background later
             jump jet_plane_crash
         "Watch the news":
             play sound "click.wav"
             # PLACEHOLDER // Maybe give them a variable for being studious that like... blue options.
             nar "You turn on the news, and sit back"
-            nar "It's probably a good idea to get an idea of the current geopolitical climate before you go in and try to negotiate a treaty"
-            nar "However despite your best efforts, you begin to feel drowsy"
+            nar "It's probably a good idea to get an idea of just how bad the current geopolitical climate before you go in and try to negotiate a treaty"
+            nar "However despite your best efforts, after half an hour you begin to feel drowsy"
             nar "Soon, you begin to feel your eyes drift shut"
             nar "Maybe it's a good idea to get some rest before..."
             # PLACEHOLDER // add this background later
@@ -422,15 +510,15 @@ label jet_plane_crash:
             repeat
     hide planescreen cali_jet_report
     stop music
-    play sound "planecrash.wav" # This is one of the funniest sound effects I've heard. It's so goofy its so so goofy. It just keeps going
+    play sound "planecrash.wav" # This is one of the funniest sound effects I've heard. It's so goofy its so so goofy. It just keeps going oh my god
     # PLACEHOLDER // ALARM BELLS, BABIES CRYING, WAAH WAAH WAAH, CARS CRASHING, PANDEMONIUM, WEEWOO WEEWOO, REPORTING LIVE FROM THE SCENE
-    # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss.
-    mosk "Hey! Can we get some... The pilot's are dead."
+    # PLACEHOLDER // Have it be fuzzy, a bit of them wavy lines. My mans got concuss ):
+    mosk "What the hell was- They actually went down?"
     # PLACEHOLDER // Buzzy sound effects, make the text box blur and shake. The text is from a different dog saying this cats the sole survivor.
-    garn "We have a survivor!"
-    garn "Weren't all flights supposed to be grounded? They're shooting down anything they see!"
+    garn "Both pilots are dead... The plane hit the ground nose first, there was no surviving that for them."
+    garn "We have a survivor in the cabin! Looks like they might've been the only one in there..."
     mosk "Well, it looks like this plane didn't listen. {w=1} We have a survivor, and no other bodies."
-    mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over our territory, risking getting shot down."
+    mosk "They're one of those damn cats. Grab them, lets see what a 'commerical' jet was doing over a no fly zone."
     nar "You feel yourself begin to wake up"
     show concussion:
         linear .5 alpha 0
@@ -444,14 +532,15 @@ label jet_plane_crash:
     menu dog_scary:
         "Stay limp, pretend you are unconscious":  # Option One, Neutral
             play sound "click.wav"
-            hide concussion with dissolve
-            mosk "Lets go."
-            garn "Surely we aren't taking them back to camp? Theres no way a nearly empty commerical flight just... happens to crash here."
-            mosk "What are you suggesting? That the Ameowicans intentionally crashed a plane to... do what?"
-            garn "I don't know, but it's far too convenient. We can take them back, but we need to have at least two guards on them, at all times"
-            mosk "There we go, that can happen. We can bring them to Caine, he has some good medical equipment"
+            hide concussion with dissolve #make Garners text box different ts pmo
+            mosk "Lets go. Theres no one else here to save."
+            garn "Sir, we shouldn't take them back to our camp. There is no way a completely empty commercial flight just... crashes here."
+            mosk "So what are you suggesting, then? The Ameowicans intentionally crashed a plane... to get access to the medical wing of our camp?"
+            garn "No... but it's far too convenient. We need to keep them under guard, at- at least two, around the clock"
+            mosk "There we go, that's better. We can bring them to Caine, he has some good medical equipment" # a little bit of teaching from Mischa here
             jump demo_exit
         "Wake up and fight! These dogs don't seem too friendly.": # Option Two, The Negative option, garner won't like you after this
+            # Not Revamped, small edits done.
             play sound "click.wav"
             hide concussion with dissolve
             $ animalrep -= 1
@@ -466,6 +555,7 @@ label jet_plane_crash:
                 linear .3 yoffset -300
             show bg forest1:
                 linear .3 yoffset -300
+            pause 1
             garn "you BASTARD"
             garn "I'm going to-"
             show garn standalert:
@@ -477,15 +567,14 @@ label jet_plane_crash:
             show mosk stand:
                 xalign 1
                 yoffset 300
-                linear .5 xalign .7
-                
+                linear .5 xalign .7    
             mosk "Hold on!"
             mosk "Let's see what they have to say for themselves."
-            show mosk stand:
+            show mosk stand: #experiment with this type of dual dialogue system since their dialogue boxes are really similar
                 linear .3 zoom .8
             show garn standalert:
                 linear .3 zoom 1
-            garn "Sir! We can't assume they have any good intentions."
+            garn "Sir, we can't assume they have any good intentions. Especially if their first instict is to fight"
             show mosk stand:
                 linear .3 zoom 1
             show garn standalert:
@@ -500,9 +589,12 @@ label jet_plane_crash:
                 linear .3 zoom 1
             show garn standalert:
                 linear .3 zoom .8
-            mosk "So, cat, who are you?"
-            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY.
+            mosk "So, let's give them a chance. Cat, who are you?"
+            $ alternate_forest = True
+            # PLACEHOLDER // IMPORTANT // THIS NEEDS TO LINK SOMEWHERE ELSE EVENTUALLY. Your options should be severely limited. Consequences
+            jump garn_hurt_choice
         "Wake up, but stay calm. These are the ones your supposed to be negotiating with, after all": # Option 3, the good option
+            # Not Revamped
             play sound "click.wav"
             player "Hey! Let me go... please."
             hide concussion with dissolve
@@ -525,19 +617,20 @@ label jet_plane_crash:
             # PLACEHOLDER // see if you can make this timed?
             jump wake_up_calm_dog_confrontation
 
-menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly explain
+menu wake_up_calm_dog_confrontation: # continues from the players meeting with the dog where they wake up and calmly expain
                 "Lie: I'm just a random cat! I was on the flight before I heard about the split":
+                    # Not Revamped
                     play sound "click.wav"
                     player "Look, I'm just so-some random cat. {w=1} I got on the flight before I heard about the split!"
                     $ moskrep -= 2
                     $ dogrep -= 1
                     $ animalrep -= 1
-                    mosk "Your Ameowican, I presume... {w=3} Your flight would've taken, what? 2 hours to get here."
-                    mosk "The news broke 3 hours ago, and I really find it hard to believe you convinced the airline to keep this one going"
+                    mosk "So... you, a random cat... Got on a commercial flight, and at least from what we can tell completely alone aside from one pilot"
+                    mosk "Then your flight went into a pretty strict no-fly zone, and presumably planned to land "
                     mosk "So... either your lying to me, or you are one oblivious cat who managed to make their way here."
                     mosk "Personally, I think your lying. {w=1}So let's try that again, who are you, and what is your name"
                     menu mosk_who_are_you_really: # gives you the chance to double down or back out.
-                        "Lie: My name is James Meowsidan. I just wanted to take a vacation.":
+                        "Lie: My name is James Meowdisan. I just wanted to take a vacation.":
                             play sound "click.wav"
                             $ moskrep -= 1
                             mosk "Alright 'James'. Let's bring you back to camp, we can get your identity confirmed there, right?"
@@ -552,6 +645,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                             jump lietold_truthtold
                     # PLACEHOLDER // Need continues
                 "Lie: I'm one of yours! You hired me to tell you what the cats were up to!":
+                    # Not Revamped
                     play sound "click.wav"
                     $ garnrep -= 2
                     $ moskrep -= 2
@@ -568,6 +662,7 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
 
                 "Truth: I'm an Ambassador from the United States of Ameowica! Let me go!":
+                    # Not Revamped
                     play sound "click.wav"
                     $ moskrep += 1
                     $ garnrep += 1 #you get a rep boost in this one because garn likes your spunk
@@ -581,13 +676,108 @@ menu wake_up_calm_dog_confrontation: # continues from the players meeting with t
                     # PLACEHOLDER // Need continues
                     jump truthtold_spunky
                 "Truth: I'm an Ambassador from the United States of Ameowica. I don't want trouble, I'm here to help.":
+                    # Not Revamped
                     play sound "click.wav"
                     $ moskrep += 1
                     $ animalrep += 1
-                    $ dogrep += 2 # A small reward for choosing the peaceful option. 
+                    $ dogrep += 2 # A small reward for choosing the peaceful option.
+                        # PLACEHOLDER // CONTINUE AS NORMAL.
                     garn "An Ambassador from Ameowica? How entertaining."
                     garn "They're sending children to try and fix other countries business now?"
                     garn "Absolutely patheti-"
                     mosk "Hold on Garner, let's give them {i}some{/i} kind of chance, they just survived a plane crash, {w=3} I imagine they might have some kind of concussion"
                     mosk "You're going to want to follow us. Much safer than wandering into those woods alone. We can also give you medical help, for free."
                     jump truthtold_calm
+
+menu garn_hurt_choice:
+    "Lie: Fine! I'm... Special Agent Jefferey Steel.": # better call saul, more like better call meowl
+        jump demo_exit
+    "Truth: I'm [name], I work for Ameowica, as a diplomat. They sent me as a negotiator.":
+        jump demo_exit
+    "Run. It's your only way out.": # First draft
+        hide mosk
+        hide garn
+        show bg forestrun with vpunch
+        nar "You turn and dash away, pushing yourself through a small thicket of brambles, hoping it makes them have a harder time following you"
+        mosk "Garner! Let them go, they won't last long. Hell, Even if they do, it's not like they're a threat."
+        nar "As you push through the brambles, the dogs voices getting quieter as you move, the forest seems to stretch out infinitely in front of you"
+        nar "Where do you go?"
+        jump the_forest
+
+menu the_forest:
+    "Forward":
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        # This gets your paw caught in a trap and brings you to the rebellion
+        # symbolism with the idea of moving forward?
+        # You establish they've had a cat in the rebellion before?
+        # Ahahaha evil vinick is evil..
+        jump demo_exit
+    "Left":
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        # You run right into the hands of the foxes
+        jump demo_exit
+    "Right": # First Draft
+        show bg forestrun:
+            linear .2 xpan 40
+        pause .2
+        show bg forestright:
+            xpos 200
+            linear .2 xpan 80
+        # IMPORTANT // PLACEHOLDER // NEED IMAGES
+        # you run to the capitol. The right direction is literally the *right* way i guess
+        nar "As you run through the forest, hoping Sobaka doesn't change their mind, you make a hard right."
+        nar "You keep running until your breath runs out."
+        nar "As you slow to a stop, you look behind you and see no movement. It's just you."
+        nar "You keep moving forward, this forest can only be so large, and you think it's better to get out of it sooner rather than later"
+        nar "The faction leaders would be expecting you soon, and they already don't like eachother"
+        nar "God knows what would happen if their negotiator mysteriously disappeared, with no one taking the blame"
+        show bg forestright:
+            linear .5 zoom 1.5
+        pause .5
+        show bg capitolentrance with dissolve:
+            ypos -100
+        nar "..." # holy yapathon
+        nar "You push through a particularly thick set of bushes that seem to be almost more wall than plant, and you see a city in front of you."
+        nar "It's a very beautiful city. You almost can't tell a war had started here so recently"
+        nar "It's empty, almost desolate except for the few abandoned cars, but it's also exactly where you need to be."
+        nar "Welcome to Capitol City, I hope you enjoy your visit."
+        nar "Where do you go now?" # I wonder if how I write dialogue has changed notably thoughout this code (I haven't written a lot of dialogue before this)
+        jump forest_capitol_enter
+    
+menu forest_capitol_enter:
+    "Continue forward, straight to the Capitol": # First Draft
+        nar "You move forward, theres no time to waste."
+        nar "You pass through the city, luckily, uneventfully. Eventually, the capitol looms in front of you. It's quiet, the faction leaders wouldn't be here for a few hours yet." # PLACEHOLDER // Have occasinal bird chirp and ruffle noise, show not tell
+        show bg capitolfront with dissolve:
+            reset
+            zoom .45
+            ypos -500
+        nar "You should spend some time getting prepared, you lost all your luggage and documents in the flight." #OH SHOOT HAVE THE NOTEBOOK UNLOCK HERE! WHEN yOU GET PAPER! PapeprER
+        show bg capitolfront:
+            parallel:
+                linear .5 zoom 1
+            parallel:
+                linear .5 xpos -1500
+            parallel:
+                linear .5 ypos -2000
+        pause .4
+        show bg capitolroomstart with dissolve:
+            reset
+            zoom .5
+            yoffset -820
+            xoffset -700
+        nar "As you push the doors to the Capitol open, you hear voices a couple rooms away"
+        pewt "That's what I'm talking about Ellie, now keep going, you got this." # Yapathon
+        elea "Yeah... 'We, the people of Birdaria, demand independence'... {w=3} It's written well, but sounds weak...{w=3} What about 'demand sovereignty', it comes off stronger, more commanding"
+        pewt "That's strong, we should keep it. Don't fret too much, we have a few hours before... D'you you hear the door open?"
+        elea "Yes... Sounds like someone also had the idea to arrive early. Let's see what we have to deal with."
+        pewt "I'll go check, keep reading over the script."
+        show bg capitolroomstart:
+            linear .5 xpan -90
+        # PLACEHOLDER // get some images in this dang place
+        jump pewter_meeting 
+    "Take a minute to look around, get familiar with where you are":
+        jump demo_exit
+
+
+
