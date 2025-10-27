@@ -1138,7 +1138,7 @@ screen notebook():
     tag menu
     # So, the notebook might technically not be the most important thing,
     # but it fills me with so much joy when I see it. I love it so much.
-    default notebookselector = "vinick"
+    default notebookselector = "cali"
     default notebookselector2 = "none"
     use game_menu(_("Help"), scroll="viewport"):
 
@@ -1150,15 +1150,130 @@ screen notebook():
             hbox:
 
                 textbutton _("Vinick") action SetScreenVariable("notebookselector", "vinick")
-                textbutton _("Other") action SetScreenVariable("notebookselector", "other")
+                textbutton _("Cali") action SetScreenVariable("notebookselector", "cali")
                 textbutton _(notebookselector)
             if notebookselector == "vinick":
                 use notepage_vinick
-            elif notebookselector == "other":
-                use mouse_help
+            elif notebookselector == "cali":
+                use notepage_cali
             elif notebookselector == "gamepad":
                 use gamepad_help
+screen notepage_cali():
+    tag menu # BRICK BY BRICK
+    default cali_image = "sit"
+    frame: # FOR THE IMAGE SELECTOR
+        xsize .25
+        ysize 150
+        text _("Sprites"):
+            xpos 10
+        viewport:
+            mousewheel "horizontal"
+            arrowkeys True
+            draggable True
+            scrollbars "horizontal"
+            vbox:
+                hbox:
+                    ypos 50
+                    textbutton _("Sit") action SetLocalVariable("cali_image", "sit")
+                    textbutton _("Sidelay") action SetLocalVariable("cali_image", "sidelay")
+                    textbutton _("Lookback") action SetLocalVariable("cali_image", "lookback")
+                    textbutton _("Lay") action SetLocalVariable("cali_image", "lay")
+                    textbutton _("Jump") action SetLocalVariable("cali_image", "jump")
+    if cali_image == "sit": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("cali sit.png"):
+                zoom .75
+                yoffset -30
+                xoffset 20
+    elif cali_image == "sidelay": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("cali sidelay.png"):
+                zoom .6
+                yoffset 50
+                xoffset 30
+    elif cali_image == "lookback": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("cali lookback.png"):
+                zoom .8
+                yoffset 30
+                xoffset -50
+    elif cali_image == "lay": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("cali lay.png"):
+                zoom .7
+                yoffset 20
+                xoffset -20
+    elif cali_image == "jump": # FOR THE SPRITE
+        frame:
+            xsize .25
+            ysize 400
+            image _("cali jump.png"):
+                zoom 1
+                yoffset 30
+                xoffset -85
 
+    frame: # FOR THE NOTES
+        ypos -595
+        xpos 375
+        xsize .7
+        ysize 500
+        viewport:
+            text _("{b}Notes{/b}"):
+                xoffset 10
+            # LINE ONE TO THREE
+            frame:
+                text _("Name: Cali Meowford \nSpecies: Cat\nRole: Ameowican President\n\n"):
+                    yoffset 50
+                    xoffset 20
+            # LINE FOUR. ESTABLISHES IF YOU'VE MET THEM, IF YOU KNOW OF THEM
+            if (met_cali == False):
+                text _("You've never met Cali Meowford in person, but you've seen most of their speeches. They are generally well-spoken and kind."):
+                    xoffset 20
+                    yoffset 200
+            elif (met_cali == True):
+                text _("You've never met Cali Meowford in person, but you've seen most of their speeches. They are generally well-spoken and kind."):
+                    xoffset 20
+                    yoffset 200
+    frame: # FOR THE EVENT LOG
+        ypos -590
+        xpos 375
+        xsize .7
+        ysize 230
+        text _("Event log"):
+            xoffset 10
+        viewport:   
+            xsize .99999 
+            arrowkeys True
+            draggable True
+            scrollbars "vertical"
+            if (metvini == True):
+                frame:
+                    xsize .99999
+                    ysize 50
+                    label _("1."):
+                        xoffset -300
+                    text _("Player met Vinick in the Oval Office"):
+                        xoffset 60
+    frame: # FOR THE REPUTATION LOG
+        ypos -780
+        ysize 167
+        xsize .25
+        text _("Reputation"):
+            xoffset 10
+        if vinirep == 0:
+            text _("{b}Neutral{/b} (0)"):
+                xoffset 60
+                yoffset 70
+        if vinirep == 1:
+            text _("What the freaky")
 screen notepage_vinick():
     tag menu # BRICK BY BRICK
     default vinick_image = "idle"

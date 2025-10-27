@@ -26,6 +26,8 @@ image concussion = Movie(play="movies/concussionstatic.webm", pos=(10, 10), anch
 # Notebook/Met
 default clearnotebook = True
 default metvini = False
+default met_cali = False
+default cali_observant = "Undefined"
 # Faction Reputations
 default dogrep = 0
 default animalrep = 0
@@ -257,6 +259,7 @@ label president_introduced:
     cali "Ah, is this the one from [state]? I'd been wondering when their flight would come in. Well, [name], welcome to the White House, It's a very lovely place.{p=2}We'll have to get you a tour once you get back"
 menu meowford_rhetorical:
     "Thank you. I imag- Wait... What do you mean when I get back?": # Channel your inner Cal Bradford
+        $ cali_observant = True
         $ calirep += 1
         cali "I was wondering when you'd pick up on that. Sounds like your already pretty good at listening to what people are saying. {w=3} That's good. You're going to need that"
         cali "Let's start at the beginning. 3 days ago, the country of Png-landia dissolved their government, and split into 4 factions, each with warring interests and different ideals"
@@ -270,6 +273,7 @@ menu meowford_rhetorical:
         cali "Will you accept our offer to be the official ambassador of the United States of Ameowica to the PNG-landia factions. We can get you on a plane in an hour, just say {color=#00A36C}{i}yes.{/i}{/color}"
         jump main_continue
     "Thank you. I imagine it is, and I'll be looking forward to that":
+        $ cali_observant = False
         $ calirep -= 1
         cali "Really, your not going to... You're going to have to get better at listening to conversations, especially with what we've got planned for you. Where'd you find this one Vinick?"
         cali "I had a whole bit going, whatever."
