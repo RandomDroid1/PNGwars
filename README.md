@@ -1,6 +1,7 @@
-Hello! This is my first venture into using Ren.py as a game engine
-This game can be downloaded at itch.io at this link: https://randomdroids.itch.io/pngwarsv1
-PNGWARS was made for the Athena Award (i'll get the link for that badge thing when I submit it fr fr).
-It is the first time I have done game development at all. So I went in with no idea of what was possible and what wasn't. I spent a lot of time just throwing myself at an issue until the code did what I want it to,
-and for a lot of the code that approach worked eventually (except for the dastardly notebook page, I seriously spent hours on that thing and made 0 headway)
-I intend to spend a decent amount more time making the dialogue sound a bit more natural (and just adding more to the game since theres very little right now), but for now I think this is alright, especially for a first attempt
+(ATHENA BADGE GOES HERE)
+Hi! 
+This is PNGWARS. It's my first venture into basically any type of game development (aside from a few tiny scratch games), as well as one of my very early ventures into writing a story.
+PNGWARS was developed as part of the Athena Award Challenge, which was hosted and funded by the non-profit "Hack Club". If you haven't looked into Hack Club before, and are under 19, please go look into them soon. ()
+PNGWARS is a fairly short (currently) and extremely unfinished game about diplomacy, and trying to make deals among people who sometimes have little respect for you, and all of them have their own agendas to push.
+The game has some features I see as awesome (I love the notebook page so much, I dedicated so much time to it and it turned out actually perfect man oh my god)
+Download the game on itch.io here:

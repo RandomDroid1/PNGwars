@@ -734,7 +734,6 @@ menu the_forest:
         show bg forestright:
             xpos 100
             linear .2 xpan 80
-        # IMPORTANT // PLACEHOLDER // NEED IMAGES
         # you run to the capitol. The right direction is literally the *right* way i guess
         nar "As you run through the forest, hoping Sobaka doesn't change their mind, you make a hard right."
         nar "You keep running until your breath runs out."
