@@ -1,4 +1,4 @@
-(ATHENA BADGE GOES HERE)
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
 Hi! 
 This is PNGWARS. It's my first venture into basically any type of game development (aside from a few tiny scratch games), as well as one of my very early ventures into writing a story. 
 PNGWARS was developed as part of the Athena Award Challenge, which was hosted and funded by the non-profit "Hack Club". If you haven't looked into Hack Club before, and are under 19, please go look into them soon.
