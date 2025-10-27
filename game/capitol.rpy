@@ -20,4 +20,7 @@ label pewter_meeting:
         yoffset -500
     elea "Hello... You're with Vinick?" # Foreshadowing that she is a part of the rebels, but keeping plausible deniability
     pewt "They're the representative Ameowica sent over."
+    elea "Interesting, what's your name?"
+    player "[name], my name is [name]."
+    elea "[name]... Alright..."
     jump demo_exit
