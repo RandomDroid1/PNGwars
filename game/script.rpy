@@ -128,6 +128,7 @@ label start_continue:
             nar "However due to how early in development this game is you don't unlock it."
             nar "Due how long I spent working on it (so many hours). I'm leaving it unlocked the whole game."
             nar "and it also has spoilers (if you can call them that, I don't think you can), so maybe wait to the end of the game, but I'm not your boss"
+            nar "Highkey the notebook is the coolest part of the game to me, so be sure to check it out at some point."
             nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
             play sound "click.wav"
@@ -243,7 +244,7 @@ label president_introduced:
         yalign .5
         xalign .4
         linear .2 alpha 1
-        
+    $ met_cali = True
 
     cali "What a meeting. Vinick, are you sure those ones were from Congress?"
     vini "Yes sir, they were. We have the-"

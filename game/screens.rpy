@@ -1138,7 +1138,7 @@ screen notebook():
     tag menu
     # So, the notebook might technically not be the most important thing,
     # but it fills me with so much joy when I see it. I love it so much.
-    default notebookselector = "cali"
+    default notebookselector = "vinick"
     default notebookselector2 = "none"
     use game_menu(_("Help"), scroll="viewport"):
 
@@ -1229,19 +1229,21 @@ screen notepage_cali():
         # defines all needed local variables
         default name = "Name: Cali Meowford\n"
         default species = "Species: Cat\n"
-        default role = "Role: President of Ameowica\n"     
+        default role = "Role: President of Ameowica\n\n"     
         if (met_cali == False):
-            default main = "You've never met Cali before"
+            default main = "You've never met Meowford before, but you've watched most of their speeches and such. They seem wellspoken"
         if (met_cali == True):
-            default main = "Test Lol"
-        # adds the variables together
+            default main = "You met Cali Meowford in the Oval Office. They seemed very stressed, yet still kind and relatively clever." #Telling the  player what to think? Avoid
+        # adds the basic variables together
         default body = name + species + role
-        if (met_cali == False): # sees if you've met cali
-            if not main in (body): # stops duplication. Insane code line man, using what I've learned!
+        # Checks if you've met cali and adds that to the notes / Is the second check needed? Review later, maybe can combine both
+        if (met_cali == False): # sees if you've met cali, and adds that to main
+            if not main in (body): # stops duplication? Insane code line man, using what I've learned!
                 $ body += main
         if (met_cali == True):
-            if not main in (body):
+            if not main in (body): # is this line overly complex?/hard to read
                 $ body += main
+
         text _(body):
             xoffset 10
     frame: # FOR THE EVENT LOG
@@ -1256,26 +1258,40 @@ screen notepage_cali():
             arrowkeys True
             draggable True
             scrollbars "vertical"
-            if (metvini == True):
+            if (met_cali == True): # Implement a system like notes?
                 frame:
                     xsize .99999
                     ysize 50
                     label _("1."):
                         xoffset -300
-                    text _("Player met Vinick in the Oval Office"):
+                    text _("Player met Cali in the Oval Office"):
                         xoffset 60
     frame: # FOR THE REPUTATION LOG
         ypos -780
         ysize 167
         xsize .25
-        text _("Reputation"):
+        text _("Reputation (broken)"):
             xoffset 10
-        if vinirep == 0:
+        if calirep == 0:
             text _("{b}Neutral{/b} (0)"):
                 xoffset 60
                 yoffset 70
-        if vinirep == 1:
-            text _("What the freaky")
+        elif calirep == 1 or 2: # so many ifs, more efficient way?
+            text _("{b}Tilt Positive{/b} ("+ str(calirep) +")"):
+                xoffset 30
+                yoffset 70
+        elif calirep == 3 or 4 or 5:
+            text _("{b}Positive{/b} ("+ str(calirep) +")"):
+                xoffset 50 # why is it stuck tilt pos?
+                yoffset 70
+        elif calirep == -1 or -2:
+            text _("{b}Tilt Negative{/b} ("+ str(calirep) +")"):
+                xoffset 30
+                yoffset 70
+        elif calirep == -3 or -4 or -5:
+            text _("{b}Tilt Negative{/b} ("+ str(calirep) +")"):
+                xoffset 50
+                yoffset 70
 screen notepage_vinick():
     tag menu # BRICK BY BRICK
     default vinick_image = "idle"
