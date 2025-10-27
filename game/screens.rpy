@@ -1225,33 +1225,25 @@ screen notepage_cali():
         xpos 375
         xsize .7
         ysize 500
-        viewport: # Viewports were very important, glad I read the documentation for that
-            xsize .9999999
-            ysize 600 #why please this needs to the need ):
-            text _("{b}Notes{/b}"):
-                xoffset 10
-            frame:  # LINE ONE TO THREE
-                xsize .999999999
-                ysize 150
-                ypos 50
-                text _("Name: Cali Meowford \nSpecies: Cat\nRole: Ameowican President\n\n"):
-                    yoffset 10
-                    xoffset 20
-            frame: # P1. ESTABLISHES IF YOU'VE MET THEM, IF YOU KNOW OF THEM
-                xsize .9999999
-                ysize 150
-                ypos 200
-                if (met_cali == False):
-                    text _("You've never met Cali Meowford in person, but you've seen most of their speeches. They are generally well-spoken and kind."):
-                        xoffset 20
-                elif (met_cali == True): # more efficient way? Variables to piece a paragraph together based on things (eg: line1 + line3 if con1 is true or smth)
-                    text _("You met Meowford in the Oval Office, he was kind, though he seemed rather stressed. Perks of the job."):
-                        xoffset 20
-                default line1 = "Wawa"
-                default line2 = "Test Line Is Cool"
-                default line3 = "what in tarnation"
-                text _(line1 + " " + line3 + line2):
-                    yoffset 200
+        # This is the most creative code I've ever written high-key Im proud even if it isn't the most efficient
+        # defines all needed local variables
+        default name = "Name: Cali Meowford\n"
+        default species = "Species: Cat\n"
+        default role = "Role: President of Ameowica\n"     
+        if (met_cali == False):
+            default main = "You've never met Cali before"
+        if (met_cali == True):
+            default main = "Test Lol"
+        # adds the variables together
+        default body = name + species + role
+        if (met_cali == False): # sees if you've met cali
+            if not main in (body): # stops duplication. Insane code line man, using what I've learned!
+                $ body += main
+        if (met_cali == True):
+            if not main in (body):
+                $ body += main
+        text _(body):
+            xoffset 10
     frame: # FOR THE EVENT LOG
         ypos -590
         xpos 375
