@@ -1225,22 +1225,32 @@ screen notepage_cali():
         xpos 375
         xsize .7
         ysize 500
-        viewport:
+        viewport: # Viewports were very important, glad I read the documentation for that
+            xsize .9999999
+            ysize 600 #why please this needs to the need ):
             text _("{b}Notes{/b}"):
                 xoffset 10
-            # LINE ONE TO THREE
-            frame:
+            frame:  # LINE ONE TO THREE
+                xsize .999999999
+                ysize 150
+                ypos 50
                 text _("Name: Cali Meowford \nSpecies: Cat\nRole: Ameowican President\n\n"):
-                    yoffset 50
+                    yoffset 10
                     xoffset 20
-            # LINE FOUR. ESTABLISHES IF YOU'VE MET THEM, IF YOU KNOW OF THEM
-            if (met_cali == False):
-                text _("You've never met Cali Meowford in person, but you've seen most of their speeches. They are generally well-spoken and kind."):
-                    xoffset 20
-                    yoffset 200
-            elif (met_cali == True):
-                text _("You've never met Cali Meowford in person, but you've seen most of their speeches. They are generally well-spoken and kind."):
-                    xoffset 20
+            frame: # P1. ESTABLISHES IF YOU'VE MET THEM, IF YOU KNOW OF THEM
+                xsize .9999999
+                ysize 150
+                ypos 200
+                if (met_cali == False):
+                    text _("You've never met Cali Meowford in person, but you've seen most of their speeches. They are generally well-spoken and kind."):
+                        xoffset 20
+                elif (met_cali == True): # more efficient way? Variables to piece a paragraph together based on things (eg: line1 + line3 if con1 is true or smth)
+                    text _("You met Meowford in the Oval Office, he was kind, though he seemed rather stressed. Perks of the job."):
+                        xoffset 20
+                default line1 = "Wawa"
+                default line2 = "Test Line Is Cool"
+                default line3 = "what in tarnation"
+                text _(line1 + " " + line3 + line2):
                     yoffset 200
     frame: # FOR THE EVENT LOG
         ypos -590
@@ -1347,6 +1357,8 @@ screen notepage_vinick():
                         xoffset -300
                     text _("Player met Vinick in the Oval Office"):
                         xoffset 60
+        
+                        
     frame: # FOR THE REPUTATION LOG
         ypos -780
         ysize 167
