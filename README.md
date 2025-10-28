@@ -1,8 +1,8 @@
-(ATHENA BADGE GOES HERE)
-Hi! 
-This is PNGWARS. It's my first venture into basically any type of game development (aside from a few tiny scratch games), as well as one of my very early ventures into writing a story.
-PNGWARS was developed as part of the Athena Award Challenge, which was hosted and funded by the non-profit "Hack Club". If you haven't looked into Hack Club before, and are under 19, please go look into them soon. ()
-PNGWARS is a fairly short (currently) and extremely unfinished game about diplomacy, and trying to make deals among people who sometimes have little respect for you, and all of them have their own agendas to push.
-I really can't overstate how short the game is, this game was my way of learning ren.py, and it had some slow progress at times because of that (I had no idea how to do anything)
-The game has some features I see as awesome (I love the notebook page so much, I dedicated so much time to it and it turned out actually perfect man oh my god. It took forever but was worth it)
-Download the game on itch.io here:
+PNGWARS was developed as part of the Athena Award Challenge, which was hosted and funded by the non-profit "Hack Club". If you haven't looked into Hack Club before, and are under 19, please go look into them soon. [![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme) <br /> <br />
+Hi! <br />
+This is PNGWARS. It's my first venture into basically any type of game development (aside from a few tiny scratch games), as well as one of my very early ventures into writing a story. <br /><br />
+PNGWARS was made after I saw a stock image of a guy holding a gun to a computer (Specifically this one: shutterstock.com/image-photo/businessman-shooting-his-laptop-computer-handgun-9139858) and the scene of someone walking into an office in a game and just observing that happening populated in my mind so I started trying to figure out how that could happen.<br /> <br />
+PNGWARS is a fairly short (currently) and extremely unfinished game about diplomacy, and trying to make deals among people who sometimes have little respect for you, and all of them have their own agendas to push.<br /> <br />
+I really can't overstate how short the game is. It was made using Ren.PY, which I hadn't even heard of before this so I went in totally blind.<br /> <br />
+There was a lot I struggled with developing this. Primarily learning a new programming language, which made things take a very long time. I spent so many hours on the notebook page, and it looks so cool and works now, but it took forever. I learned so much from this project though, Ren.PY seems like an versatile program, and some of the skills I've learned from it might transfer to python (?) <br /> <br />
+Download the game on itch.io here: https://randomdroids.itch.io/pngwarsv1
