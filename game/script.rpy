@@ -118,7 +118,8 @@ label start_continue:
             nar "These are red options! They are exclusive options unlocked by doing or selecting specific things. *disclaimer: There actually aren't any of these in the game right now oops"
             nar "At the start of them, you'll see some text in parentheses. This denotes why you are getting the special option."
             nar "For example, this red option has (state) before it, which means the state you selected is what unlocked this option for you"
-            show img attributions
+            show img attributions:
+                zoom .5
             nar "Moving on, this is the attributions screen. It is a comprehensive list of every image used in the game (and some not used (yet))"
             nar "This game was only possible because all these people decided to upload images that anyone can use, for free."
             nar "So I'd check at least some of them out."
@@ -128,7 +129,7 @@ label start_continue:
             nar "However due to how early in development this game is you don't unlock it."
             nar "Due how long I spent working on it (so many hours). I'm leaving it unlocked the whole game."
             nar "and it also has spoilers (if you can call them that, I don't think you can), so maybe wait to the end of the game, but I'm not your boss"
-            nar "Highkey the notebook is the coolest part of the game to me, so be sure to check it out at some point."
+            nar "Highkey the notebook is the coolest part of the game to me (even though it only has 2 characters), so be sure to check it out at some point."
             nar "Well, that's it. You are ready to start!"
         "No, I'm ready":
             play sound "click.wav"
@@ -396,7 +397,6 @@ label main_continue:
                     play sound "click.wav"
                     player "No... No, get someone qualified, i'm hardly qualified."
                     cali "You..."
-                    pause 1
                     cali "Okay... well. Not much we can do about that then. Security will see you out."
                     # PLACEHOLDER // Link this to the I can't do that option??
                     cali "Thats... do we have a next on the list? Please tell me we have a next on the list, Vinick."
@@ -617,6 +617,10 @@ label jet_plane_crash:
                 yalign .4
                 xpos 2000
                 linear 1 xoffset -1200
+            show garn standcalm:
+                yalign .4
+                xpos 2400
+                linear 1 xoffset -1200
             pause 1
             # PLACEHOLDER // see if you can make this timed?
             jump wake_up_calm_dog_confrontation
@@ -750,7 +754,7 @@ menu the_forest:
         nar "You push through a particularly thick set of bushes that seem to be almost more wall than plant, and you see a city in front of you."
         nar "It's a very beautiful city. You almost can't tell a war had started here so recently"
         nar "It's empty, almost desolate except for the few abandoned cars, but it's also exactly where you need to be."
-        nar "Welcome to Capitol City, I hope you enjoy your visit."
+        nar "It's the capitol."
         nar "Where do you go now?" # I wonder if how I write dialogue has changed notably thoughout this code (I haven't written a lot of dialogue before this)
         jump forest_capitol_enter
     
@@ -778,7 +782,7 @@ menu forest_capitol_enter:
             yoffset -820
             xoffset -700
         nar "As you push the doors to the Capitol open, you hear voices a couple rooms away"
-        pewt "That's what I'm talking about Ellie, now keep going, you got this." # Yapathon
+        pewt "That sounds much better Ellie, now keep going, you got this." # Yapathon
         elea "Yeah... 'We, the people of Birdaria, demand independence'... {w=3} It's written well, but sounds weak...{w=3} What about 'demand sovereignty', it comes off stronger, more commanding"
         pewt "That's strong, we should keep it. Don't fret too much, we have a few hours before... D'you you hear the door open?"
         elea "Yes... Sounds like someone also had the idea to arrive early. Let's see what we have to deal with."

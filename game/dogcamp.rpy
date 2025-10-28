@@ -1,4 +1,6 @@
 label lietold_jamesmeowdisan: # First Draft
+    hide mosk
+    hide garn
     show bg dogcampentrance:
         reset
         xoffset -200
@@ -14,17 +16,20 @@ label lietold_truthtold:
     jump demo_exit
     $ fast_end = True
 label lietold_espionage: # First draft
+    hide mosk
+    hide garn
     show bg dogcampentrance:
         reset
         xoffset -200
         yoffset -600
         zoom .4
-    nar ""
     jump demo_exit
 label truthtold_spunky:
-    jump demo_exit
     $ fast_end = True
+    jump demo_exit
 label truthtold_calm: # First draft
+    hide mosk
+    hide garn
     show bg dogcampentrance:
         reset
         xoffset -200
@@ -42,13 +47,14 @@ label truthtold_calm: # First draft
         mosk "We're going to get you... and Garner... some medical attention. "
     else:
         mosk "We're going to get you some medical attention. You look like you need it."
-    show bg doctorsoffice # PLACEHOLDER // FIX ALL THE UH THE UH
+    show bg doctorsoffice: # HOW DID I FORGET THIS IM GOING TO CRASH OUT SO MUCH GOSH DARN IT
+        ypos 300
+    show caine sit: # hes kind of uncanny, why does he look like that? 
+        zoom 1.4
+        xpos 500
+        ypos 300
     cain "Hm... you seem almost perfectly fine. Truthfully, I did not expect that considering everything."
     cain "In most circumstances I'd keep you for observation, but you have a lot of people who want to talk to you"
     cain "So I'm clearing you to leave. Do return if you feel any pain, light-headedness, or general issues with your head"
-    if garn_hurt == True:
-        cain "General Sobaka is here to escort "
-    elif == False:
-        cain "Sobaka sent Commander Garner to escort you to the Capitol. Don't worry, it's not very far from here."
     jump demo_exit
 return

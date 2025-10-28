@@ -3,6 +3,7 @@ label demo_exit:
     hide garn
     hide pewt
     hide elea
+    hide caine # is there a broad way to hide everything?
     show bg white:
         zoom 20
     player "Hello! As you might have anticipated, this screen means you've reached the end of the demo."
